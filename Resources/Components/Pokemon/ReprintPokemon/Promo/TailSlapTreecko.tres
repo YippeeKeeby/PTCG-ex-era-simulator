@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://bnsrs2a5hnvkb" path="res://Resources/Components/Pokemon/Attacks/AttackData/20Dmg.tres" id="5_y12q4"]
 [ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="6_amcgv"]
 
-[sub_resource type="Resource" id="Resource_m7xdt"]
+[sub_resource type="Resource" id="Resource_dsymb"]
 
 [sub_resource type="Resource" id="Resource_cmh7r"]
 script = ExtResource("1_yxhqn")

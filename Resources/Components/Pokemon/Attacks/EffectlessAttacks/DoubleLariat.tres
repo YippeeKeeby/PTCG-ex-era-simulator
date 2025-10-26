@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="Attack" load_steps=7 format=3 uid="uid://cydxe57j5nudo"]
 
-[ext_resource type="Resource" uid="uid://cuyrj2oe73rvu" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Colorless1.tres" id="1_42ux7"]
 [ext_resource type="Resource" uid="uid://e706qq8o0hri" path="res://Resources/Components/Counters/Comparator/Return/Return2Flip.tres" id="2_w3dl6"]
 [ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="3_p7eri"]
 [ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="4_65qah"]
 [ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="5_d0el0"]
+
+[sub_resource type="Resource" id="Resource_dsymb"]
 
 [sub_resource type="Resource" id="Resource_1stg2"]
 script = ExtResource("4_65qah")

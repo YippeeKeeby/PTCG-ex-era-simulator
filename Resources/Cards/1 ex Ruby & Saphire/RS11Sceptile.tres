@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_6qsu5"]
 [ext_resource type="Texture2D" uid="uid://djxbrnlywgq35" path="res://Art/Cards/1 ex Ruby & Saphire/11.jpg" id="1_ry2bs"]
 [ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_xuiss"]
-[ext_resource type="Resource" uid="uid://cuyrj2oe73rvu" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Colorless1.tres" id="3_dpoqi"]
 [ext_resource type="Resource" uid="uid://dew25qfxkag73" path="res://Resources/Components/Effects/Conditions/DefPoison.tres" id="4_dpoqi"]
 [ext_resource type="Resource" uid="uid://dbvoacgaygcdj" path="res://Resources/Components/Counters/Comparator/Greater/SelfGE2En.tres" id="4_e07y2"]
 [ext_resource type="Script" uid="uid://b85jmc7067bjc" path="res://Code/Resource Makers/GeneralUse/PromptAskMaker.gd" id="5_dpoqi"]
@@ -19,6 +18,8 @@
 [ext_resource type="Resource" uid="uid://bccpcvahw5m4f" path="res://Resources/Components/Counters/Comparator/Greater/SelfGE3En.tres" id="11_u0wp7"]
 [ext_resource type="Resource" uid="uid://bjt4vcuigghvj" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/G2C3.tres" id="14_mqkhh"]
 [ext_resource type="Resource" uid="uid://vufsihxj4h1r" path="res://Resources/Components/Pokemon/Attacks/AttackData/70Dmg.tres" id="15_77a3r"]
+
+[sub_resource type="Resource" id="Resource_dsymb"]
 
 [sub_resource type="Resource" id="Resource_u0wp7"]
 script = ExtResource("5_dpoqi")

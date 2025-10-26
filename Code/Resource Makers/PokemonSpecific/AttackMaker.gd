@@ -50,10 +50,13 @@ func get_energy_cost(slot: PokeSlot) -> Array[String]:
 	return final_array
 
 func get_modified_cost(slot: PokeSlot) -> Array[int]:
+	if not slot:
+		return attack_cost.get_energy_cost_int()
+	
 	var side_changes = Globals.fundies.get_side_change("Buff", slot.is_home()).keys()
 	var slot_changes = slot.get_changes("Buff")
 	
-	if not slot or (slot_changes.size() == 0 and side_changes.size() == 0):
+	if slot_changes.size() == 0 and side_changes.size() == 0:
 		return attack_cost.get_energy_cost_int()
 	
 	#First find any replacements

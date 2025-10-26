@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://2l8ia23r5jfi" path="res://Art/Cards/1 ex Ruby & Saphire/29.jpg" id="1_ef6w3"]
 [ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_n4213"]
-[ext_resource type="Resource" uid="uid://cuyrj2oe73rvu" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Colorless1.tres" id="3_jw5o4"]
 [ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="3_jworm"]
 [ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="4_4s2lv"]
 [ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="4_f6we8"]
@@ -15,6 +14,8 @@
 [ext_resource type="Resource" uid="uid://b1rwmggf7a4do" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Colorless2.tres" id="10_2axvc"]
 [ext_resource type="Resource" uid="uid://cngepehpfnug8" path="res://Resources/Components/Counters/Indv/Slots/SelfEnergyExcess.tres" id="11_85sdh"]
 [ext_resource type="Script" uid="uid://b65jx8u5cgcgl" path="res://Code/Resource Makers/GeneralUse/ComparatorMaker.gd" id="12_g0ipc"]
+
+[sub_resource type="Resource" id="Resource_dsymb"]
 
 [sub_resource type="Resource" id="Resource_0nmla"]
 script = ExtResource("8_cy8n6")

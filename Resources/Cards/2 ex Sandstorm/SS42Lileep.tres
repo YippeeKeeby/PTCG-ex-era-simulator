@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://8sh5p3leflla" path="res://Code/Resource Makers/EffectSpecific/Components/CardDisruptMaker.gd" id="12_4h72t"]
 [ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="13_mdppl"]
 
-[sub_resource type="Resource" id="Resource_m7xdt"]
+[sub_resource type="Resource" id="Resource_dsymb"]
 
 [sub_resource type="Resource" id="Resource_ohjxw"]
 script = ExtResource("4_yuuq4")

@@ -17,7 +17,7 @@
 [ext_resource type="Resource" uid="uid://b0figrvn4kg1r" path="res://Resources/Components/Effects/Prompts/PromptComparator/1TurnImmunity.tres" id="12_k4ce0"]
 [ext_resource type="Script" uid="uid://b85jmc7067bjc" path="res://Code/Resource Makers/GeneralUse/PromptAskMaker.gd" id="13_8eilx"]
 
-[sub_resource type="Resource" id="Resource_m7xdt"]
+[sub_resource type="Resource" id="Resource_dsymb"]
 
 [sub_resource type="Resource" id="Resource_kd0t3"]
 script = ExtResource("11_2svl2")

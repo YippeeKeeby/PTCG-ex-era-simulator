@@ -17,7 +17,7 @@ attack_cost = ExtResource("3_pr2xn")
 attack_data = ExtResource("4_du8cf")
 metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
 
-[sub_resource type="Resource" id="Resource_m7xdt"]
+[sub_resource type="Resource" id="Resource_dsymb"]
 
 [sub_resource type="Resource" id="Resource_62iih"]
 script = ExtResource("7_cmphh")

@@ -1,7 +1,7 @@
 @icon("uid://dtnnvkljeid2t")
 extends MarginContainer
 
-@export var attack: Attack = preload("res://Resources/Components/Pokemon/Attacks/EffectlessAttacks/DoubleLariat.tres")
+@export var attack: Attack
 @export var card_name: String
 
 @onready var energy_icons: Array[Node] = %Types.get_children()
@@ -14,7 +14,13 @@ signal attack_with(attack: Attack)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	%Types.scale = Vector2(.75, .75)
-	set_attack()
+	if attack:
+		set_attack()
+	else:
+		#for some reason preloading this stuff doesn't really work out
+		attack = load("res://Resources/Components/Pokemon/Attacks/CommonAttacks/Bubble.tres")
+		print(attack.name)
+		set_attack()
 
 func set_attack():
 	%Name.clear()

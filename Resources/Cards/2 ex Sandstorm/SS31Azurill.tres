@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="6_ltygs"]
 [ext_resource type="Resource" uid="uid://s8mcx8qnuqkw" path="res://Resources/Components/Pokemon/Abilities/Bodies/AzurillBabyEvo.tres" id="7_gmk3x"]
 
-[sub_resource type="Resource" id="Resource_m7xdt"]
+[sub_resource type="Resource" id="Resource_dsymb"]
 
 [sub_resource type="Resource" id="Resource_ltygs"]
 script = ExtResource("4_0ehm3")

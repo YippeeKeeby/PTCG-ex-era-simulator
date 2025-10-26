@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvvv8k1g6tgog"]
+[gd_scene load_steps=3 format=3 uid="uid://dvvv8k1g6tgog"]
 
 [ext_resource type="Script" uid="uid://b1iip1rqoy2v3" path="res://Code/Scenes/UI/Cards/attack_item.gd" id="1_cuu5a"]
-[ext_resource type="Resource" uid="uid://bfhbpclxag538" path="res://Resources/Components/Pokemon/Attacks/CommonAttacks/Bubble.tres" id="2_700e7"]
 [ext_resource type="PackedScene" uid="uid://bs3ila6cpt8n1" path="res://Scenes/UI/UIComponents/types.tscn" id="3_tiejp"]
 
 [node name="AttackItem" type="MarginContainer"]
@@ -13,7 +12,6 @@ offset_bottom = 71.0
 size_flags_horizontal = 3
 mouse_filter = 2
 script = ExtResource("1_cuu5a")
-attack = ExtResource("2_700e7")
 card_name = "HUH?"
 
 [node name="AttackButton" type="Button" parent="."]

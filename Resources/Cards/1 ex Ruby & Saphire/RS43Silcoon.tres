@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://vjh7yrpr7ien" path="res://Resources/Components/Pokemon/Abilities/Bodies/HardCocoon.tres" id="7_vkyqs"]
 [ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="8_upxcc"]
 
-[sub_resource type="Resource" id="Resource_m7xdt"]
+[sub_resource type="Resource" id="Resource_dsymb"]
 
 [sub_resource type="Resource" id="Resource_iwaip"]
 script = ExtResource("4_1wrtr")

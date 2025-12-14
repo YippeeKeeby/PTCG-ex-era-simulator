@@ -5,6 +5,7 @@ extends Control
 
 func _ready():
 	set_up()
+	$PanelContainer/VBoxContainer.show()
 
 func set_up():
 	%Header.setup("CHANGES")

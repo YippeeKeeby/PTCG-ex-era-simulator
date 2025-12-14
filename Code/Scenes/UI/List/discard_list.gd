@@ -36,6 +36,9 @@ func _ready():
 	
 	for button in playing_list.get_items():
 		button.pressed.connect(manage_pressed.bind(button))
+	
+	for node in get_children():
+		node.show()
 
 func set_info():
 	header.setup(header_txt)
@@ -78,6 +81,9 @@ func update():
 		button.disabled = (not list[button.card] or button.disabled) and not button.selected
 
 func _on_discard_pressed() -> void:
+	if not Globals.fundies:
+		return
+	
 	var top: bool = top_deck or energy_discard and destination == Consts.STACKS.DISCARD
 	Globals.fundies.stack_manager.get_stacks(home).\
 	 move_cards(discarding, stack, destination, shuffle, top)

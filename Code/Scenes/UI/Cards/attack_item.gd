@@ -69,5 +69,5 @@ func _on_focus_entered():
 	attackButton.grab_focus()
 
 func _on_attack_button_pressed() -> void:
-	Globals.full_ui.remove_top_ui()
+	SignalBus.remove_top_ui.emit()
 	attack_with.emit(attack)

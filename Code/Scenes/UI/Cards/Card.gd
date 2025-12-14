@@ -129,4 +129,4 @@ func make_text(node: RichTextLabel, text: String):
 #--------------------------------------
 
 func force_disapear():
-	Globals.full_ui.remove_top_ui()
+	SignalBus.remove_top_ui.emit()

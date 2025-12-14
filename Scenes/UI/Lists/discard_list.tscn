@@ -6,13 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://c28rtuj3kak48" path="res://Scenes/UI/Lists/Footer.tscn" id="4_jlu0o"]
 
 [node name="DiscardList" type="PanelContainer"]
-offset_right = 420.0
+clip_contents = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.0
+offset_right = -120.0
 offset_bottom = 40.0
+grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 script = ExtResource("1_dht7p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 2
 
 [node name="Header" parent="VBoxContainer" node_paths=PackedStringArray("dragging_node", "shrinkNodes", "hideNodes") instance=ExtResource("2_uc5d3")]
@@ -20,7 +27,7 @@ unique_name_in_owner = true
 layout_mode = 2
 dragging_node = NodePath("../..")
 shrinkNodes = [NodePath("../PlayingList")]
-hideNodes = [NodePath("../HBoxContainer/Footer")]
+hideNodes = [NodePath("../HBoxContainer")]
 
 [node name="PlayingList" parent="VBoxContainer" node_paths=PackedStringArray("par") instance=ExtResource("3_n3fpl")]
 unique_name_in_owner = true

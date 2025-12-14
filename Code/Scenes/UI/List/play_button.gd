@@ -27,6 +27,10 @@ var selected: bool = false:
 #--------------------------------------
 #region INITALIZATION
 func _ready() -> void:
+	if not card:
+		printerr("There is no card on ", self)
+		return
+
 	%Class.clear()
 	card_flags = Convert.get_card_flags(card)
 	
@@ -119,7 +123,8 @@ func _gui_input(event):
 				select.emit()
 			elif stack_act != Consts.STACK_ACT.LOOK:
 				if parent.options:
-					await Globals.full_ui.remove_top_ui()
+					SignalBus.remove_top_ui.emit()
+					await SignalBus.finished_remove_top_ui
 				if not Globals.checking:
 					parent.options = show_options()
 			elif stack_act == Consts.STACK_ACT.LOOK:

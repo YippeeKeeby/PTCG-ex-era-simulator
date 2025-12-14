@@ -50,5 +50,5 @@ func _on_focus_entered():
 
 func _on_ability_button_pressed() -> void:
 	print("Press!")
-	Globals.full_ui.remove_top_ui()
+	SignalBus.remove_top_ui.emit()
 	slot.use_ability(ability)

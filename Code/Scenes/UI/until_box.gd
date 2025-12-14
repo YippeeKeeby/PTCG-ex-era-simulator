@@ -52,4 +52,4 @@ func _on_begin_timeout() -> void:
 	
 	await get_tree().create_timer(base_cooldown).timeout
 	SignalBus.finished_coinflip.emit()
-	Globals.full_ui.remove_top_ui()
+	SignalBus.remove_top_ui.emit()

@@ -10,15 +10,18 @@ var allowed: bool = false
 var from_id: Identifier
 var origin: Vector2
 
-func _ready() -> void:
-	%Class.clear()
-	%Class.append_text(card.get_considered())
-	
-	%Art.texture = card.image
-	%Name.clear()
-	%Name.append_text(card.name)
-	
-	set_name(card.name)
+func show_card():
+	if card != null:
+		%Class.clear()
+		%Class.append_text(card.get_considered())
+		
+		%Art.texture = card.image
+		%Name.clear()
+		%Name.append_text(card.name)
+		
+		set_name(card.name)
+	else:
+		printerr("Card in ", self, " is nothing")
 
 func _on_movable_drag() -> void:
 	origin = position

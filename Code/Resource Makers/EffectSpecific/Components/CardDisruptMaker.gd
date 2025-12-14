@@ -69,7 +69,7 @@ func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
 			
 			Globals.full_ui.set_top_ui(disc_box)
 			await disc_box.finished
-			Globals.full_ui.remove_top_ui()
+			SignalBus.remove_top_ui.emit()
 		#Random
 		else:
 			var disc_from: Array[Base_Card]
@@ -88,7 +88,7 @@ func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
 	
 	#Discard from a slot
 	else:
-		var slots: Array[PokeSlot] = Globals.full_ui.get_aks_minus_immune(in_play_options, Consts.IMMUNITIES.ATK_EFCT_OPP)
+		var slots: Array[PokeSlot] = Globals.full_ui.get_ask_minus_immune(in_play_options, Consts.IMMUNITIES.ATK_EFCT_OPP)
 		
 		#Specified number of mons to disrupt
 		if slot_choose_num != -1:

@@ -33,7 +33,7 @@ func allow_retreat():
 
 func _on_button_pressed() -> void:
 	if attatched:
-		Globals.full_ui.remove_top_ui()
+		SignalBus.remove_top_ui.emit()
 		SignalBus.retreat.emit(slot)
 	else:
 		printerr("This node apart of anything")

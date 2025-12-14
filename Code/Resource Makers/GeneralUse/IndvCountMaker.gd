@@ -379,7 +379,7 @@ func input_evaluation() -> int:
 	await input_box.finished
 	input_return = int(input_box.spin_box.value)
 	
-	Globals.full_ui.remove_top_ui()
+	SignalBus.remove_top_ui.emit()
 	print("INPUT: ", input_return)
 	return input_return
 

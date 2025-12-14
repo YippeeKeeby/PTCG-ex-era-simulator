@@ -1,6 +1,7 @@
 @icon("res://Art/ProjectSpecific/swap.png")
 extends Control
 class_name SwapBox
+#NEEDS MAJOR REFACTORING, REMOVE RELIANCE ON SWAP RULES
 
 #--------------------------------------
 #region VARIABLES
@@ -228,7 +229,7 @@ func undo_swap():
 #region SIGNALS
 func _on_end_pressed() -> void:
 	finished.emit()
-	Globals.full_ui.remove_top_ui()
+	SignalBus.remove_top_ui.emit()
 
 func _on_swap_pressed() -> void:
 	#First convert the list into a list of base_cards

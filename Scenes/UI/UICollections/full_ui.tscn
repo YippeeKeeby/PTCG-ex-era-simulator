@@ -35,7 +35,6 @@ offset_right = 97.5
 offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
 metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Stadium"]

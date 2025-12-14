@@ -82,4 +82,4 @@ func _on_tree_exiting() -> void:
 	Globals.checking = false
 
 func force_disapear():
-	Globals.full_ui.remove_top_ui()
+	SignalBus.remove_top_ui.emit()

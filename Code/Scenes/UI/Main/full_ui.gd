@@ -25,24 +25,17 @@ func _ready() -> void:
 	%ArtButton.get_child(0).size = %ArtButton.size
 	%ArtButton.current_card = null
 	Globals.full_ui = self
-	#every_slot = player_side.get_slots() + opponent_side.get_slots()
+	every_slot = player_side.get_slots() + opponent_side.get_slots()
+	SignalBus.remove_top_ui.connect(remove_top_ui)
 
 func get_sides():
-	if side_rules && 1: #Doubles Position (479, 579)
-		player_side = side_ui[2].instantiate()
-		
-	else: #Singles Position (57, 366)
-		player_side = side_ui[0].instantiate()
-	
+	#0 & 2 represent singles home ui and doubles home ui, take doubles if it's called for
+	player_side = side_ui[2 * int(side_rules && 1)].instantiate()
 	player_side.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
 	add_child(player_side)
 	
-	if side_rules && 2: #Doubles Away (113, -30)
-		opponent_side = side_ui[3].instantiate()
-		
-	else: #Singles Away (57, 18)
-		opponent_side = side_ui[1].instantiate()
-	
+	#Away uses 1 & 3, so just add 1 after their computation
+	opponent_side = side_ui[(2 * int(side_rules && 2)) + 1].instantiate()
 	opponent_side.set_anchors_preset(Control.PRESET_TOP_WIDE)
 	add_child(opponent_side)
 
@@ -84,7 +77,7 @@ func get_ask_slots(ask: SlotAsk) -> Array[PokeSlot]:
 			pokeslots.append(ui_slot.connected_slot)
 	return pokeslots
 
-func get_aks_minus_immune(ask: SlotAsk, immune: Consts.IMMUNITIES) -> Array[PokeSlot]:
+func get_ask_minus_immune(ask: SlotAsk, immune: Consts.IMMUNITIES) -> Array[PokeSlot]:
 	var pokeslots: Array[PokeSlot]
 	for ui_slot in every_slot:
 		if Globals.fundies.check_immunity(immune,\
@@ -150,6 +143,8 @@ func remove_top_ui():
 	print("Just removed so now: ", ui_stack)
 	if ui_stack.size() == 1:
 		enable_sides()
+	
+	SignalBus.finished_remove_top_ui.emit()
 
 func enable_sides():
 	for slot in Globals.full_ui.every_slot:

@@ -123,6 +123,10 @@ func show_card(card: Base_Card, id: Identifier) -> Button:
 #--------------------------------------
 #region SIGNALS
 func _on_confirm_pressed() -> void:
+	if connected_list == null:
+		printerr("There is no connected list to ", self)
+		return
+	
 	var all_tutored: Array[Base_Card]
 	var rest: Array[Base_Card] = connected_list.list.keys()
 	

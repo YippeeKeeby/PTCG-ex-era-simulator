@@ -27,7 +27,7 @@ func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
 	
 	#Who should have this effects applied?
 	if application == "Slot":
-		var apply_to: Array[PokeSlot] = Globals.full_ui.get_aks_minus_immune(recieves, Consts.IMMUNITIES.ATK_EFCT_OPP)
+		var apply_to: Array[PokeSlot] = Globals.full_ui.get_ask_minus_immune(recieves, Consts.IMMUNITIES.ATK_EFCT_OPP)
 		
 		if self is Disable and self.choose_num != -1:
 			var dis = self as Disable

@@ -31,7 +31,8 @@ func _process(delta: float) -> void:
 	new_pos.x = clampf(new_pos.x, 0, get_viewport().size.x - size.x)
 	new_pos.y = clampf(new_pos.y, 0, get_viewport().size.y - size.y)
 	
-	dragging_node.position = new_pos
+	if dragging_node:
+		dragging_node.position = new_pos
 
 func _on_drag_ended() -> void:
 	set_process(false)
@@ -46,7 +47,7 @@ func _on_drag_started(event_position: Variant) -> void:
 	drag.emit()
 
 func _on_gui_input(event: InputEvent) -> void:
-	if not event.is_action_pressed("Drag")\
+	if dragging_node and not event.is_action_pressed("Drag")\
 	 and dragging_node.has_method("_on_gui_input"):
 		dragging_node.gui_input.emit(event)
 	drag_component.object_held_down(event)

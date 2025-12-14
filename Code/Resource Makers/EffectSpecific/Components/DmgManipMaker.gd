@@ -80,7 +80,7 @@ func simple_manip(reversable: bool = false, replace_num: int = -1):
 	
 	#Apply manip on all ask candidates
 	else:
-		for slot in Globals.full_ui.get_aks_minus_immune(ask, Consts.IMMUNITIES.ATK_EFCT_OPP):
+		for slot in Globals.full_ui.get_ask_minus_immune(ask, Consts.IMMUNITIES.ATK_EFCT_OPP):
 			if slot.damage_counters != 0 or mode == "Add":
 				slot.dmg_manip(get_final_ammount(counters, slot), turn_delay)
 	
@@ -89,13 +89,13 @@ func simple_manip(reversable: bool = false, replace_num: int = -1):
 func dmg_manip_box(reversable: bool = false, replace_num: int = -1):
 	
 	#If no one can give return
-	if Globals.full_ui.get_aks_minus_immune(ask, Consts.IMMUNITIES.ATK_EFCT_OPP).size() == 0:
+	if Globals.full_ui.get_ask_minus_immune(ask, Consts.IMMUNITIES.ATK_EFCT_OPP).size() == 0:
 		return
 	
 	var dmg_manip: DmgManipBox = Consts.dmg_manip_box.instantiate()
 	var counters: int = how_many if replace_num == -1 else replace_num
 	if mode == "Swap":
-		var taker_array: Array[PokeSlot] = Globals.full_ui.get_aks_minus_immune(takers, Consts.IMMUNITIES.ATK_EFCT_OPP)
+		var taker_array: Array[PokeSlot] = Globals.full_ui.get_ask_minus_immune(takers, Consts.IMMUNITIES.ATK_EFCT_OPP)
 		
 		#If no one can take return
 		if taker_array.size() == 0: return
@@ -123,7 +123,7 @@ func dmg_manip_box(reversable: bool = false, replace_num: int = -1):
 	
 	await dmg_manip.finished
 	
-	Globals.full_ui.remove_top_ui()
+	SignalBus.remove_top_ui.emit()
 
 func swap_manip(reversable: bool = false, replace_num: int = -1):
 	var first: PokeSlot = await Globals.fundies.card_player.get_choice_candidates(

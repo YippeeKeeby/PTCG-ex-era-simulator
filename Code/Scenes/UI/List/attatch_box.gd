@@ -173,7 +173,7 @@ func _on_end_pressed() -> void:
 		await attatchment["Slot"].count_en_attatch_signals(attatchment["Energy"])
 	
 	finished.emit()
-	Globals.full_ui.remove_top_ui()
+	SignalBus.remove_top_ui.emit()
 
 func _on_attatch_pressed() -> void:
 	print("Attatch")

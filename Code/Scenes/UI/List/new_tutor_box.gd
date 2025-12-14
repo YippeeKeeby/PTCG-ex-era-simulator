@@ -57,4 +57,4 @@ func diff_tutor_blacklist(card: Base_Card, adding: bool = true):
 	playing_list.refresh_allowance()
 
 func _on_tutor_dock_disapear() -> void:
-	Globals.full_ui.remove_top_ui()
+	SignalBus.remove_top_ui.emit()

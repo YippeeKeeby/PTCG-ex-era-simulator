@@ -21,10 +21,13 @@ func setup():
 	list_items()
 
 func list_items():
-	var ui_slots: Array[UI_Slot] = side.get_slots()
-	for i in range(%SlotList.get_child_count()):
-		if ui_slots[i].connected_slot.is_filled():
-			slots[i].setup(ui_slots[i].connected_slot)
+	var ui_slots: Array[UI_Slot]
+	if side != null:
+		ui_slots = side.get_slots()
+	
+		for i in range(%SlotList.get_child_count()):
+			if ui_slots[i].connected_slot.is_filled():
+				slots[i].setup(ui_slots[i].connected_slot)
 
 func refresh_energy():
 	for node in %SlotList.get_children():
@@ -45,7 +48,10 @@ func find_allowed(ask: SlotAsk):
 			node.disabled = not ask.check_ask(node.slot)
 
 func find_allowed_givers(ask: SlotAsk, box: String = "Swap"):
-	var givers: Array[PokeSlot] = Globals.full_ui.get_aks_minus_immune(ask, Consts.IMMUNITIES.ATK_EFCT_OPP)
+	if not ask:
+		return
+	
+	var givers: Array[PokeSlot] = Globals.full_ui.get_ask_minus_immune(ask, Consts.IMMUNITIES.ATK_EFCT_OPP)
 	
 	for node in %SlotList.get_children():
 		if node.slot:

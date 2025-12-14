@@ -19,6 +19,9 @@ var home: bool
 #region INITALIZATION AND REMOVAL
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if not origin_button:
+		printerr(self, "isn't a child of any button node")
+		return
 	origin_button.selected = true
 	
 	for i in range($PlayAs/Items.get_child_count() - 1): items[i].hide()
@@ -65,7 +68,7 @@ func _input(event: InputEvent) -> void:
 
 func manage_input(event: InputEvent):
 	if event.is_action("Back"):
-		Globals.full_ui.remove_top_ui()
+		SignalBus.remove_top_ui.emit()
 	if event.is_action("Check"):
 		_on_check_pressed()
 
@@ -74,8 +77,8 @@ func manage_input(event: InputEvent):
 #Record source here, no need to record target as anything in particular
 func emit_play_as(flag: int):
 	if not Globals.checking:
-		Globals.full_ui.remove_top_ui()
-		Globals.full_ui.remove_top_ui()
+		SignalBus.remove_top_ui.emit()
+		SignalBus.remove_top_ui.emit()
 		play_as.emit(flag, origin_button.card)
 		origin_button.parent.finished.emit()
 
@@ -87,12 +90,12 @@ func _on_check_pressed():
 func _on_tutor_pressed() -> void:
 	print("Tutor ", origin_button.card.name, " from ", origin_button.parent.stack)
 	SignalBus.tutor_card.emit(origin_button.card)
-	Globals.full_ui.remove_top_ui()
+	SignalBus.remove_top_ui.emit()
 
 func _on_discard_pressed() -> void:
 	print("Discard ", origin_button.card.name, " from ", origin_button.parent.stack)
 	SignalBus.tutor_card.emit(origin_button.card)
-	Globals.full_ui.remove_top_ui()
+	SignalBus.remove_top_ui.emit()
 
 func on_entered_check():
 	for i in range($PlayAs/Items.get_child_count()):
@@ -104,7 +107,7 @@ func on_exited_check():
 
 func _on_cancel_pressed() -> void:
 	SignalBus.cancel_tutor.emit(origin_button)
-	Globals.full_ui.remove_top_ui()
+	SignalBus.remove_top_ui.emit()
 
 #endregion
 #--------------------------------------

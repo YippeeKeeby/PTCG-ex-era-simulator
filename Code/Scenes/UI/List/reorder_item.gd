@@ -8,9 +8,10 @@ var index: int = 1:
 		%Index.append_text(str(index,"."))
 var card: Base_Card:
 	set(value):
-		card = value
-		reorder_button.card = value
-		reorder_button._ready()
+		if value != null:
+			card = value
+			reorder_button.card = value
+			reorder_button.show_card()
 
 signal check_reorder(node: Node)
 signal drop_reorder()

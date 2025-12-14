@@ -28,6 +28,8 @@ var counters_swap_away: int = 0
 #For now this is only used with Add dmg so only worry about that
 #Test this with DF91, UF28, MA33, SS4, LM5, CG56
 func _ready() -> void:
+	if not side:
+		return
 	side = Globals.full_ui.get_const_side(first_ask.side_target)
 	slot_list.side = side
 	slot_list.singles = not Globals.board_state.doubles

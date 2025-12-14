@@ -4,7 +4,7 @@ class_name Close_Button
 
 func _on_pressed() -> void:
 	if get_parent() != get_tree().get_root():
-		Globals.full_ui.remove_top_ui()
+		SignalBus.remove_top_ui.emit()
 	else:
 		printerr("The close button isn't a child of anything")
 

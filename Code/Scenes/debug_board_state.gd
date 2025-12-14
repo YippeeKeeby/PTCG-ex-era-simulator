@@ -9,13 +9,13 @@ class_name BoardNode
 @export var test: PackedScene
 
 var full_ui: FullBoardUI
-var singles_ui: PackedScene = load("uid://bsad85ywgca3d")
-var doubles_ui: PackedScene = load("uid://bwtrs2phbtohv")
+var ui_instance: PackedScene = load("uid://bsad85ywgca3d")
 var test_out: bool = false
 
 func _ready() -> void:
 	
-	full_ui = doubles_ui.instantiate() if board_state.doubles else singles_ui.instantiate()
+	full_ui = ui_instance.instantiate()
+	full_ui.side_rules = board_state.doubles
 	add_child(full_ui)
 	full_ui.home_side = board_state.home_side
 	Globals.board_state = board_state

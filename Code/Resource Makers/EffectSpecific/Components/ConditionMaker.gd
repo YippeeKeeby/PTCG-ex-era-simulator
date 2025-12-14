@@ -32,7 +32,7 @@ func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
 		cond = input.selected.name
 		print(cond)
 		
-		Globals.full_ui.remove_top_ui()
+		SignalBus.remove_top_ui.emit()
 		
 		for filtered in slots:
 			filtered.add_specified_condition(self, cond)

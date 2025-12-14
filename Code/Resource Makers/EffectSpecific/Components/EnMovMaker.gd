@@ -77,7 +77,7 @@ func send_effect(reversable: bool = false) -> void:
 		Globals.full_ui.set_top_ui(dis_box)
 		await dis_box.finished
 		if dis_box.discarded:
-			Globals.full_ui.remove_top_ui()
+			SignalBus.remove_top_ui.emit()
 	
 	finished.emit()
 

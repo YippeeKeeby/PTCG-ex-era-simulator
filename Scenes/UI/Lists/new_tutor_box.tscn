@@ -27,6 +27,13 @@ dragging_node = NodePath("../..")
 shrinkNodes = [NodePath("../PanelContainer/HBoxContainer/PlayingList"), NodePath("../PanelContainer/HBoxContainer/tutor_dock")]
 hideNodes = [NodePath("../Footer")]
 
+[node name="Movable" parent="VBoxContainer/Header/IdentifierPanel" index="1" node_paths=PackedStringArray("dragging_node")]
+dragging_node = NodePath("../../../..")
+
+[node name="MinimizeButton" parent="VBoxContainer/Header" index="1" node_paths=PackedStringArray("shrinkNodes", "hideNodes")]
+shrinkNodes = [NodePath("../../PanelContainer/HBoxContainer/PlayingList"), NodePath("../../PanelContainer/HBoxContainer/tutor_dock")]
+hideNodes = [NodePath("../../Footer")]
+
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -52,3 +59,5 @@ dragging_node = NodePath("../..")
 [connection signal="blacklist" from="VBoxContainer/PanelContainer/HBoxContainer/tutor_dock" to="." method="diff_tutor_blacklist"]
 [connection signal="check_requirements" from="VBoxContainer/PanelContainer/HBoxContainer/tutor_dock" to="." method="check_lists"]
 [connection signal="disapear" from="VBoxContainer/PanelContainer/HBoxContainer/tutor_dock" to="." method="_on_tutor_dock_disapear"]
+
+[editable path="VBoxContainer/Header"]

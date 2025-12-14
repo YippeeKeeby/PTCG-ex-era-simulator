@@ -250,11 +250,11 @@ func placement_handling(tutored_cards: Array[Base_Card], placement: Placement,\
 		if placement.reorder_type != 2:
 			tutor_instantiate_reorder(tutored_cards, placement)
 			await SignalBus.reorder_cards
-			Globals.full_ui.remove_top_ui()
+			SignalBus.remove_top_ui.emit()
 		if placement.reorder_type != 1:
 			tutor_instantiate_reorder(untutored_cards, placement)
 			await SignalBus.reorder_cards
-			Globals.full_ui.remove_top_ui()
+			SignalBus.remove_top_ui.emit()
 	
 	placement.finished.emit()
 

@@ -48,7 +48,7 @@ func _on_begin_timeout() -> void:
 		await cooldown.timeout
 	
 	await get_tree().create_timer(1).timeout
-	Globals.full_ui.remove_top_ui()
+	SignalBus.remove_top_ui.emit()
 	SignalBus.finished_coinflip.emit()
 
 func _on_coin_container_resized() -> void:

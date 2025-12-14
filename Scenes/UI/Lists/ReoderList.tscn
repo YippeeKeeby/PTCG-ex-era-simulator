@@ -18,9 +18,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1080.0
+offset_bottom = -720.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_vfu45")
 script = ExtResource("2_bgbqr")
@@ -28,15 +29,16 @@ list = Array[ExtResource("3_68v0d")]([ExtResource("6_chh4k"), ExtResource("7_bgb
 reorder_item = ExtResource("12_djwkv")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(435, 0)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 435.0
+offset_bottom = 43.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
 [node name="Header" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 22)
+custom_minimum_size = Vector2(435, 0)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("13_jdmvj")
 
@@ -53,30 +55,30 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-text = "DECK"
+text = "REORDER DECK"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="MinimizeButton" parent="PanelContainer/VBoxContainer/Header/HBoxContainer" node_paths=PackedStringArray("shrinkNodes", "hideNodes") instance=ExtResource("14_jdmvj")]
+[node name="MinimizeButton" parent="PanelContainer/VBoxContainer/Header/HBoxContainer" node_paths=PackedStringArray("hideNodes") instance=ExtResource("14_jdmvj")]
 layout_mode = 2
-shrinkNodes = [NodePath("../../../PanelContainer/ScrollContainer"), NodePath("../../../PanelContainer/ScrollContainer/ItemList")]
-hideNodes = [NodePath("../../../Footer")]
+hideNodes = [NodePath("../../../Footer"), NodePath("../../../Main")]
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 37)
+[node name="Main" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 335)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/PanelContainer"]
-custom_minimum_size = Vector2(429, 447)
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/Main"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("11_p8if0")
 follow_focus = true
 draw_focus_border = true
+vertical_scroll_mode = 3
 
-[node name="ItemList" type="VBoxContainer" parent="PanelContainer/VBoxContainer/PanelContainer/ScrollContainer"]
+[node name="ItemList" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Main/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Footer" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2

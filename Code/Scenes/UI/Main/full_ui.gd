@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 class_name FullBoardUI
 
 @export var singles: bool = true
@@ -9,36 +9,42 @@ class_name FullBoardUI
 var current_card: Control
 
 @onready var end_turn: Button = $EndTurn
-@onready var player_side: CardSideUI = $PlayerSide
-@onready var opponent_side: CardSideUI = $OpponentSide
+@onready var player_side: CardSideUI
+@onready var opponent_side: CardSideUI
 @onready var sides: Array[CardSideUI] = [player_side, opponent_side]
 @onready var stadium: Button = %ArtButton
 
 var home_side: Consts.PLAYER_TYPES
-var ui_stack: Array[Control] = [self]
+var ui_stack: Array[Control] = []
 var every_slot: Array[UI_Slot]
 
 #--------------------------------------
 #region INITALIZATION & PROCESSING
 func _ready() -> void:
-	if side_rules && 1: #Doubles Position (479, 579)
-		player_side = side_ui[2].instantiate()
-		player_side.position = Vector2(479, 579)
-		#player_side =
-	else: #Singles Position (57, 366)
-		player_side = side_ui[0].instantiate()
-		player_side.position = Vector2(57, 366)
-	if side_rules && 2: #Doubles Away (113, -30)
-		opponent_side = side_ui[3].instantiate()
-		opponent_side.position = Vector2(113, -30)
-	else: #Singles Away (57, 18)
-		opponent_side = side_ui[1].instantiate()
-		opponent_side.position = Vector2(57, 18)
-	
+	get_sides()
 	%ArtButton.get_child(0).size = %ArtButton.size
 	%ArtButton.current_card = null
 	Globals.full_ui = self
-	every_slot = player_side.get_slots() + opponent_side.get_slots()
+	#every_slot = player_side.get_slots() + opponent_side.get_slots()
+
+func get_sides():
+	if side_rules && 1: #Doubles Position (479, 579)
+		player_side = side_ui[2].instantiate()
+		
+	else: #Singles Position (57, 366)
+		player_side = side_ui[0].instantiate()
+	
+	player_side.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	add_child(player_side)
+	
+	if side_rules && 2: #Doubles Away (113, -30)
+		opponent_side = side_ui[3].instantiate()
+		
+	else: #Singles Away (57, 18)
+		opponent_side = side_ui[1].instantiate()
+	
+	opponent_side.set_anchors_preset(Control.PRESET_TOP_WIDE)
+	add_child(opponent_side)
 
 #endregion
 #--------------------------------------

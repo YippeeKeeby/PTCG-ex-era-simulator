@@ -12,50 +12,29 @@ resource_local_to_scene = true
 shader = ExtResource("5_6nn1f")
 shader_parameter/shine_color = Color(0.98, 0.925, 0.231, 1)
 shader_parameter/base_color = Color(0.180736, 0.120593, 0.350483, 1)
+shader_parameter/pixel_size = 32
 shader_parameter/shine_speed = 7.0
 shader_parameter/shine_size = 0.07
 shader_parameter/shine_bool = false
 
-[node name="FullUI" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="FullUI" type="CanvasLayer"]
 script = ExtResource("1_g3lbb")
 singles = false
 
 [node name="OpponentSide" parent="." instance=ExtResource("2_g3lbb")]
-layout_mode = 1
-anchor_left = 1.875
-anchor_right = 1.875
-offset_left = 38.0
-offset_top = -31.28
-offset_right = 38.0
-offset_bottom = -31.28
 
 [node name="PlayerSide" parent="." instance=ExtResource("3_qhmdr")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.875
-anchor_top = 9.05
-anchor_right = 0.875
-anchor_bottom = 9.05
-offset_left = 444.0
-offset_top = 217.0
-offset_right = 444.0
-offset_bottom = 217.0
 
 [node name="Stadium" type="CenterContainer" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 406.0
-offset_top = 306.0
-offset_right = 601.0
-offset_bottom = 426.0
+offset_left = -97.5
+offset_top = -60.0
+offset_right = 97.5
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_group_ = true
@@ -69,15 +48,14 @@ material = SubResource("ShaderMaterial_43axb")
 layout_mode = 2
 
 [node name="EndTurn" parent="." instance=ExtResource("6_qhmdr")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 26.975
-anchor_top = 9.162
-anchor_right = 26.975
-anchor_bottom = 9.162
-offset_left = -149.5
-offset_top = -2.47998
-offset_right = -8.5
-offset_bottom = 46.52
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -24.5
+offset_right = 0.0
+offset_bottom = 24.5
+grow_horizontal = 0
+grow_vertical = 2

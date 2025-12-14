@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://b1rwmggf7a4do" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Colorless2.tres" id="8_hhkog"]
 [ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="9_5e01i"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_xp3sp"]
 script = ExtResource("4_a7nbm")

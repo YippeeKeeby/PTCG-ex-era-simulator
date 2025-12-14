@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://sddhm3042c13" path="res://Resources/Components/Effects/Prompts/PromptComparator/IsLunatoneInPlay.tres" id="13_i8fqq"]
 [ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="14_411yi"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_ocm2o"]
 script = ExtResource("7_ykb1v")

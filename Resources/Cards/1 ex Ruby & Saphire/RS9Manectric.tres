@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://8444rgut4s83" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/L2C1.tres" id="10_vn0b8"]
 [ext_resource type="Resource" uid="uid://i3dimt0ebxnk" path="res://Resources/Components/Effects/Prompts/IfFlipTails.tres" id="11_it85k"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_lxccs"]
 script = ExtResource("4_vg802")

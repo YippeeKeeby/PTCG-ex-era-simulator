@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="10_334gx"]
 [ext_resource type="Resource" uid="uid://dducvbjohbp4x" path="res://Resources/Components/Pokemon/Attacks/AttackData/10DmgParaIfHeads.tres" id="10_fi1rr"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_i2ut4"]
 script = ExtResource("4_13no0")

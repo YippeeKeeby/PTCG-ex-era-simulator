@@ -5,7 +5,7 @@ class_name BoardState
 @export var coin_rules: Consts.COIN_RULES = Consts.COIN_RULES.REG
 @export_enum("Default", "Discard to Lost Zone", "Discard to Deck") var discard_rules: int = 0
 @export_enum("Home", "Away", "Flip") var who_starts_first: int = 0
-@export var doubles: bool = false
+@export_flags("Home", "Away") var doubles: int = 3
 @export var burn_rules: Consts.COND_RULES = Consts.COND_RULES.FLIP
 @export var sleep_rules: Consts.COND_RULES = Consts.COND_RULES.FLIP
 @export var confusion_rules: Consts.COND_RULES = Consts.COND_RULES.FLIP

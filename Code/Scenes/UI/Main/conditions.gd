@@ -1,3 +1,4 @@
+@icon("res://Art/Counters/Poison.png")
 extends GridContainer
 class_name ConditionDisplay
 

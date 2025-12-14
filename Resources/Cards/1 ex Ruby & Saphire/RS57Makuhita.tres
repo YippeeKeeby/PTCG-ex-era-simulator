@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://djhcfglsc14fn" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/F1C1.tres" id="7_csram"]
 [ext_resource type="Resource" uid="uid://ceo3bpqlglf5o" path="res://Resources/Components/Pokemon/Attacks/AttackData/30Dmg.tres" id="8_fpbkf"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_b0wo5"]
 script = ExtResource("3_bv4e3")

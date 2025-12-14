@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://dpovjlfpsypwe" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Colorless3.tres" id="9_a3vxt"]
 [ext_resource type="Resource" uid="uid://dnnekosklb3ar" path="res://Resources/Components/Pokemon/Attacks/AttackData/40Dmg.tres" id="10_acown"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_k58af"]
 script = ExtResource("6_432f8")

@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://srojhh5idedm" path="res://Resources/Components/Pokemon/Attacks/EffectlessAttacks/Tackle2-20.tres" id="5_ccmvn"]
 [ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="6_51cqk"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_44hll"]
 script = ExtResource("2_2n7hf")

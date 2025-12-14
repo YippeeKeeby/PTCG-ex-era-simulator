@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://cg3m7vpqxf2t6" path="res://Code/Resource Makers/EffectSpecific/Components/SlotChanges/OverrideMaker.gd" id="15_tirib"]
 [ext_resource type="Resource" uid="uid://bmtmv17focn2u" path="res://Resources/Components/Effects/Prompts/PromptComparator/PromptSelfEvolved.tres" id="17_f0t17"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_483tn"]
 script = ExtResource("2_k8r50")

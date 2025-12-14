@@ -14,6 +14,7 @@ var doubles_ui: PackedScene = load("uid://bwtrs2phbtohv")
 var test_out: bool = false
 
 func _ready() -> void:
+	
 	full_ui = doubles_ui.instantiate() if board_state.doubles else singles_ui.instantiate()
 	add_child(full_ui)
 	full_ui.home_side = board_state.home_side

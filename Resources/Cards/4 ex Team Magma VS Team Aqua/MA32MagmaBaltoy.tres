@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://74xngvedl2tj" path="res://Resources/Components/Effects/Asks/Stats/DefDamaged.tres" id="11_fundw"]
 [ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="11_ro88b"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_kxtxb"]
 script = ExtResource("7_jq5tw")

@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://baxet3revq7v8" path="res://Resources/Components/Pokemon/Attacks/EffectlessAttacks/Razor Leaf 3-50.tres" id="5_khw65"]
 [ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="6_p2vxg"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_aiqev"]
 script = ExtResource("2_3ps86")

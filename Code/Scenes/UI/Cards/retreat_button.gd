@@ -5,9 +5,11 @@ extends Control
 @onready var button: Button = $PanelContainer/Button
 
 var slot: PokeSlot
+var attatched: bool = false
 var retreat: int 
 
 func set_retreat(new_slot: PokeSlot):
+	attatched = true
 	slot = new_slot
 	retreat = slot.get_retreat()
 	
@@ -30,7 +32,10 @@ func allow_retreat():
 	Globals.fundies.remove_top_source_target()
 
 func _on_button_pressed() -> void:
-	Globals.full_ui.remove_top_ui()
-	SignalBus.retreat.emit(slot)
+	if attatched:
+		Globals.full_ui.remove_top_ui()
+		SignalBus.retreat.emit(slot)
+	else:
+		printerr("This node apart of anything")
 
 # May 8th 2025: I found the Emotacon section of the godot editor ᕦò_óˇ)ᕤ lol

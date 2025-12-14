@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://nco7wk2vhhx6" path="res://Resources/Components/Counters/Comparator/Return/ForSelfDmgCounters.tres" id="12_0mp32"]
 [ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="13_fvaaj"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_omhu0"]
 script = ExtResource("5_juimu")

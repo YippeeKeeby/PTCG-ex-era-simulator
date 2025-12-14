@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="6_rbr4h"]
 [ext_resource type="Resource" uid="uid://s8mcx8qnuqkw" path="res://Resources/Components/Pokemon/Abilities/Bodies/AzurillBabyEvo.tres" id="7_rbr4h"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_rbr4h"]
 script = ExtResource("6_6fwf0")

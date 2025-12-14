@@ -2,6 +2,8 @@ extends Control
 class_name FullBoardUI
 
 @export var singles: bool = true
+@export var side_rules: int = 3
+@export var side_ui: Array[PackedScene]
 @export var disapear_timing: float = .075
 
 var current_card: Control
@@ -19,6 +21,20 @@ var every_slot: Array[UI_Slot]
 #--------------------------------------
 #region INITALIZATION & PROCESSING
 func _ready() -> void:
+	if side_rules && 1: #Doubles Position (479, 579)
+		player_side = side_ui[2].instantiate()
+		player_side.position = Vector2(479, 579)
+		#player_side =
+	else: #Singles Position (57, 366)
+		player_side = side_ui[0].instantiate()
+		player_side.position = Vector2(57, 366)
+	if side_rules && 2: #Doubles Away (113, -30)
+		opponent_side = side_ui[3].instantiate()
+		opponent_side.position = Vector2(113, -30)
+	else: #Singles Away (57, 18)
+		opponent_side = side_ui[1].instantiate()
+		opponent_side.position = Vector2(57, 18)
+	
 	%ArtButton.get_child(0).size = %ArtButton.size
 	%ArtButton.current_card = null
 	Globals.full_ui = self

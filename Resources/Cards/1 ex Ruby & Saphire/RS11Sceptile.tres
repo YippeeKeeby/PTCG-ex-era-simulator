@@ -19,7 +19,7 @@
 [ext_resource type="Resource" uid="uid://bjt4vcuigghvj" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/G2C3.tres" id="14_mqkhh"]
 [ext_resource type="Resource" uid="uid://vufsihxj4h1r" path="res://Resources/Components/Pokemon/Attacks/AttackData/70Dmg.tres" id="15_77a3r"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_u0wp7"]
 script = ExtResource("5_dpoqi")

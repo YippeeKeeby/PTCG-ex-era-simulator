@@ -16,6 +16,7 @@ resource_local_to_scene = true
 shader = ExtResource("2_rbsrj")
 shader_parameter/shine_color = Color(0.98, 0.925, 0.231, 1)
 shader_parameter/base_color = Color(0.180736, 0.120593, 0.350483, 1)
+shader_parameter/pixel_size = 32
 shader_parameter/shine_speed = 7.0
 shader_parameter/shine_size = 0.07
 shader_parameter/shine_bool = false
@@ -29,6 +30,12 @@ theme = ExtResource("1_rbsrj")
 alignment = 2
 script = ExtResource("2_pstaf")
 metadata/_edit_group_ = true
+
+[node name="ChangeDisplay" parent="." instance=ExtResource("10_pstaf")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+side_version = true
 
 [node name="ArtButton" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -86,9 +93,3 @@ unique_name_in_owner = true
 layout_mode = 2
 icon = ExtResource("9_ako2g")
 list = 1
-
-[node name="ChangeDisplay" parent="." instance=ExtResource("10_pstaf")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 1
-side_version = true

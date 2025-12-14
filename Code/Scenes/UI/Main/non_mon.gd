@@ -15,6 +15,7 @@ func _ready() -> void:
 	#So I don't have tow make two Non_Mon scenes for each side
 	if not home:
 		move_child($Stacks, 0)
+		move_child($ChangeDisplay, 2)
 	%ArtButton.get_child(0).size = %ArtButton.size
 	clear_supporter()
 

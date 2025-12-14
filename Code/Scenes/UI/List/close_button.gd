@@ -3,7 +3,10 @@ extends Button
 class_name Close_Button
 
 func _on_pressed() -> void:
-	Globals.full_ui.remove_top_ui()
+	if get_parent() != get_tree().get_root():
+		Globals.full_ui.remove_top_ui()
+	else:
+		printerr("The close button isn't a child of anything")
 
 func closing_animation() -> void:
 	disabled = true

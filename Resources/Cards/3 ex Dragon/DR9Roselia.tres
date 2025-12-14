@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://6ehljyrvtpkp" path="res://Resources/Components/Pokemon/Attacks/AttackData/10Sleep.tres" id="11_vatto"]
 [ext_resource type="Resource" uid="uid://b6e0b1hpsm78r" path="res://Resources/Components/Pokemon/Abilities/Bodies/ThickSkin.tres" id="12_qoeuf"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_ksw77"]
 script = ExtResource("7_ph2ci")

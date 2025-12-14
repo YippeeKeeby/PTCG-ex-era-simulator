@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://cngepehpfnug8" path="res://Resources/Components/Counters/Indv/Slots/SelfEnergyExcess.tres" id="11_85sdh"]
 [ext_resource type="Script" uid="uid://b65jx8u5cgcgl" path="res://Code/Resource Makers/GeneralUse/ComparatorMaker.gd" id="12_g0ipc"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_0nmla"]
 script = ExtResource("8_cy8n6")

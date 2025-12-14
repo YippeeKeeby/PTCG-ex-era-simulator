@@ -17,7 +17,7 @@
 [ext_resource type="Resource" uid="uid://batfiuq768qew" path="res://Resources/Components/Effects/Prompts/PromptComparator/VolbeatInPlay.tres" id="14_6po54"]
 [ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="16_23wfd"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_bp5xf"]
 script = ExtResource("4_h5hr6")

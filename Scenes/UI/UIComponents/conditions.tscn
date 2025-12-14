@@ -19,13 +19,6 @@ colors = PackedColorArray(0.990871, 0.301054, 0.243597, 1, 0.984314, 0.133333, 0
 
 [sub_resource type="Resource" id="Resource_nwnu7"]
 script = ExtResource("2_rnfnf")
-any = false
-poison = 0
-burn = 0
-turn_cond = 0
-imprision = false
-shockwave = false
-knockOut = false
 metadata/_custom_type_script = "uid://8s3m1dar3r33"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_puvo2"]

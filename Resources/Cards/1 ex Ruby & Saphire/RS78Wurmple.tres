@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://c63wb1xvpkbi8" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Grass1.tres" id="11_gknmg"]
 [ext_resource type="Resource" uid="uid://bxpfuxfuoeiri" path="res://Resources/Components/Pokemon/Attacks/AttackData/Poision.tres" id="12_clm34"]
 
-[sub_resource type="Resource" id="Resource_dsymb"]
+[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_clm34"]
 script = ExtResource("4_sfbeu")

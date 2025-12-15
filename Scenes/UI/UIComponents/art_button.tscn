@@ -76,12 +76,14 @@ benched = true
 layout_mode = 0
 offset_right = 195.0
 offset_bottom = 120.0
+mouse_filter = 2
 
 [node name="Art" type="TextureRect" parent="PanelContainer"]
 unique_name_in_owner = true
 clip_children = 2
 custom_minimum_size = Vector2(189, 114)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("2_rt8ma")
 stretch_mode = 5
 

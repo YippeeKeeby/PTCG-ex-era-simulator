@@ -35,7 +35,7 @@ func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
 				await dis.choose_atk_disable(slot)
 		else:
 			for slot in apply_to:
-				print(slot.get_card_name(), " can ", describe(), "\n")
+				print_rich(slot.get_card_name(), " now has ", describe(), "\n")
 				slot.apply_slot_change(self)
 		
 	else:
@@ -52,7 +52,7 @@ func how_display() -> Dictionary[String, bool]:
 		"TypeChange":
 			return {"TypeChange" : false}
 	
-	return {"RuleChange" : true}
+	return {"RuleChange" : false}
 
 func describe() -> String:
 	print("HUH?")

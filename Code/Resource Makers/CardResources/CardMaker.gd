@@ -91,34 +91,34 @@ func emit_remove_change():
 	if pokemon_properties:
 		var mon: Pokemon = pokemon_properties
 		for atk in mon.attacks:
-			for effect in atk.attack_data.prompt_effects:
-				effect.emit_slot_change_fail()
+			for effect_collect in atk.attack_data.prompt_effects:
+				effect_collect.emit_slot_change_fail()
 		
 		if mon.pokebody:
 			var body: Ability = mon.pokebody
 			if body.passive:
 				SignalBus.slot_change_failed.emit(body.passive.get_slot_changes())
-			if body.effect:
-				SignalBus.slot_change_failed.emit(body.effect.get_slot_changes())
+			for effect_collect in body.effects:
+				effect_collect.emit_slot_change_fail()
 		
 		if mon.pokepower:
 			var power: Ability = mon.pokepower
 			if power.passive:
 				SignalBus.slot_change_failed.emit(power.passive.get_slot_changes())
-			if power.effect:
-				SignalBus.slot_change_failed.emit(power.effect.get_slot_changes())
+			for effect_collect in power.effects:
+				effect_collect.emit_slot_change_fail()
 	
 	if trainer_properties:
 		var train: Trainer = trainer_properties
-		for effect in train.prompt_effects:
-			effect.emit_slot_change_fail()
+		for effect_collect in train.prompt_effects:
+			effect_collect.emit_slot_change_fail()
 		if train.provided_attack:
-			for effect in train.provided_attack.attack_data.prompt_effects:
-				effect.emit_slot_change_fail()
+			for effect_collect in train.provided_attack.attack_data.prompt_effects:
+				effect_collect.emit_slot_change_fail()
 	
 	if energy_properties:
-		for effect in energy_properties.attatch_effects + energy_properties.prompt_effects:
-			effect.emit_slot_change_fail()
+		for effect_collect in energy_properties.attatch_effects + energy_properties.prompt_effects:
+			effect_collect.emit_slot_change_fail()
 
 #region BOOLEANS
 #Lowest number for highest priority

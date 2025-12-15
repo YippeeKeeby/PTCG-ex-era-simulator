@@ -15,6 +15,7 @@ color_tween_timing = 0.25
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
+z_index = 1
 anchors_preset = -1
 anchor_right = 1.003
 anchor_bottom = 1.015
@@ -72,7 +73,7 @@ text = "[center]Select A Pokemon"
 [node name="AbilityActivate" type="PanelContainer" parent="ColorRect"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = 11.0
 offset_top = 10.0
 offset_right = 51.0

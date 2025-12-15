@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SideState" load_steps=29 format=3 uid="uid://xvrvmijhyr5s"]
+[gd_resource type="Resource" script_class="SideState" load_steps=32 format=3 uid="uid://xvrvmijhyr5s"]
 
 [ext_resource type="Resource" uid="uid://y1s0b21lqst0" path="res://Resources/Decks/BabyEvo.tres" id="1_roiru"]
 [ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="2_kvvln"]
@@ -16,8 +16,11 @@
 [ext_resource type="Resource" uid="uid://cmng7od1imklg" path="res://Resources/Cards/1 ex Ruby & Saphire/RS100Magmar-ex.tres" id="13_3hrt0"]
 [ext_resource type="Script" uid="uid://dgqpurnuh14t1" path="res://Code/Resource Makers/GeneralUse/SideStateMaker.gd" id="13_dq5iw"]
 [ext_resource type="Script" uid="uid://cs70ix831b5g4" path="res://Code/Resource Makers/PokemonSpecific/PokeSlotMaker.gd" id="14_q1cwo"]
+[ext_resource type="Resource" uid="uid://c3jitqatq6mei" path="res://Resources/Cards/2 ex Sandstorm/SS35Electabuzz.tres" id="14_ubrir"]
+[ext_resource type="Resource" uid="uid://cht2g100xfwct" path="res://Resources/Cards/1 ex Ruby & Saphire/RS97Electabuzz-ex.tres" id="15_8o8eh"]
 [ext_resource type="Resource" uid="uid://c1d0x8y3ada7d" path="res://Resources/Cards/10 ex Unseen Forces/UF33Tyrogue.tres" id="15_fei10"]
 [ext_resource type="Resource" uid="uid://y724htokdlrt" path="res://Resources/Cards/1 ex Ruby & Saphire/RS105FightingEnergy.tres" id="16_2w6al"]
+[ext_resource type="Resource" uid="uid://0ji13y6la2en" path="res://Resources/Cards/10 ex Unseen Forces/UF22Electabuzz.tres" id="16_ydy0h"]
 [ext_resource type="Resource" uid="uid://bi6qeurrd6rwr" path="res://Resources/Cards/2 ex Sandstorm/SS20Pichu.tres" id="17_umuyy"]
 [ext_resource type="Resource" uid="uid://dlgvv1xjvao80" path="res://Resources/Cards/2 ex Sandstorm/SS36Elekid.tres" id="18_ugp6t"]
 [ext_resource type="Resource" uid="uid://cdr4amrpwso8k" path="res://Resources/Cards/12 ex Legend Maker/LM58Magby.tres" id="19_eykmg"]
@@ -26,7 +29,7 @@
 [sub_resource type="Resource" id="Resource_16yej"]
 script = ExtResource("12_00qie")
 deck = ExtResource("1_roiru")
-init_hand = Array[ExtResource("2_kvvln")]([ExtResource("3_lbf7i"), ExtResource("4_3hrt0"), ExtResource("5_wuw6c"), ExtResource("6_ubrir"), ExtResource("7_8o8eh"), ExtResource("9_nc5ls"), ExtResource("10_ume8b"), ExtResource("11_t4t7a"), ExtResource("8_ydy0h"), ExtResource("12_lbf7i"), ExtResource("13_3hrt0")])
+init_hand = Array[ExtResource("2_kvvln")]([ExtResource("3_lbf7i"), ExtResource("4_3hrt0"), ExtResource("5_wuw6c"), ExtResource("6_ubrir"), ExtResource("7_8o8eh"), ExtResource("9_nc5ls"), ExtResource("10_ume8b"), ExtResource("11_t4t7a"), ExtResource("8_ydy0h"), ExtResource("12_lbf7i"), ExtResource("13_3hrt0"), ExtResource("14_ubrir"), ExtResource("15_8o8eh"), ExtResource("16_ydy0h")])
 metadata/_custom_type_script = "uid://calm3n7va5yjo"
 
 [sub_resource type="Resource" id="Resource_pgwsj"]

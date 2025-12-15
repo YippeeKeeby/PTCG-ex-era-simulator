@@ -12,7 +12,6 @@ extends Button
  Vector2(size.x / 2,0), Vector2(0,-size.y / 2), Vector2(0,size.y / 2)]
 
 var connected_ui: UI_Slot
-
 var current_card: Base_Card:
 	set(value):
 		var old = current_card
@@ -44,6 +43,8 @@ func _gui_input(event):
 			SignalBus.chosen_slot.emit(connected_ui.connected_slot)
 		elif current_card:
 			Globals.show_slot_card(connected_ui.connected_slot)
+	elif event.is_action_pressed("A"):
+		pass
 
 func _on_pressed() -> void:
 	if pokemon:

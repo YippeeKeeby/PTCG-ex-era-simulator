@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnij7qm62bibx"]
+[gd_scene load_steps=9 format=3 uid="uid://dnij7qm62bibx"]
 
 [ext_resource type="Script" uid="uid://j57m0tmwtg4n" path="res://Code/Scenes/debug_board_state.gd" id="1_auq40"]
 [ext_resource type="Resource" uid="uid://bx3ytpyqp7p5f" path="res://Resources/BoardStates/SideStates/Doubles/Latis.tres" id="2_43axb"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bmhba1mua5n81" path="res://Scenes/Testing/debug_button.tscn" id="4_t8we2"]
 [ext_resource type="PackedScene" uid="uid://7cdjjog7dndn" path="res://Scenes/UI/ETC/input_condition.tscn" id="5_43axb"]
 [ext_resource type="PackedScene" uid="uid://b2f8g5a5evnv4" path="res://Scenes/Testing/comparator_options.tscn" id="6_43axb"]
-[ext_resource type="PackedScene" uid="uid://cni7lmrv7r06c" path="res://Scenes/Main Game/Fundies.tscn" id="6_iquab"]
 [ext_resource type="Script" uid="uid://c7ucx36aubnh8" path="res://Code/Resource Makers/GeneralUse/BoardStateMaker.gd" id="28_7d1mi"]
 
 [sub_resource type="Resource" id="Resource_myyen"]
@@ -27,7 +26,7 @@ grow_vertical = 2
 script = ExtResource("1_auq40")
 debug_prompt = 3
 board_state = SubResource("Resource_myyen")
-fundies = NodePath("Fundies")
+fundies = NodePath("")
 test = ExtResource("5_43axb")
 
 [node name="DebugButton" parent="." instance=ExtResource("4_t8we2")]
@@ -35,8 +34,3 @@ visible = false
 self_modulate = Color(1, 1, 1, 0.0784314)
 layout_mode = 1
 spawning_debug = ExtResource("6_43axb")
-
-[node name="Fundies" parent="." node_paths=PackedStringArray("board") instance=ExtResource("6_iquab")]
-board = NodePath("..")
-
-[editable path="Fundies"]

@@ -447,7 +447,7 @@ func check_play_disable(card: Base_Card):
 #region OVERRIDE CHECK
 func check_override_evo(card: Base_Card):
 	var atk: Array[PokeSlot] = Globals.full_ui.get_poke_slots(Consts.SIDES.ATTACKING)
-	var dict = get_side_change("Override", home_turn)
+	var dict = get_side_change("Override", home_turn).duplicate()
 	for slot in atk:
 		dict.merge(slot.get_changes("Override").duplicate())
 	

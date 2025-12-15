@@ -82,7 +82,7 @@ func set_attack(attack: Attack, theme_variation: String = ""):
 			making.check_usability()
 		else:
 			making.make_usable(true)
-	else: making.make_usable(mode)
+	else: making.make_usable(false)
 
 func determine_attack(attack: Attack):
 	if mode == "Mimic":

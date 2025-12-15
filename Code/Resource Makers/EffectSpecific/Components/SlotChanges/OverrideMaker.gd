@@ -30,7 +30,7 @@ class_name Override
 @export var becomes: EnData
 
 func how_display() -> Dictionary[String, bool]:
-	return {"Override" : true}
+	return {"Override" : false}
 
 func describe() -> String:
 	if can_evolve_into.size() != 0:

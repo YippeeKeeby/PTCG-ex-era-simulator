@@ -112,6 +112,8 @@ func switch_shine(value: bool):
 	%ArtButton.material.set_shader_parameter("shine_bool", value)
 
 func make_allowed(is_allowed: bool):
+	if connected_slot.current_card == null and home:
+		print()
 	%ArtButton.disabled = not is_allowed
 
 func display_image(card: Base_Card):

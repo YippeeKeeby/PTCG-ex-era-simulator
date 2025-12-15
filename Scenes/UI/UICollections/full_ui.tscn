@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bsad85ywgca3d"]
+[gd_scene load_steps=11 format=3 uid="uid://bsad85ywgca3d"]
 
 [ext_resource type="Script" uid="uid://b6qi20o3p32gq" path="res://Code/Scenes/UI/Main/full_ui.gd" id="1_2n6bm"]
 [ext_resource type="PackedScene" uid="uid://dognokjork36j" path="res://Scenes/UI/UICollections/PlayerSide.tscn" id="1_wioh2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bc4kcgiwhgyub" path="res://Scenes/UI/UICollections/PlayerSide_Doubles.tscn" id="4_1vv0h"]
 [ext_resource type="Shader" uid="uid://chaingl03cnx1" path="res://Shaders/Shine2D.gdshader" id="4_r2ex1"]
 [ext_resource type="PackedScene" uid="uid://vt2rp442knte" path="res://Scenes/UI/UICollections/OpponentSide_Doubles.tscn" id="5_53k33"]
+[ext_resource type="PackedScene" uid="uid://cni7lmrv7r06c" path="res://Scenes/Main Game/Fundies.tscn" id="9_53k33"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_43axb"]
 resource_local_to_scene = true
@@ -58,3 +59,6 @@ offset_right = 0.0
 offset_bottom = 24.5
 grow_horizontal = 0
 grow_vertical = 2
+
+[node name="Fundies" parent="." instance=ExtResource("9_53k33")]
+layer = 0

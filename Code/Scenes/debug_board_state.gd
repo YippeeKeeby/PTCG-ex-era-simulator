@@ -13,11 +13,11 @@ var ui_instance: PackedScene = load("uid://bsad85ywgca3d")
 var test_out: bool = false
 
 func _ready() -> void:
-	
 	full_ui = ui_instance.instantiate()
 	full_ui.side_rules = board_state.doubles
 	add_child(full_ui)
 	full_ui.home_side = board_state.home_side
+	fundies = full_ui.fundies
 	Globals.board_state = board_state
 	
 	board_state.duplicate_sides()

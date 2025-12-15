@@ -46,7 +46,8 @@ func prep_ability(slot: PokeSlot):
 func disconnect_ability():
 	if occurance:
 		occurance.disconnect_occurance()
-		occurance.occur.disconnect(activate_ability)
+		if occurance.occur.is_connected(activate_ability):
+			occurance.occur.disconnect(activate_ability)
 
 func single_prep(slot: PokeSlot):
 	if occurance:

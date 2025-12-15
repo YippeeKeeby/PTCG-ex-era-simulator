@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://j57m0tmwtg4n" path="res://Code/Scenes/debug_board_state.gd" id="1_auq40"]
 [ext_resource type="Resource" uid="uid://bx3ytpyqp7p5f" path="res://Resources/BoardStates/SideStates/Doubles/Latis.tres" id="2_43axb"]
-[ext_resource type="Resource" uid="uid://b6rde2dt868tx" path="res://Resources/BoardStates/SideStates/Doubles/MinorDisabv.tres" id="2_mxy7v"]
+[ext_resource type="Resource" uid="uid://xvrvmijhyr5s" path="res://Resources/BoardStates/SideStates/BABIES!.tres" id="3_43axb"]
 [ext_resource type="PackedScene" uid="uid://bmhba1mua5n81" path="res://Scenes/Testing/debug_button.tscn" id="4_t8we2"]
 [ext_resource type="PackedScene" uid="uid://7cdjjog7dndn" path="res://Scenes/UI/ETC/input_condition.tscn" id="5_43axb"]
 [ext_resource type="PackedScene" uid="uid://b2f8g5a5evnv4" path="res://Scenes/Testing/comparator_options.tscn" id="6_43axb"]
@@ -12,7 +12,7 @@
 [sub_resource type="Resource" id="Resource_myyen"]
 script = ExtResource("28_7d1mi")
 coin_rules = 1
-home = ExtResource("2_mxy7v")
+home = ExtResource("3_43axb")
 away_side = 0
 away = ExtResource("2_43axb")
 metadata/_custom_type_script = "uid://c7ucx36aubnh8"

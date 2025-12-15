@@ -8,6 +8,7 @@ var fundies: Fundies
 var full_ui: FullBoardUI
 var coinflip: Control
 var board_state: BoardState
+var removing: bool = false
 
 signal enter_check
 signal exit_check
@@ -54,7 +55,7 @@ func card_setup(card: Base_Card, card_display: Node, parent: Node):
 	card_display.scale = Vector2(.05, .05)
 	card_display.modulate = Color.TRANSPARENT
 	card_display.name = str(card.name, " Card")
-	if full_ui.ui_stack.size() != 1:
+	if full_ui.ui_stack.size() > 1:
 		card_display.position = full_ui.ui_stack[-1].global_position
 	
 	full_ui.set_top_ui(card_display)
@@ -95,6 +96,8 @@ func control_disapear(node: Node, timing: float, old_position: Vector2 = Vector2
 func make_can_evo_from(evo: Base_Card) -> Callable:
 	var evo_func: Callable = func can_evo_from(slot: PokeSlot):
 		if slot.is_filled():
+			if slot.check_override_evo(evo):
+				return true
 			return slot.current_card.name == evo.pokemon_properties.evolves_from
 		else:
 			return false

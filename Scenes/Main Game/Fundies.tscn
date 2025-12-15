@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bm07a7wgsaxxp" path="res://Scenes/Components/CardPlayer.tscn" id="2_fh4v4"]
 [ext_resource type="PackedScene" uid="uid://cobenwsotye1q" path="res://Scenes/Components/StackManager.tscn" id="3_eym7l"]
 
-[node name="Fundies" type="Node"]
+[node name="Fundies" type="CanvasLayer"]
 script = ExtResource("1_fh4v4")
 
 [node name="PassTurnGraphic" parent="." instance=ExtResource("2_6hj6q")]

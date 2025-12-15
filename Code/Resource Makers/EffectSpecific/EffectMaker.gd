@@ -43,8 +43,8 @@ var replace_num: int = -1
 
 #These are params since the indivdual call knows best which is what
 func play_effect(reversable: bool = false) -> void:
-	var default_order = [condition, buff, card_disrupt, disable, 
-	 energy_movement, dmgManip, search, swap, draw_ammount, alleviate, mimic]
+	var default_order = [condition, buff, card_disrupt, disable, energy_movement,
+	 dmgManip, search, swap, draw_ammount, alleviate, mimic, override, cheat_play, type_change]
 	#var enum_dict: Dictionary = {effect_types.CONDITION:condition, effect_types.BUFF:buff,
 	 #effect_types.DISRUPT:card_disrupt, effect_types.DISABLE:disable,
 	 #effect_types.ENMOV:energy_movement, effect_types.DMGMANIP: dmgManip,

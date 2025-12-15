@@ -78,6 +78,7 @@ func manage_input(event: InputEvent):
 func emit_play_as(flag: int):
 	if not Globals.checking:
 		SignalBus.remove_top_ui.emit()
+		await SignalBus.finished_remove_top_ui
 		SignalBus.remove_top_ui.emit()
 		play_as.emit(flag, origin_button.card)
 		origin_button.parent.finished.emit()

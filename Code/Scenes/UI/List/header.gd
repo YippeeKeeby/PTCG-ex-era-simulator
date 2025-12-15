@@ -49,4 +49,3 @@ func _on_movable_pressed() -> void:
 func _on_close_button_pressed() -> void:
 	close_button_pressed.emit()
 	SignalBus.remove_top_ui.emit()
-	#owner.queue_free()

@@ -1,8 +1,62 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=3 format=3 uid="uid://y1s0b21lqst0"]
+[gd_resource type="Resource" script_class="Deck" load_steps=29 format=3 uid="uid://y1s0b21lqst0"]
 
 [ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_c0hqb"]
 [ext_resource type="Script" uid="uid://e660iomt5e76" path="res://Code/Resource Makers/CardResources/DeckMaker.gd" id="2_j4san"]
+[ext_resource type="Resource" uid="uid://c1d0x8y3ada7d" path="res://Resources/Cards/10 ex Unseen Forces/UF33Tyrogue.tres" id="2_t4v7j"]
+[ext_resource type="Resource" uid="uid://hlu435pa70ii" path="res://Resources/Cards/10 ex Unseen Forces/UF25Hitmonlee.tres" id="3_whvve"]
+[ext_resource type="Resource" uid="uid://dbs12vo3liq64" path="res://Resources/Cards/10 ex Unseen Forces/UF26Hitmontop.tres" id="4_2c88v"]
+[ext_resource type="Resource" uid="uid://qwi56d62ku2e" path="res://Resources/Cards/10 ex Unseen Forces/UF24Hitmonchan.tres" id="5_n7jcf"]
+[ext_resource type="Resource" uid="uid://bgdym04a78y12" path="res://Resources/Cards/1 ex Ruby & Saphire/RS98Hitmonchan-ex.tres" id="6_04vlq"]
+[ext_resource type="Resource" uid="uid://dlgvv1xjvao80" path="res://Resources/Cards/2 ex Sandstorm/SS36Elekid.tres" id="7_ead6s"]
+[ext_resource type="Resource" uid="uid://cdr4amrpwso8k" path="res://Resources/Cards/12 ex Legend Maker/LM58Magby.tres" id="8_na75q"]
+[ext_resource type="Resource" uid="uid://co2iof4eyq75b" path="res://Resources/Cards/10 ex Unseen Forces/UF31Smoochum.tres" id="9_8a7rq"]
+[ext_resource type="Resource" uid="uid://d4eay6xp5d5n1" path="res://Resources/Cards/4 ex Team Magma VS Team Aqua/MA41Jigglypuff.tres" id="10_klaon"]
+[ext_resource type="Resource" uid="uid://d2wg36f2ban31" path="res://Resources/Cards/5 ex Hidden Legends/HL37Igglybuff.tres" id="11_f4oc0"]
+[ext_resource type="Resource" uid="uid://bi6qeurrd6rwr" path="res://Resources/Cards/2 ex Sandstorm/SS20Pichu.tres" id="12_l1q78"]
+[ext_resource type="Resource" uid="uid://3xchf1a58j3h" path="res://Resources/Cards/2 ex Sandstorm/SS72Pikachu.tres" id="13_l2uxj"]
+[ext_resource type="Resource" uid="uid://b3pfb181wmq6p" path="res://Resources/Cards/12 ex Legend Maker/LM21Magmar.tres" id="14_egmjo"]
+[ext_resource type="Resource" uid="uid://cmng7od1imklg" path="res://Resources/Cards/1 ex Ruby & Saphire/RS100Magmar-ex.tres" id="15_gqvaq"]
+[ext_resource type="Resource" uid="uid://2gbttee2ievi" path="res://Resources/Cards/13 ex Holon Phantoms/HP44Holon'sCastform.tres" id="16_usxxw"]
+[ext_resource type="Resource" uid="uid://c3jitqatq6mei" path="res://Resources/Cards/2 ex Sandstorm/SS35Electabuzz.tres" id="17_t6181"]
+[ext_resource type="Resource" uid="uid://0ji13y6la2en" path="res://Resources/Cards/10 ex Unseen Forces/UF22Electabuzz.tres" id="18_mvhvy"]
+[ext_resource type="Resource" uid="uid://cht2g100xfwct" path="res://Resources/Cards/1 ex Ruby & Saphire/RS97Electabuzz-ex.tres" id="19_ak01r"]
+[ext_resource type="Resource" uid="uid://bekwoaj06a44c" path="res://Resources/Cards/1 ex Ruby & Saphire/RS95RainbowEnergy.tres" id="20_p7igt"]
+[ext_resource type="Resource" uid="uid://36ivd6eliqj0" path="res://Resources/Cards/14 ex Crystal Guardians/CG88DoubleRainbowEnergy.tres" id="21_vapvw"]
+[ext_resource type="Resource" uid="uid://b5ukqf6xmn6vv" path="res://Resources/Cards/1 ex Ruby & Saphire/RS109LightningEnergy.tres" id="22_m7x4q"]
+[ext_resource type="Resource" uid="uid://y724htokdlrt" path="res://Resources/Cards/1 ex Ruby & Saphire/RS105FightingEnergy.tres" id="23_n5wvx"]
+[ext_resource type="Resource" uid="uid://dpq83tgsde1lq" path="res://Resources/Cards/11 ex Delta Species/DS93HolonMentor.tres" id="24_bn1ei"]
+[ext_resource type="Resource" uid="uid://cqgp6lgf168tv" path="res://Resources/Cards/10 ex Unseen Forces/UF21Cleffa.tres" id="25_fnvak"]
+[ext_resource type="Resource" uid="uid://daj1y8i36dils" path="res://Resources/Cards/6 ex FireRed & LeafGreen/RG59Clefairy.tres" id="26_eihmu"]
+[ext_resource type="Resource" uid="uid://k4e01k751mpn" path="res://Resources/Cards/10 ex Unseen Forces/UF28Jynx.tres" id="27_whvve"]
 
 [resource]
 script = ExtResource("2_j4san")
+cards = Dictionary[ExtResource("1_c0hqb"), int]({
+ExtResource("27_whvve"): 2,
+ExtResource("26_eihmu"): 1,
+ExtResource("25_fnvak"): 2,
+ExtResource("24_bn1ei"): 3,
+ExtResource("23_n5wvx"): 2,
+ExtResource("22_m7x4q"): 2,
+ExtResource("21_vapvw"): 4,
+ExtResource("20_p7igt"): 4,
+ExtResource("19_ak01r"): 1,
+ExtResource("18_mvhvy"): 2,
+ExtResource("17_t6181"): 2,
+ExtResource("16_usxxw"): 4,
+ExtResource("15_gqvaq"): 2,
+ExtResource("14_egmjo"): 2,
+ExtResource("13_l2uxj"): 2,
+ExtResource("12_l1q78"): 2,
+ExtResource("11_f4oc0"): 2,
+ExtResource("10_klaon"): 2,
+ExtResource("9_8a7rq"): 2,
+ExtResource("8_na75q"): 3,
+ExtResource("7_ead6s"): 3,
+ExtResource("6_04vlq"): 2,
+ExtResource("5_n7jcf"): 2,
+ExtResource("4_2c88v"): 2,
+ExtResource("3_whvve"): 2,
+ExtResource("2_t4v7j"): 3
+})
 metadata/_custom_type_script = "uid://e660iomt5e76"

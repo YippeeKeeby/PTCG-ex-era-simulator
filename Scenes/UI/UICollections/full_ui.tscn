@@ -20,6 +20,7 @@ shader_parameter/shine_size = 0.07
 shader_parameter/shine_bool = false
 
 [node name="FullUI" type="CanvasLayer"]
+layer = 0
 script = ExtResource("1_2n6bm")
 side_ui = Array[PackedScene]([ExtResource("1_wioh2"), ExtResource("2_2n6bm"), ExtResource("4_1vv0h"), ExtResource("5_53k33")])
 

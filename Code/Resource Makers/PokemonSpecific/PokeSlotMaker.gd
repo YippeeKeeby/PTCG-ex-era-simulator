@@ -936,7 +936,7 @@ func get_every_change(change: String) -> Dictionary:
 	
 	return dict
 
-func apply_slot_change(apply: SlotChange):
+func apply_slot_change(apply: SlotChange) -> void:
 	if is_filled() and not apply in get_changes("Buff"):
 		var dict: Dictionary = get_changes(apply.get_script().get_global_name())
 		
@@ -945,7 +945,7 @@ func apply_slot_change(apply: SlotChange):
 			changes_ui_check()
 			check_passive()
 
-func remove_slot_change(removing: SlotChange):
+func remove_slot_change(removing: SlotChange) -> void:
 	if is_filled():
 		var dict: Dictionary = get_changes(removing.get_script().get_global_name())
 		
@@ -960,7 +960,7 @@ func remove_slot_change(removing: SlotChange):
 			
 			changes_ui_check()
 
-func changes_ui_check():
+func changes_ui_check() -> void:
 	ui_slot.changes_display.set_changes(all_changes.values())
 	ui_slot.max_hp.clear()
 	set_max_hp()
@@ -978,7 +978,7 @@ func check_bool_disable(which: Consts.MON_DISABL) -> bool:
 	
 	return false
 
-func check_attack_disable(which: Consts.DIS_ATK, atk_name: String):
+func check_attack_disable(which: Consts.DIS_ATK, atk_name: String) -> bool:
 	for dis in get_every_change("Disable"):
 		if not dis is Disable: continue
 		dis = dis as Disable
@@ -987,7 +987,7 @@ func check_attack_disable(which: Consts.DIS_ATK, atk_name: String):
 			return true
 	return false
 
-func check_atk_efct_dis(atk_name: String):
+func check_atk_efct_dis(atk_name: String) -> bool:
 	for dis in get_every_change("Disable"):
 		if not dis is Disable: continue
 		dis = dis as Disable
@@ -996,12 +996,21 @@ func check_atk_efct_dis(atk_name: String):
 			return true
 	return false
 
-func switch_clear():
+func check_override_evo(card: Base_Card) -> bool:
+	for ov in get_changes("Override"):
+		if not ov is Override: continue
+		ov = ov as Override
+		
+		if card.name in ov.can_evolve_into:
+			return true
+	return false
+
+func switch_clear() -> void:
 	for dict in all_changes.values():
 		for change in dict:
 			remove_slot_change(change)
 
-func manage_change_timers():
+func manage_change_timers() -> void:
 	printt(all_changes, get_card_name())
 	for dict in all_changes.values():
 		for change in dict:
@@ -1017,7 +1026,7 @@ func manage_change_timers():
 
 #--------------------------------------
 #region MANAGING DISPLAYS
-func slot_into(destination: UI_Slot, initalize: bool = false):
+func slot_into(destination: UI_Slot, initalize: bool = false) -> void:
 	ui_slot = destination
 	#debug_check()
 	if initalize:
@@ -1029,7 +1038,7 @@ func slot_into(destination: UI_Slot, initalize: bool = false):
 			ui_slot.tm.texture = tm_cards[0].image
 			ui_slot.tm.show()
 
-func refresh_current_card():
+func refresh_current_card() -> void:
 	ui_slot.name_section.clear()
 	ui_slot.max_hp.clear()
 	set_max_hp()

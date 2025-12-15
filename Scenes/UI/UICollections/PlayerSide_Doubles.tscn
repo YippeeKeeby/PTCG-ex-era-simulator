@@ -28,6 +28,7 @@ offset_right = -7.0
 offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 16
 
 [node name="Main" type="HBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true

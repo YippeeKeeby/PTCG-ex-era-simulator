@@ -131,7 +131,9 @@ func _input(event: InputEvent) -> void:
 
 #Set top ui every time a new one is created
 func set_top_ui(node: Control, par: Node = self):
-	node.z_index = ui_stack[-1].z_index + 1
+	var inital_z: int = ui_stack[-1].z_index if ui_stack.size() > 0 else 0
+	
+	node.z_index = inital_z + 1
 	par.add_child(node)
 	ui_stack.append(node)
 	disable_sides()
@@ -139,11 +141,15 @@ func set_top_ui(node: Control, par: Node = self):
 
 #Set the top UI for removal 
 func remove_top_ui():
-	control_disapear(ui_stack.pop_back())
+	Globals.removing = true
+	await control_disapear(ui_stack[-1])
+	ui_stack.pop_back()
+	
 	print("Just removed so now: ", ui_stack)
-	if ui_stack.size() == 1:
+	if ui_stack.size() == 0:
 		enable_sides()
 	
+	Globals.removing = false
 	SignalBus.finished_remove_top_ui.emit()
 
 func enable_sides():

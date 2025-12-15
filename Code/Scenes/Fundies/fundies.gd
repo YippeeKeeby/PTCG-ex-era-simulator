@@ -104,10 +104,14 @@ func can_be_played(card: Base_Card) -> int:
 	var considered: int = Convert.get_card_flags(card)
 	var allowed_to: int = 0
 	#Basic
-	if considered & 1 != 0 and find_allowed_slots(func(slot: PokeSlot): 
-		return not slot.is_filled(),
-		Consts.SIDES.ATTACKING).size() != 0:
-			allowed_to += 1
+	if considered & 1 != 0:
+		if find_allowed_slots(func(slot: PokeSlot): 
+			return not slot.is_filled(), Consts.SIDES.ATTACKING).size() != 0:
+				allowed_to += 1
+			
+		if check_override_evo(card):
+			allowed_to += 2
+	
 	#Evo
 	if considered & 2 != 0:
 		var can_evo_from = Globals.make_can_evo_from(card)
@@ -438,6 +442,24 @@ func check_play_disable(card: Base_Card):
 			return true
 	
 	return false
+#endregion
+
+#region OVERRIDE CHECK
+func check_override_evo(card: Base_Card):
+	var atk: Array[PokeSlot] = Globals.full_ui.get_poke_slots(Consts.SIDES.ATTACKING)
+	var dict = get_side_change("Override", home_turn)
+	for slot in atk:
+		dict.merge(slot.get_changes("Override").duplicate())
+	
+	for ov in dict:
+		if not ov is Override: continue
+		ov = ov as Override
+		
+		if card.name in ov.can_evolve_into:
+			return true
+	
+	return false
+
 #endregion
 
 #endregion

@@ -22,10 +22,6 @@ class_name SlotChange
 
 signal finished
 
-func _init():
-	print(describe())
-	#button = Callable(self, "describe")
-
 func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
 	print("PLAY ", self.get_script().get_global_name())
 	
@@ -39,6 +35,7 @@ func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
 				await dis.choose_atk_disable(slot)
 		else:
 			for slot in apply_to:
+				print(slot.get_card_name(), " can ", describe(), "\n")
 				slot.apply_slot_change(self)
 		
 	else:
@@ -53,7 +50,7 @@ func how_display() -> Dictionary[String, bool]:
 		"Override":
 			return {"Override" : false}
 		"TypeChange":
-			return {"TypeeChange" : false}
+			return {"TypeChange" : false}
 	
 	return {"RuleChange" : true}
 

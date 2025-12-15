@@ -42,7 +42,7 @@ metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
 
 [sub_resource type="Resource" id="Resource_4rrfa"]
 script = ExtResource("8_3rem8")
-pokebody = ExtResource("7_myr1i")
+pokepower = ExtResource("7_myr1i")
 attacks = Array[ExtResource("2_rjc7a")]([SubResource("Resource_sifhx")])
 type = 256
 metadata/_custom_type_script = "uid://dkximshow1pao"

@@ -36,6 +36,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_type_variation = &"ListPanel"
+metadata/_edit_lock_ = true
 
 [node name="Main" type="VBoxContainer" parent="Main"]
 layout_mode = 2
@@ -111,13 +112,12 @@ stretch_mode = 4
 [node name="TypeContainer" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 17.0
-offset_top = 26.0
-offset_right = 151.0
-offset_bottom = 50.0
+offset_left = -7.0
+offset_top = 27.0
+offset_right = 127.0
+offset_bottom = 51.0
 mouse_filter = 2
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
 [node name="Types" parent="TypeContainer" instance=ExtResource("4_nhrrd")]
 layout_mode = 2
@@ -145,29 +145,28 @@ layout_mode = 2
 [node name="DamageCounter" parent="." instance=ExtResource("8_e8fxk")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 148.0
-offset_top = 28.0
-offset_right = 180.0
-offset_bottom = 60.0
+offset_left = 136.0
+offset_top = 37.000004
+offset_right = 168.0
+offset_bottom = 69.0
 scale = Vector2(0.75, 0.75)
 
 [node name="EnergyTypes" parent="." instance=ExtResource("7_lj5ts")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 12.0
-offset_top = 118.0
-offset_right = 232.0
-offset_bottom = 142.0
+offset_top = 115.0
+offset_right = 114.0
+offset_bottom = 139.0
 en_count = 6
-metadata/_edit_lock_ = true
 
 [node name="Conditions" parent="." instance=ExtResource("8_lj5ts")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 163.0
-offset_top = 51.0
-offset_right = 163.0
-offset_bottom = 155.0
+offset_left = 137.0
+offset_top = 61.000004
+offset_right = 169.0
+offset_bottom = 157.0
+columns = 1
 
 [node name="ChangeDisplay" parent="Conditions" instance=ExtResource("6_lcf6b")]
 unique_name_in_owner = true

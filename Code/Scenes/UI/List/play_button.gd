@@ -9,6 +9,7 @@ class_name PlayingButton
 
 signal select
 
+var current_option: ItemOptions
 var from_id: Identifier
 var parent: Node
 var checking_card: Node
@@ -52,7 +53,7 @@ func allow(play_as: int):
 	#var allowed_as = Globals.fundies.can_be_played(card)
 	printt("ALLOW CHECK:",card.name,play_as & card_flags, play_as, card_flags)
 	#printt("ALLOWED AS:", allowed_as)
-	card_flags = play_as & card_flags
+	card_flags = play_as
 	
 	#if allowed_as != card_flags:
 		#disable_flags = card_flags - allowed_as
@@ -94,6 +95,7 @@ func show_options() -> Node:
 	option_Display.tree_exited.connect(deselect)
 	option_Display.position = get_option_position(option_Display)
 	option_Display.bring_up()
+	current_option = option_Display
 	
 	return option_Display
 
@@ -122,10 +124,15 @@ func _gui_input(event):
 			or stack_act == Consts.STACK_ACT.MIMIC:
 				select.emit()
 			elif stack_act != Consts.STACK_ACT.LOOK:
-				if parent.options:
+				if parent.options or current_option:
+					var diff_button: bool = parent.options != current_option
 					SignalBus.remove_top_ui.emit()
 					await SignalBus.finished_remove_top_ui
-				if not Globals.checking:
+					
+					if diff_button:
+						parent.options = show_options()
+				
+				elif not Globals.checking and not Globals.removing:
 					parent.options = show_options()
 			elif stack_act == Consts.STACK_ACT.LOOK:
 				Globals.show_card(card, self)

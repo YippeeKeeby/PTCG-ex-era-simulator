@@ -71,7 +71,7 @@ func check_atk_efct(atk_name: String):
 	return disable_atk_effect
 
 func how_display() -> Dictionary[String, bool]:
-	return {"Disable" : false}
+	return {"Disable" : true}
 
 func describe() -> String:
 	var final: String = str(recieves.print_ask(false)," get ")\

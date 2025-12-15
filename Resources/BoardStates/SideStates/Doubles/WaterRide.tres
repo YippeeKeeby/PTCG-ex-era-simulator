@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="SideState" load_steps=29 format=3 uid="uid://dmt7p4m6333jo"]
+
+[ext_resource type="Resource" uid="uid://b75vmyoe84yyc" path="res://Resources/Decks/WaterRide.tres" id="1_342fn"]
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="2_qvcii"]
+[ext_resource type="Resource" uid="uid://che6uh6cmbwtx" path="res://Resources/Cards/15 ex Dragon Frontiers/DF74HolonLegacy.tres" id="3_x465s"]
+[ext_resource type="Resource" uid="uid://ssf0yvm562c6" path="res://Resources/Cards/13 ex Holon Phantoms/HP87HolonLake.tres" id="4_a0w4v"]
+[ext_resource type="Resource" uid="uid://yo6mwyi1cfi8" path="res://Resources/Cards/11 ex Delta Species/DS96HolonRuins.tres" id="5_yk17i"]
+[ext_resource type="Resource" uid="uid://ca5yhqom7fs31" path="res://Resources/Cards/15 ex Dragon Frontiers/DF1AmpharosDelta.tres" id="6_hw6ui"]
+[ext_resource type="Resource" uid="uid://bd77gcfuxaop" path="res://Resources/Cards/13 ex Holon Phantoms/HP85HolonAdventurer.tres" id="7_ustju"]
+[ext_resource type="Resource" uid="uid://b1wmepba718r6" path="res://Resources/Cards/11 ex Delta Species/DS94HolonResearchTower.tres" id="8_lnkv6"]
+[ext_resource type="Resource" uid="uid://bsh1y8g2wng0m" path="res://Resources/Cards/12 ex Legend Maker/LM75GiantStump.tres" id="9_h27qb"]
+[ext_resource type="Resource" uid="uid://bj1fw8bmuhxl8" path="res://Resources/Cards/5 ex Hidden Legends/HL24Relicanth.tres" id="10_5hxur"]
+[ext_resource type="Resource" uid="uid://b86cvexm3qqyb" path="res://Resources/Cards/12 ex Legend Maker/LM17Gorebyss.tres" id="11_22pai"]
+[ext_resource type="Resource" uid="uid://c7qjdlm2vg1ho" path="res://Resources/Cards/5 ex Hidden Legends/HL58Clamperl.tres" id="12_fs6er"]
+[ext_resource type="Resource" uid="uid://bkih6iwdpqvmx" path="res://Resources/Cards/12 ex Legend Maker/LM82ReactEnergy.tres" id="13_svfkq"]
+[ext_resource type="Script" uid="uid://calm3n7va5yjo" path="res://Code/Resource Makers/GeneralUse/CardStacksMaker.gd" id="14_804ej"]
+[ext_resource type="Script" uid="uid://dgqpurnuh14t1" path="res://Code/Resource Makers/GeneralUse/SideStateMaker.gd" id="15_t45pc"]
+[ext_resource type="Script" uid="uid://cs70ix831b5g4" path="res://Code/Resource Makers/PokemonSpecific/PokeSlotMaker.gd" id="16_3hfgc"]
+[ext_resource type="Script" uid="uid://8s3m1dar3r33" path="res://Code/Resource Makers/EffectSpecific/Components/ConditionMaker.gd" id="17_204um"]
+[ext_resource type="Resource" uid="uid://b3ya0jos3vnq4" path="res://Resources/Cards/5 ex Hidden Legends/HL33Dodrio.tres" id="18_k68tn"]
+[ext_resource type="Resource" uid="uid://d3wqsrtlqtlqm" path="res://Resources/Cards/1 ex Ruby & Saphire/RS106WaterEnergy.tres" id="19_lgndw"]
+[ext_resource type="Resource" uid="uid://dbq8cl880y302" path="res://Resources/Cards/5 ex Hidden Legends/HL60Doduo.tres" id="20_275i1"]
+[ext_resource type="Resource" uid="uid://c3oea3y5rj5fy" path="res://Resources/Cards/3 ex Dragon/DR27Flaaffy.tres" id="21_xedss"]
+[ext_resource type="Resource" uid="uid://ngxvnxswv6j" path="res://Resources/Cards/3 ex Dragon/DR64Mareep.tres" id="22_6v0id"]
+
+[sub_resource type="Resource" id="Resource_t8g77"]
+script = ExtResource("14_804ej")
+deck = ExtResource("1_342fn")
+init_hand = Array[ExtResource("2_qvcii")]([ExtResource("3_x465s"), ExtResource("4_a0w4v"), ExtResource("5_yk17i"), ExtResource("6_hw6ui"), ExtResource("7_ustju"), ExtResource("8_lnkv6"), ExtResource("9_h27qb"), ExtResource("10_5hxur"), ExtResource("11_22pai"), ExtResource("12_fs6er"), ExtResource("13_svfkq")])
+metadata/_custom_type_script = "uid://calm3n7va5yjo"
+
+[sub_resource type="Resource" id="Resource_qpaoy"]
+script = ExtResource("16_3hfgc")
+current_card = ExtResource("12_fs6er")
+energy_cards = Array[ExtResource("2_qvcii")]([ExtResource("13_svfkq")])
+metadata/_custom_type_script = "uid://cs70ix831b5g4"
+
+[sub_resource type="Resource" id="Resource_0jd66"]
+script = ExtResource("17_204um")
+poison = 1
+turn_cond = 1
+metadata/_custom_type_script = "uid://8s3m1dar3r33"
+
+[sub_resource type="Resource" id="Resource_kwm3j"]
+script = ExtResource("16_3hfgc")
+current_card = ExtResource("18_k68tn")
+evolved_from = Array[ExtResource("2_qvcii")]([ExtResource("20_275i1")])
+energy_cards = Array[ExtResource("2_qvcii")]([ExtResource("19_lgndw"), ExtResource("19_lgndw")])
+applied_condition = SubResource("Resource_0jd66")
+metadata/_custom_type_script = "uid://cs70ix831b5g4"
+
+[sub_resource type="Resource" id="Resource_eyw3d"]
+script = ExtResource("16_3hfgc")
+current_card = ExtResource("21_xedss")
+evolved_from = Array[ExtResource("2_qvcii")]([ExtResource("22_6v0id")])
+metadata/_custom_type_script = "uid://cs70ix831b5g4"
+
+[sub_resource type="Resource" id="Resource_7d1mi"]
+script = ExtResource("16_3hfgc")
+current_card = ExtResource("10_5hxur")
+energy_cards = Array[ExtResource("2_qvcii")]([ExtResource("13_svfkq")])
+metadata/_custom_type_script = "uid://cs70ix831b5g4"
+
+[resource]
+script = ExtResource("15_t45pc")
+card_stacks = SubResource("Resource_t8g77")
+slots = Dictionary[ExtResource("16_3hfgc"), bool]({
+SubResource("Resource_qpaoy"): true,
+SubResource("Resource_kwm3j"): true,
+SubResource("Resource_eyw3d"): false,
+SubResource("Resource_7d1mi"): false
+})
+metadata/_custom_type_script = "uid://dgqpurnuh14t1"

@@ -145,10 +145,10 @@ layout_mode = 2
 [node name="DamageCounter" parent="." instance=ExtResource("8_e8fxk")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 136.0
-offset_top = 37.000004
-offset_right = 168.0
-offset_bottom = 69.0
+offset_left = 138.0
+offset_top = 32.0
+offset_right = 170.0
+offset_bottom = 64.0
 scale = Vector2(0.75, 0.75)
 
 [node name="EnergyTypes" parent="." instance=ExtResource("7_lj5ts")]
@@ -162,10 +162,10 @@ en_count = 6
 [node name="Conditions" parent="." instance=ExtResource("8_lj5ts")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 137.0
-offset_top = 61.000004
-offset_right = 169.0
-offset_bottom = 157.0
+offset_left = 162.0
+offset_top = 58.000004
+offset_right = 194.0
+offset_bottom = 250.0
 columns = 1
 
 [node name="ChangeDisplay" parent="Conditions" instance=ExtResource("6_lcf6b")]

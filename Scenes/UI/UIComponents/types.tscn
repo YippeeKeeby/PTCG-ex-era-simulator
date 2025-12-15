@@ -37,12 +37,14 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_la0dl")
 
 [node name="BG" type="TextureRect" parent="PanelContainer"]
 unique_name_in_owner = true
 modulate = Color(0.406415, 0.858788, 0, 1)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("2_72mgm")
 
 [node name="Tabs" type="TabContainer" parent="PanelContainer"]
@@ -197,7 +199,7 @@ metadata/_tab_index = 15
 
 [node name="React" type="TextureRect" parent="PanelContainer/Tabs"]
 visible = false
-modulate = Color(0.301961, 1, 1, 1)
+modulate = Color(0.185, 0.74, 0.66600007, 1)
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("11_y2ceq")

@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=3 uid="uid://b0jqumxi8jit2"]
+
+[ext_resource type="Script" uid="uid://c4iugyia8j6ys" path="res://Scenes/UI/UIComponents/right_aligned_grid.gd" id="1_q23ya"]
+[ext_resource type="Texture2D" uid="uid://dj7jl64ubjq3r" path="res://Art/Counters/Poison.png" id="2_udro5"]
+[ext_resource type="Texture2D" uid="uid://cd6l3wcjbqj0q" path="res://Art/Counters/Burn.png" id="3_qt5xh"]
+[ext_resource type="Texture2D" uid="uid://2d5wox7ruhx6" path="res://Art/Counters/Paralysis.png" id="4_0uwrw"]
+[ext_resource type="Texture2D" uid="uid://pgjbr5a5mvw7" path="res://Art/Counters/Sleep.png" id="5_u0fro"]
+[ext_resource type="Texture2D" uid="uid://drxnepvq60j3v" path="res://Art/Counters/Confusion.png" id="6_lh1yw"]
+[ext_resource type="Texture2D" uid="uid://cijlbc37pj4gd" path="res://icon.svg" id="7_4443v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgtgx"]
+
+[node name="RightAlignedGrid" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q23ya")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 32.0
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Poison" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.485267, 0.0116, 0.58, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("2_udro5")
+expand_mode = 4
+
+[node name="Burn" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.958834, 0.187258, 0.253602, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("3_qt5xh")
+expand_mode = 4
+
+[node name="TurnConditions" type="TabContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tgtgx")
+current_tab = 0
+tabs_visible = false
+
+[node name="Paralysis" type="TextureRect" parent="HBoxContainer/TurnConditions"]
+modulate = Color(1, 1, 0.0901961, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_0uwrw")
+expand_mode = 4
+metadata/_tab_index = 0
+
+[node name="Sleep" type="TextureRect" parent="HBoxContainer/TurnConditions"]
+visible = false
+modulate = Color(0.22, 1, 1, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_u0fro")
+expand_mode = 4
+metadata/_tab_index = 1
+
+[node name="Confusion" type="TextureRect" parent="HBoxContainer/TurnConditions"]
+visible = false
+modulate = Color(0.406415, 0.858788, 0, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("6_lh1yw")
+expand_mode = 4
+metadata/_tab_index = 2
+
+[node name="Shockwave" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.443262, 0.520605, 1, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("7_4443v")
+expand_mode = 4
+
+[node name="Imprison" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.984314, 0.498039, 0.745098, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("7_4443v")
+expand_mode = 4

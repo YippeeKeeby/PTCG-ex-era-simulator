@@ -42,6 +42,8 @@ func get_sides():
 	opponent_side = side_ui[(2 * int(side_rules && 2)) + 1].instantiate()
 	opponent_side.set_anchors_preset(Control.PRESET_TOP_WIDE)
 	add_child(opponent_side)
+	
+	sides = [player_side, opponent_side]
 
 #endregion
 #--------------------------------------

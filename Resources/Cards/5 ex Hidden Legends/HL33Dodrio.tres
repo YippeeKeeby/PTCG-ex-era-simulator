@@ -1,14 +1,59 @@
-[gd_resource type="Resource" script_class="Base_Card" load_steps=14 format=3 uid="uid://b3ya0jos3vnq4"]
+[gd_resource type="Resource" script_class="Base_Card" load_steps=25 format=3 uid="uid://b3ya0jos3vnq4"]
 
 [ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_bxtj7"]
 [ext_resource type="Texture2D" uid="uid://ss67ohy0rb7h" path="res://Art/Cards/5 ex Hidden Legends/33.jpg" id="1_rdcmp"]
 [ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_egxd8"]
+[ext_resource type="Resource" uid="uid://b1rwmggf7a4do" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Colorless2.tres" id="3_eabca"]
 [ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="3_egxd8"]
 [ext_resource type="Resource" uid="uid://drcbww84yrlx" path="res://Resources/Components/Effects/Asks/General/Self.tres" id="3_shc5c"]
 [ext_resource type="Script" uid="uid://cg3m7vpqxf2t6" path="res://Code/Resource Makers/EffectSpecific/Components/SlotChanges/OverrideMaker.gd" id="4_ckk4b"]
+[ext_resource type="Resource" uid="uid://v724fytl6d2v" path="res://Resources/Components/Pokemon/Attacks/AttackData/10xSelfDmgCount.tres" id="4_lw0jg"]
 [ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="5_4mo60"]
 [ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="6_l02ij"]
+[ext_resource type="Script" uid="uid://c0ishgbxk63dg" path="res://Code/Resource Makers/EffectSpecific/Components/SlotChanges/DisableMaker.gd" id="7_06h84"]
 [ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="7_eabca"]
+[ext_resource type="Resource" uid="uid://ekj1myy642kh" path="res://Resources/Components/Effects/Prompts/PromptHeads.tres" id="9_lltn3"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="10_uno1w"]
+
+[sub_resource type="Resource" id="Resource_dhay2"]
+script = ExtResource("2_egxd8")
+name = "Retaliate"
+attack_cost = ExtResource("3_eabca")
+attack_data = ExtResource("4_lw0jg")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_jsq33"]
+script = ExtResource("7_06h84")
+attack = 1
+attack_names = Array[String](["Slashing Strike"])
+recieves = ExtResource("3_shc5c")
+duration = 1
+metadata/_custom_type_script = "uid://c0ishgbxk63dg"
+
+[sub_resource type="Resource" id="Resource_8oa3o"]
+script = ExtResource("5_4mo60")
+disable = SubResource("Resource_jsq33")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_wg33e"]
+script = ExtResource("3_egxd8")
+prompt = ExtResource("9_lltn3")
+fail = SubResource("Resource_8oa3o")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[sub_resource type="Resource" id="Resource_dityg"]
+script = ExtResource("10_uno1w")
+description = "Flip a coin. If tails, [name] can't use Slashing Strike during your next turn."
+initial_main_DMG = 40
+prompt_effects = Array[ExtResource("3_egxd8")]([SubResource("Resource_wg33e")])
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"
+
+[sub_resource type="Resource" id="Resource_73bhb"]
+script = ExtResource("2_egxd8")
+name = "Slashing Strike"
+attack_cost = ExtResource("3_eabca")
+attack_data = SubResource("Resource_dityg")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
 
 [sub_resource type="Resource" id="Resource_lw0jg"]
 script = ExtResource("4_ckk4b")
@@ -34,6 +79,7 @@ script = ExtResource("7_eabca")
 HP = 80
 retreat = 0
 pokebody = SubResource("Resource_lltn3")
+attacks = Array[ExtResource("2_egxd8")]([SubResource("Resource_dhay2"), SubResource("Resource_73bhb")])
 evo_stage = "Stage 1"
 evolves_from = "Doduo"
 type = 256

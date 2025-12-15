@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SideState" load_steps=32 format=3 uid="uid://xvrvmijhyr5s"]
+[gd_resource type="Resource" script_class="SideState" load_steps=34 format=3 uid="uid://xvrvmijhyr5s"]
 
 [ext_resource type="Resource" uid="uid://y1s0b21lqst0" path="res://Resources/Decks/BabyEvo.tres" id="1_roiru"]
 [ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="2_kvvln"]
@@ -25,6 +25,8 @@
 [ext_resource type="Resource" uid="uid://dlgvv1xjvao80" path="res://Resources/Cards/2 ex Sandstorm/SS36Elekid.tres" id="18_ugp6t"]
 [ext_resource type="Resource" uid="uid://cdr4amrpwso8k" path="res://Resources/Cards/12 ex Legend Maker/LM58Magby.tres" id="19_eykmg"]
 [ext_resource type="Resource" uid="uid://co2iof4eyq75b" path="res://Resources/Cards/10 ex Unseen Forces/UF31Smoochum.tres" id="20_h0qj0"]
+[ext_resource type="Resource" uid="uid://b5ukqf6xmn6vv" path="res://Resources/Cards/1 ex Ruby & Saphire/RS109LightningEnergy.tres" id="26_ydy0h"]
+[ext_resource type="Resource" uid="uid://36ivd6eliqj0" path="res://Resources/Cards/14 ex Crystal Guardians/CG88DoubleRainbowEnergy.tres" id="27_nc5ls"]
 
 [sub_resource type="Resource" id="Resource_16yej"]
 script = ExtResource("12_00qie")
@@ -35,11 +37,6 @@ metadata/_custom_type_script = "uid://calm3n7va5yjo"
 [sub_resource type="Resource" id="Resource_72ttp"]
 script = ExtResource("14_q1cwo")
 current_card = ExtResource("17_umuyy")
-metadata/_custom_type_script = "uid://cs70ix831b5g4"
-
-[sub_resource type="Resource" id="Resource_jq5rs"]
-script = ExtResource("14_q1cwo")
-current_card = ExtResource("19_eykmg")
 metadata/_custom_type_script = "uid://cs70ix831b5g4"
 
 [sub_resource type="Resource" id="Resource_0e6q0"]
@@ -60,14 +57,20 @@ current_card = ExtResource("18_ugp6t")
 damage_counters = 20
 metadata/_custom_type_script = "uid://cs70ix831b5g4"
 
+[sub_resource type="Resource" id="Resource_ume8b"]
+script = ExtResource("14_q1cwo")
+current_card = ExtResource("19_eykmg")
+energy_cards = Array[ExtResource("2_kvvln")]([ExtResource("11_t4t7a"), ExtResource("26_ydy0h"), ExtResource("16_2w6al"), ExtResource("27_nc5ls")])
+metadata/_custom_type_script = "uid://cs70ix831b5g4"
+
 [resource]
 script = ExtResource("13_dq5iw")
 card_stacks = SubResource("Resource_16yej")
 slots = Dictionary[ExtResource("14_q1cwo"), bool]({
 SubResource("Resource_72ttp"): false,
-SubResource("Resource_jq5rs"): false,
 SubResource("Resource_0e6q0"): false,
 SubResource("Resource_pgwsj"): true,
-SubResource("Resource_o7un1"): false
+SubResource("Resource_o7un1"): false,
+SubResource("Resource_ume8b"): true
 })
 metadata/_custom_type_script = "uid://dgqpurnuh14t1"

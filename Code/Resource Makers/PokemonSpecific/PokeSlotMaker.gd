@@ -1007,6 +1007,16 @@ func check_override_evo(card: Base_Card) -> bool:
 			return true
 	return false
 
+func check_override_retreat() -> bool:
+	for ov in get_changes("Override"):
+		if not ov is Override: continue
+		ov = ov as Override
+		
+		if ov.can_retreat_when.size() > 0 and has_condition(ov.can_retreat_when):
+			return true
+	
+	return false
+
 func switch_clear() -> void:
 	for dict in all_changes.values():
 		for change in dict:
@@ -1050,6 +1060,7 @@ func refresh_current_card() -> void:
 	ui_slot.name_section.append_text(current_card.name)
 	ui_slot.max_hp.append_text(str("HP: ",get_max_hp()))
 	ui_slot.display_types(Convert.flags_to_type_array(get_pokedata().type))
+	ui_slot.display_condition()
 	setup_abilities()
 	occurance_account_for()
 	await ability_emit(first_check, self)

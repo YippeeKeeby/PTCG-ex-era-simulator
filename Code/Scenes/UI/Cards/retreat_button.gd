@@ -28,6 +28,8 @@ func allow_retreat():
 	slot.has_condition([Consts.TURN_COND.PARALYSIS, Consts.TURN_COND.ASLEEP])\
 	or slot.check_bool_disable(Consts.MON_DISABL.RETREAT)
 	
+	result = result and not slot.check_override_retreat()
+	
 	button.disabled = result 
 	Globals.fundies.remove_top_source_target()
 

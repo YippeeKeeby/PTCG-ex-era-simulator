@@ -25,6 +25,6 @@ func display_change(change: SlotChange):
 			push_error("I don't know what kind of change this is")
 	
 	if key not in ["Atk", "Def", "HP", "Cost"]:
-		modulate = Color.RED if true else Color.WHITE
+		modulate = Color.RED if dict[key] else Color.WHITE
 	else:
 		modulate = Color.AQUA if dict[key] else Color.ORANGE

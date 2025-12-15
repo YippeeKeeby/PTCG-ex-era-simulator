@@ -54,6 +54,12 @@ func describe():
 		"{Metal}","{Colorless}"], type)
 		final = Convert.reformat(final)
 	
+	if react:
+		final = str(final, " React")
+	
+	if holon_type != "None":
+		final = str(final, holon_type if holon_type != "ETC" else "", " Holon")
+	
 	print_rich(final)
 	
 	return final

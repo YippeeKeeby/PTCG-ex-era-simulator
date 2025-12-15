@@ -1,0 +1,110 @@
+[gd_resource type="Resource" script_class="Base_Card" load_steps=30 format=3 uid="uid://pqibah5d8cl4"]
+
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_5g73v"]
+[ext_resource type="Texture2D" uid="uid://qtasa5wa4alo" path="res://Art/Cards/12 ex Legend Maker/18.jpg" id="1_ejfg6"]
+[ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_2qdlc"]
+[ext_resource type="Resource" uid="uid://dkvbrahlcnjmi" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/W1C2.tres" id="3_mv21y"]
+[ext_resource type="Resource" uid="uid://cqtgiv5p6suee" path="res://Resources/Components/Counters/Comparator/Equals/DefSelfEX.tres" id="4_pnfwr"]
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="5_cx7bg"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="6_wu5dt"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="7_8aqpj"]
+[ext_resource type="Resource" uid="uid://c8vs2wowmlhne" path="res://Resources/Components/Effects/Placement/PutOnSelf.tres" id="8_gs47r"]
+[ext_resource type="Script" uid="uid://uplawvwcwl8y" path="res://Code/Resource Makers/GeneralUse/IdentifierMaker.gd" id="9_uoini"]
+[ext_resource type="Resource" uid="uid://b7fdar1wf5suh" path="res://Resources/Components/EnData/React.tres" id="10_uyqji"]
+[ext_resource type="Script" uid="uid://cw3yr1k040kw7" path="res://Code/Resource Makers/EffectSpecific/Components/SearchMaker.gd" id="11_bci75"]
+[ext_resource type="Resource" uid="uid://bns8h72u2hxqo" path="res://Resources/Components/Effects/Asks/General/AnyMon.tres" id="12_kkavw"]
+[ext_resource type="Script" uid="uid://vjn146j3ayd6" path="res://Code/Resource Makers/GeneralUse/IndvCountMaker.gd" id="13_jx41g"]
+[ext_resource type="Script" uid="uid://b65jx8u5cgcgl" path="res://Code/Resource Makers/GeneralUse/ComparatorMaker.gd" id="14_8geh1"]
+[ext_resource type="Script" uid="uid://b85jmc7067bjc" path="res://Code/Resource Makers/GeneralUse/PromptAskMaker.gd" id="15_1avyc"]
+[ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="16_2pmx0"]
+[ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="17_sdgo5"]
+
+[sub_resource type="Resource" id="Resource_l26w6"]
+script = ExtResource("6_wu5dt")
+description = "If the Defending Pokémon is Pokémon-ex, this attack does 40 damage plus 30 more damage."
+initial_main_DMG = 40
+modifier = 1
+modifier_num = 30
+comparator = ExtResource("4_pnfwr")
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"
+
+[sub_resource type="Resource" id="Resource_qw0jf"]
+script = ExtResource("2_2qdlc")
+name = "Bite Off"
+attack_cost = ExtResource("3_mv21y")
+attack_data = SubResource("Resource_l26w6")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_8sjx8"]
+script = ExtResource("9_uoini")
+broad_class = 4
+energy_provides = ExtResource("10_uyqji")
+metadata/_custom_type_script = "uid://uplawvwcwl8y"
+
+[sub_resource type="Resource" id="Resource_h83ki"]
+script = ExtResource("11_bci75")
+of_this = Array[ExtResource("9_uoini")]([SubResource("Resource_8sjx8")])
+and_then = ExtResource("8_gs47r")
+metadata/_custom_type_script = "uid://cw3yr1k040kw7"
+
+[sub_resource type="Resource" id="Resource_f1f1o"]
+script = ExtResource("7_8aqpj")
+search = SubResource("Resource_h83ki")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_6w01c"]
+script = ExtResource("5_cx7bg")
+success = SubResource("Resource_f1f1o")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[sub_resource type="Resource" id="Resource_qtcqf"]
+script = ExtResource("13_jx41g")
+which = "Slot"
+ask = ExtResource("12_kkavw")
+slot_vars = "current_card"
+cap = -1
+metadata/_custom_type_script = "uid://vjn146j3ayd6"
+
+[sub_resource type="Resource" id="Resource_e84u0"]
+script = ExtResource("14_8geh1")
+comparision_type = "Equals"
+first_comparison = SubResource("Resource_qtcqf")
+compare_to = "Const"
+metadata/_custom_type_script = "uid://b65jx8u5cgcgl"
+
+[sub_resource type="Resource" id="Resource_jmd2c"]
+script = ExtResource("15_1avyc")
+comparator = SubResource("Resource_e84u0")
+metadata/_custom_type_script = "uid://b85jmc7067bjc"
+
+[sub_resource type="Resource" id="Resource_vfuyj"]
+script = ExtResource("16_2pmx0")
+category = "Power"
+name = "Reactive Generator"
+description = "Once during your turn (before your attack), if [name] has no React Energy cards attached to it, you may search your deck for a React Energy card and attach it to [name]. Shuffle your deck afterward. This power can't be used if [name] is affected by a Special Condition. "
+prompt = SubResource("Resource_jmd2c")
+effects = Array[ExtResource("5_cx7bg")]([SubResource("Resource_6w01c")])
+metadata/_custom_type_script = "uid://bs2y8ocljilv8"
+
+[sub_resource type="Resource" id="Resource_jtho1"]
+script = ExtResource("17_sdgo5")
+HP = 80
+pokepower = SubResource("Resource_vfuyj")
+attacks = Array[ExtResource("2_2qdlc")]([SubResource("Resource_qw0jf")])
+evo_stage = "Stage 1"
+evolves_from = "Clamperl"
+type = 4
+weak = 8
+metadata/_custom_type_script = "uid://dkximshow1pao"
+
+[resource]
+script = ExtResource("1_5g73v")
+name = "Huntail"
+image = ExtResource("1_ejfg6")
+illustrator = "Midori Harada"
+number = 18
+rarity = 2
+expansion = 11
+categories = 1
+pokemon_properties = SubResource("Resource_jtho1")
+metadata/_custom_type_script = "uid://byaq4ongqnwl7"

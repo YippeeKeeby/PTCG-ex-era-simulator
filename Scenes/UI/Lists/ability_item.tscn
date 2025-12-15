@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5124mvoehedo" path="res://Code/Scenes/UI/Cards/power_item.gd" id="1_eb561"]
 [ext_resource type="Texture2D" uid="uid://dmlnngpyb3if" path="res://Art/ETCIcons/Pokebody.png" id="2_g2tyk"]
-[ext_resource type="Resource" uid="uid://s8mcx8qnuqkw" path="res://Resources/Components/Pokemon/Abilities/Bodies/AzurillBabyEvo.tres" id="2_ts83y"]
+[ext_resource type="Resource" uid="uid://s8mcx8qnuqkw" path="res://Resources/Components/Pokemon/Abilities/Powers/BabyEvoAzurill.tres" id="2_ts83y"]
 [ext_resource type="Theme" uid="uid://bfw6ylcttychc" path="res://Themes/Themes/AverageButton.tres" id="3_g2tyk"]
 [ext_resource type="Texture2D" uid="uid://ct1rslwcfpy1y" path="res://Art/ETCIcons/Pokepower.png" id="4_akvy3"]
 

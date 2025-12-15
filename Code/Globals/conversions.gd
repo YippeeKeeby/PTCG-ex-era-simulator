@@ -7,13 +7,16 @@ var all_lists: Array[Dictionary]
 func reformat(text: String, user: String = "<null>") -> String:
 	var result: String = text
 	var icon_search = RegEx.new()
+	var new_icon_search = RegEx.new()
 	var italics_search = RegEx.new()
 	var name_search = RegEx.new()
 	icon_search.compile(r"\{.*?\}")
+	new_icon_search.compile(r"\[.*?\]")
 	italics_search.compile(r"\(.*?\)")
 	name_search.compile(r"\[name\]")
 	
 	var matches = icon_search.search_all(text)
+	var new_matches = new_icon_search.search_all(text)
 	var italics = italics_search.search_all(text)
 	var names = name_search.search_all(text)
 	
@@ -21,10 +24,22 @@ func reformat(text: String, user: String = "<null>") -> String:
 		#Specific mentions of energy types should be replaced by icon
 		var key: String = found.get_string(0).lstrip("{").rstrip("}")
 		var index: int = Consts.energy_types.find(key)
+		if index == -1: push_error(key," isn't found in Consts energy_types")
+		
 		var icon_path: String = str("[img={13%}}]",
 		Consts.energy_icons[index],"[/img]")
 		
-		if index == -1: push_error(key," isn't found in Consts energy_types")
+		result = result.replace(found.get_string(0), icon_path)
+	
+	for found in new_matches:
+		#Specific mentions of energy types should be replaced by icon
+		var key: String = found.get_string(0).lstrip("[]").rstrip("]")
+		var index: int = Consts.energy_characters.find(key)
+		
+		if index == -1: continue
+		
+		var icon_path: String = str("[img={13%}}]",
+		Consts.energy_icons[index],"[/img]")
 		
 		result = result.replace(found.get_string(0), icon_path)
 	

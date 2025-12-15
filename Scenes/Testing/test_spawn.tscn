@@ -11,8 +11,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3rsg5")
-directory = "res://Resources/Cards/1 ex Ruby & Saphire"
-effect_types = Array[String](["Buff"])
+directory = "res://Resources/Cards/2 ex Sandstorm"
+effect_types = Array[String](["Override"])
 other_test = ExtResource("2_vqbto")
 
 [node name="Button" type="Button" parent="."]

@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="Base_Card" load_steps=22 format=3 uid="uid://hlu435pa70ii"]
+
+[ext_resource type="Texture2D" uid="uid://bsk22m2lsnr0f" path="res://Art/Cards/10 ex Unseen Forces/25.jpg" id="1_3jxdb"]
+[ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_tjiad"]
+[ext_resource type="Resource" uid="uid://d3ibul3ofuenc" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Fighting1.tres" id="3_mw8mu"]
+[ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="3_pyjgu"]
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="4_cbw8r"]
+[ext_resource type="Resource" uid="uid://ck3jxj0ojng6w" path="res://Resources/Components/Pokemon/Attacks/AttackData/10DefBench.tres" id="4_k0igv"]
+[ext_resource type="Resource" uid="uid://ddar4dlschhmr" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/F1C2.tres" id="5_0gugo"]
+[ext_resource type="Resource" uid="uid://dnnekosklb3ar" path="res://Resources/Components/Pokemon/Attacks/AttackData/40Dmg.tres" id="6_w8vwy"]
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="7_6vtrg"]
+[ext_resource type="Resource" uid="uid://bkt6ry7vyha70" path="res://Resources/Components/Effects/Asks/General/Other.tres" id="8_6v5vs"]
+[ext_resource type="Resource" uid="uid://drcbww84yrlx" path="res://Resources/Components/Effects/Asks/General/Self.tres" id="9_bsssi"]
+[ext_resource type="Script" uid="uid://coojhwe6m20gd" path="res://Code/Resource Makers/EffectSpecific/Components/SlotChanges/BuffMaker.gd" id="10_3rjs0"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="11_e2i7f"]
+[ext_resource type="Resource" uid="uid://bmtmv17focn2u" path="res://Resources/Components/Effects/Prompts/PromptComparator/PromptSelfEvolved.tres" id="12_ylewm"]
+[ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="13_xvtw5"]
+
+[sub_resource type="Resource" id="Resource_10r0i"]
+script = ExtResource("2_tjiad")
+name = "Stretch Kick"
+attack_cost = ExtResource("3_mw8mu")
+attack_data = ExtResource("4_k0igv")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_atvof"]
+script = ExtResource("2_tjiad")
+name = "Mega Kick"
+attack_cost = ExtResource("5_0gugo")
+attack_data = ExtResource("6_w8vwy")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_11nuc"]
+script = ExtResource("10_3rjs0")
+against = ExtResource("8_6v5vs")
+after_weak_res = false
+attack = 20
+recieves = ExtResource("9_bsssi")
+metadata/_custom_type_script = "uid://coojhwe6m20gd"
+
+[sub_resource type="Resource" id="Resource_6bs6d"]
+script = ExtResource("11_e2i7f")
+buff = SubResource("Resource_11nuc")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_rgxoo"]
+script = ExtResource("13_xvtw5")
+name = "Stages of Evolution"
+description = "As long as [name] is an Evolved Pokémon, [name]'s attacks do 20 more damage to your opponent's Pokémon (before applying Weakness and Resistance)."
+affected_by_condition = false
+prompt = ExtResource("12_ylewm")
+passive = SubResource("Resource_6bs6d")
+metadata/_custom_type_script = "uid://bs2y8ocljilv8"
+
+[sub_resource type="Resource" id="Resource_jyj2d"]
+script = ExtResource("3_pyjgu")
+HP = 60
+pokebody = SubResource("Resource_rgxoo")
+attacks = Array[ExtResource("2_tjiad")]([SubResource("Resource_10r0i"), SubResource("Resource_atvof")])
+type = 32
+weak = 16
+metadata/_custom_type_script = "uid://dkximshow1pao"
+
+[resource]
+script = ExtResource("4_cbw8r")
+name = "Hitmonlee"
+image = ExtResource("1_3jxdb")
+illustrator = "Hisao Nakamura"
+number = 25
+rarity = 2
+expansion = 9
+categories = 1
+pokemon_properties = SubResource("Resource_jyj2d")
+metadata/_custom_type_script = "uid://byaq4ongqnwl7"

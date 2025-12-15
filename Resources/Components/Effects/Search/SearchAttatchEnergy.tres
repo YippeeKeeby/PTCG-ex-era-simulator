@@ -8,15 +8,7 @@
 [resource]
 script = ExtResource("4_78etc")
 side = 1
-where = 1
-reordering_only = false
-shuffle_first = false
 based_on_side = 1
-based_on_slots = 0
-based_on_energy = 0
-portion = -1
-how_many = Array[int]([1])
 of_this = Array[ExtResource("2_tph32")]([ExtResource("3_x6eq3")])
 and_then = ExtResource("1_tilal")
-reveal = true
 metadata/_custom_type_script = "uid://cw3yr1k040kw7"

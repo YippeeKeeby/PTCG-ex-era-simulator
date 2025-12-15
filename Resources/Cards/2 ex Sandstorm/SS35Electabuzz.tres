@@ -1,0 +1,80 @@
+[gd_resource type="Resource" script_class="Base_Card" load_steps=23 format=3 uid="uid://c3jitqatq6mei"]
+
+[ext_resource type="Texture2D" uid="uid://b6n84hx0q8grx" path="res://Art/Cards/2 ex Sandstorm/35.jpg" id="1_guoyj"]
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_urtc0"]
+[ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_mkp1v"]
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="3_kwcgk"]
+[ext_resource type="Resource" uid="uid://ekj1myy642kh" path="res://Resources/Components/Effects/Prompts/PromptHeads.tres" id="4_yw0wm"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="5_yh3ei"]
+[ext_resource type="Resource" uid="uid://c8vs2wowmlhne" path="res://Resources/Components/Effects/Placement/PutOnSelf.tres" id="6_rx3qc"]
+[ext_resource type="Script" uid="uid://uplawvwcwl8y" path="res://Code/Resource Makers/GeneralUse/IdentifierMaker.gd" id="7_ddh0l"]
+[ext_resource type="Resource" uid="uid://dt0pi71xuk6ih" path="res://Resources/Components/Effects/Identifiers/Energy/LightningEnergy.tres" id="8_kij2u"]
+[ext_resource type="Script" uid="uid://cw3yr1k040kw7" path="res://Code/Resource Makers/EffectSpecific/Components/SearchMaker.gd" id="9_innhb"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="10_1q2r6"]
+[ext_resource type="Resource" uid="uid://b65pc1oay48d3" path="res://Resources/Components/Pokemon/BenchAttack/40DefAny.tres" id="11_n1c22"]
+[ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="12_wr7bx"]
+
+[sub_resource type="Resource" id="Resource_m7xdt"]
+
+[sub_resource type="Resource" id="Resource_u4beq"]
+script = ExtResource("9_innhb")
+where = 2
+of_this = Array[ExtResource("7_ddh0l")]([ExtResource("8_kij2u")])
+and_then = ExtResource("6_rx3qc")
+metadata/_custom_type_script = "uid://cw3yr1k040kw7"
+
+[sub_resource type="Resource" id="Resource_yenlg"]
+script = ExtResource("5_yh3ei")
+search = SubResource("Resource_u4beq")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_o8dna"]
+script = ExtResource("3_kwcgk")
+prompt = ExtResource("4_yw0wm")
+success = SubResource("Resource_yenlg")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[sub_resource type="Resource" id="Resource_cfn1o"]
+script = ExtResource("10_1q2r6")
+description = "Flip a coin. If heads, search your discard pile for a [L] Energy card and attach it to [name]."
+initial_main_DMG = 10
+prompt_effects = Array[ExtResource("3_kwcgk")]([SubResource("Resource_o8dna")])
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"
+
+[sub_resource type="Resource" id="Resource_aph8h"]
+script = ExtResource("2_mkp1v")
+name = "Plasma"
+attack_data = SubResource("Resource_cfn1o")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_be71m"]
+script = ExtResource("10_1q2r6")
+description = "Choose 1 of your opponent's Pokémon. This attack does 40 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+bench_damage = ExtResource("11_n1c22")
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"
+
+[sub_resource type="Resource" id="Resource_8ih6g"]
+script = ExtResource("2_mkp1v")
+name = "Thunder Spear"
+attack_data = SubResource("Resource_be71m")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_8x67c"]
+script = ExtResource("12_wr7bx")
+HP = 60
+attacks = Array[ExtResource("2_mkp1v")]([SubResource("Resource_aph8h"), SubResource("Resource_8ih6g")])
+type = 8
+resist = 128
+metadata/_custom_type_script = "uid://dkximshow1pao"
+
+[resource]
+script = ExtResource("1_urtc0")
+name = "Electabuzz"
+image = ExtResource("1_guoyj")
+illustrator = "Kouki Saitou"
+number = 35
+rarity = 1
+expansion = 1
+categories = 1
+pokemon_properties = SubResource("Resource_8x67c")
+metadata/_custom_type_script = "uid://byaq4ongqnwl7"

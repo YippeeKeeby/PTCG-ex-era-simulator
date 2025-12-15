@@ -67,6 +67,7 @@ metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
 script = ExtResource("13_45c3u")
 provides_only = false
 converting = ExtResource("12_cg58q")
+replace_provide = true
 becomes = ExtResource("7_pv4g2")
 recieves = ExtResource("8_8jlqf")
 metadata/_custom_type_script = "uid://cg3m7vpqxf2t6"
@@ -79,7 +80,7 @@ metadata/_custom_type_script = "uid://dmulm3x3dj842"
 [sub_resource type="Resource" id="Resource_bh8af"]
 script = ExtResource("14_k4g3y")
 name = "Burn Down"
-description = "All Energy attached to [name] are {Fire} Energy instead of its usual type."
+description = "All Energy attached to [name] is {Fire} Energy instead of its usual type."
 passive = SubResource("Resource_bkn8l")
 metadata/_custom_type_script = "uid://bs2y8ocljilv8"
 

@@ -80,7 +80,7 @@
   "table_functions": {
     "filter": [
       "return true",
-      "if ToolBool.has_effect(res, [\"CardDisrupt\"]):\n\treturn true\nreturn false",
+      "if ToolBool.has_effect(res, [\"Override\"]):\n\treturn true\nreturn false",
       "return ToolBool.has_ability(res)",
       "return res.pokemon_properties",
       "if ToolBool.has_effect(res, [\"Mimic\"]):\n\treturn true\nreturn false",

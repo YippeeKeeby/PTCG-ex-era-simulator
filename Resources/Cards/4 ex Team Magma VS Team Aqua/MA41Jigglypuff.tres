@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="Base_Card" load_steps=20 format=3 uid="uid://d4eay6xp5d5n1"]
+
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_0dfbv"]
+[ext_resource type="Texture2D" uid="uid://b4vys5gqmt01b" path="res://Art/Cards/4 ex Team Magma vs Team Aqua/41.jpg" id="1_fos8l"]
+[ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_ly1o1"]
+[ext_resource type="Resource" uid="uid://cmu10734rt4h5" path="res://Resources/Components/Pokemon/Attacks/AttackData/10x2Flip.tres" id="3_34jhe"]
+[ext_resource type="Resource" uid="uid://b1rwmggf7a4do" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Colorless2.tres" id="4_vvnur"]
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="5_8ab3v"]
+[ext_resource type="Resource" uid="uid://cxsmsqpp50x7f" path="res://Resources/Components/Effects/ETC/HealCondition.tres" id="6_ndq3m"]
+[ext_resource type="Resource" uid="uid://p7v7t2uptmme" path="res://Resources/Components/Effects/Conditions/SleepSelf.tres" id="7_n1ov1"]
+[ext_resource type="Resource" uid="uid://1r804i5j1c4s" path="res://Resources/Components/Effects/DmgManip/Remove/Remove3Self.tres" id="8_aa5r0"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="9_vwebd"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="10_cep3a"]
+[ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="11_xhli4"]
+
+[sub_resource type="Resource" id="Resource_m7xdt"]
+
+[sub_resource type="Resource" id="Resource_yk37x"]
+script = ExtResource("2_ly1o1")
+name = "Double Slap"
+attack_data = ExtResource("3_34jhe")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_qq6hd"]
+script = ExtResource("9_vwebd")
+order = Array[int]([9, 5, 0])
+condition = ExtResource("7_n1ov1")
+dmgManip = ExtResource("8_aa5r0")
+alleviate = ExtResource("6_ndq3m")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_slbp5"]
+script = ExtResource("5_8ab3v")
+success = SubResource("Resource_qq6hd")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[sub_resource type="Resource" id="Resource_k3ior"]
+script = ExtResource("10_cep3a")
+description = "Remove all Special Conditions and 3 damage counters from [name] (all if there are less than 3). [name] is now Asleep."
+prompt_effects = Array[ExtResource("5_8ab3v")]([SubResource("Resource_slbp5")])
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"
+
+[sub_resource type="Resource" id="Resource_3oflr"]
+script = ExtResource("2_ly1o1")
+name = "Rest"
+attack_cost = ExtResource("4_vvnur")
+attack_data = SubResource("Resource_k3ior")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_8uuq6"]
+script = ExtResource("11_xhli4")
+attacks = Array[ExtResource("2_ly1o1")]([SubResource("Resource_yk37x"), SubResource("Resource_3oflr")])
+type = 256
+metadata/_custom_type_script = "uid://dkximshow1pao"
+
+[resource]
+script = ExtResource("1_0dfbv")
+name = "JIgglypuff"
+image = ExtResource("1_fos8l")
+illustrator = "Ken Sugimori"
+number = 41
+expansion = 3
+categories = 1
+pokemon_properties = SubResource("Resource_8uuq6")
+metadata/_custom_type_script = "uid://byaq4ongqnwl7"

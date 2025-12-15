@@ -79,19 +79,20 @@ func has_effect(card: Base_Card, effect_type: Array[String]) -> bool:
 		for effect in en.attatch_effects:
 			if effect_collect_contains(effect, effect_type):
 				return true
+	
 	return false
 
 func attack_has_effect(attack: Attack, comps: Array[String]) -> bool:
 	var data: AttackData = attack.attack_data
 	if not data:
 		print(attack.name)
-	if data.prompt != null:
+	elif data.prompt != null:
 		if data.prompt.effect != null:
 			if effect_has_effect_type(data.prompt.effect, comps):
 				return true
-	for effect in data.prompt_effects:
-		if effect_collect_contains(effect, comps):
-			return true
+		for effect in data.prompt_effects:
+			if effect_collect_contains(effect, comps):
+				return true
 	
 	return false
 
@@ -155,6 +156,15 @@ func effect_has_effect_type(effect: EffectCall, comps: Array[String]) -> bool:
 			"Mimic":
 				if effect.mimic:
 					gathered_comps.append(effect.mimic)
+			"Override":
+				if effect.override:
+					gathered_comps.append(effect.override)
+			"RuleChange":
+				if effect.rule_change:
+					gathered_comps.append(effect.rule_change)
+			"TypeChange":
+				if effect.type_change:
+					gathered_comps.append(effect.type_change)
 	
 	for current_comp in gathered_comps:
 		if current_comp.get_script().get_global_name() in comps:

@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="Base_Card" load_steps=16 format=3 uid="uid://c1d0x8y3ada7d"]
+
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_bndi2"]
+[ext_resource type="Texture2D" uid="uid://uryf8ga40a43" path="res://Art/Cards/10 ex Unseen Forces/33.jpg" id="1_mda5o"]
+[ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_p87pn"]
+[ext_resource type="Resource" uid="uid://bkyitfrtqgn2q" path="res://Resources/Components/Counters/Indv/Slots/OtherMons.tres" id="3_mq7su"]
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="3_q0r8f"]
+[ext_resource type="Script" uid="uid://b65jx8u5cgcgl" path="res://Code/Resource Makers/GeneralUse/ComparatorMaker.gd" id="4_5ad40"]
+[ext_resource type="Resource" uid="uid://cmg7a0erceiaq" path="res://Resources/Components/Counters/Indv/Slots/SrcMons.tres" id="5_mda5o"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="7_p87pn"]
+[ext_resource type="Resource" uid="uid://ckybmuyqt3wf1" path="res://Resources/Components/Pokemon/Abilities/Powers/BabyEvoTyrouge.tres" id="8_q0r8f"]
+[ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="11_mtbru"]
+
+[sub_resource type="Resource" id="Resource_m7xdt"]
+
+[sub_resource type="Resource" id="Resource_n1aky"]
+script = ExtResource("4_5ad40")
+comparision_type = "Difference"
+first_comparison = ExtResource("3_mq7su")
+compare_to = "Second"
+second_counter = ExtResource("5_mda5o")
+metadata/_custom_type_script = "uid://b65jx8u5cgcgl"
+
+[sub_resource type="Resource" id="Resource_a5jud"]
+script = ExtResource("7_p87pn")
+description = "Does 10 damage times the number of Pokémon in play your opponent has more than you."
+initial_main_DMG = 10
+modifier = 2
+modifier_num = 10
+comparator = SubResource("Resource_n1aky")
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"
+
+[sub_resource type="Resource" id="Resource_evm4h"]
+script = ExtResource("2_p87pn")
+name = "Desperate Punch"
+attack_data = SubResource("Resource_a5jud")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_vctyy"]
+script = ExtResource("11_mtbru")
+HP = 40
+pokebody = ExtResource("8_q0r8f")
+attacks = Array[ExtResource("2_p87pn")]([SubResource("Resource_evm4h")])
+considered = 5
+type = 32
+weak = 16
+metadata/_custom_type_script = "uid://dkximshow1pao"
+
+[resource]
+script = ExtResource("1_bndi2")
+name = "Tyrouge"
+image = ExtResource("1_mda5o")
+illustrator = "Yuka Morii"
+number = 33
+rarity = 2
+expansion = 9
+categories = 1
+pokemon_properties = SubResource("Resource_vctyy")
+metadata/_custom_type_script = "uid://byaq4ongqnwl7"

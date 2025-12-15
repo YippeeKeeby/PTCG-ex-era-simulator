@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="Base_Card" load_steps=25 format=3 uid="uid://qwi56d62ku2e"]
+
+[ext_resource type="Texture2D" uid="uid://d3y8ldxdyxdj2" path="res://Art/Cards/10 ex Unseen Forces/24.jpg" id="1_qd2eh"]
+[ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_3kxsm"]
+[ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="3_qlx7c"]
+[ext_resource type="Resource" uid="uid://djhcfglsc14fn" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/F1C1.tres" id="3_wntgd"]
+[ext_resource type="Resource" uid="uid://bujld5756sv01" path="res://Resources/Components/Counters/Indv/Slots/DefBenchCount.tres" id="4_42mak"]
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="4_ou2dj"]
+[ext_resource type="Script" uid="uid://b65jx8u5cgcgl" path="res://Code/Resource Makers/GeneralUse/ComparatorMaker.gd" id="5_fmbhv"]
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="6_uvyw7"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="7_pbwgb"]
+[ext_resource type="Resource" uid="uid://dpovjlfpsypwe" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Colorless3.tres" id="8_0rf3r"]
+[ext_resource type="Resource" uid="uid://d4abfskpa5a2h" path="res://Resources/Components/Pokemon/Attacks/AttackData/50Swift.tres" id="9_pwu3q"]
+[ext_resource type="Resource" uid="uid://drcbww84yrlx" path="res://Resources/Components/Effects/Asks/General/Self.tres" id="10_miotr"]
+[ext_resource type="Script" uid="uid://coojhwe6m20gd" path="res://Code/Resource Makers/EffectSpecific/Components/SlotChanges/BuffMaker.gd" id="11_fv4on"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="12_j16bs"]
+[ext_resource type="Resource" uid="uid://bmtmv17focn2u" path="res://Resources/Components/Effects/Prompts/PromptComparator/PromptSelfEvolved.tres" id="13_btn5e"]
+[ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="14_hibvi"]
+
+[sub_resource type="Resource" id="Resource_m3o18"]
+script = ExtResource("5_fmbhv")
+first_comparison = ExtResource("4_42mak")
+metadata/_custom_type_script = "uid://b65jx8u5cgcgl"
+
+[sub_resource type="Resource" id="Resource_dbw2k"]
+script = ExtResource("7_pbwgb")
+description = "Does 10 damage times the number of your opponent's Benched Pokémon."
+initial_main_DMG = 10
+modifier = 2
+modifier_num = 10
+comparator = SubResource("Resource_m3o18")
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"
+
+[sub_resource type="Resource" id="Resource_os5ss"]
+script = ExtResource("2_3kxsm")
+name = "Heavy Punch"
+attack_cost = ExtResource("3_wntgd")
+attack_data = SubResource("Resource_dbw2k")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_rvrgh"]
+script = ExtResource("2_3kxsm")
+name = "Speedy Uppercut"
+attack_cost = ExtResource("8_0rf3r")
+attack_data = ExtResource("9_pwu3q")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_8q2pv"]
+script = ExtResource("11_fv4on")
+add_hp = 30
+recieves = ExtResource("10_miotr")
+metadata/_custom_type_script = "uid://coojhwe6m20gd"
+
+[sub_resource type="Resource" id="Resource_0rovl"]
+script = ExtResource("12_j16bs")
+buff = SubResource("Resource_8q2pv")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_v66rb"]
+script = ExtResource("14_hibvi")
+name = "Stages of Evolution"
+description = "As long as [name] is an Evolved Pokémon, [name] gets +30 HP."
+affected_by_condition = false
+prompt = ExtResource("13_btn5e")
+passive = SubResource("Resource_0rovl")
+metadata/_custom_type_script = "uid://bs2y8ocljilv8"
+
+[sub_resource type="Resource" id="Resource_jyj2d"]
+script = ExtResource("3_qlx7c")
+HP = 70
+pokebody = SubResource("Resource_v66rb")
+attacks = Array[ExtResource("2_3kxsm")]([SubResource("Resource_os5ss"), SubResource("Resource_rvrgh")])
+type = 32
+weak = 16
+metadata/_custom_type_script = "uid://dkximshow1pao"
+
+[resource]
+script = ExtResource("4_ou2dj")
+name = "Hitmontop"
+image = ExtResource("1_qd2eh")
+illustrator = "Hisao Nakamura"
+number = 24
+rarity = 2
+expansion = 9
+categories = 1
+pokemon_properties = SubResource("Resource_jyj2d")
+metadata/_custom_type_script = "uid://byaq4ongqnwl7"

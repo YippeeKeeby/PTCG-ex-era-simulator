@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AttackData" load_steps=3 format=3 uid="uid://d4abfskpa5a2h"]
+
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="1_n4jb7"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="2_s5q45"]
+
+[resource]
+script = ExtResource("2_s5q45")
+description = "This attack's damage isn't affected by Weakness, Resistance, Poké-Powers, Poké-Bodies, or any other effects on the Defending Pokémon."
+initial_main_DMG = 50
+defender_properties = 15
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"

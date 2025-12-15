@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=13 format=3 uid="uid://s8mcx8qnuqkw"]
+
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="1_24dua"]
+[ext_resource type="Resource" uid="uid://c5l2nrpmptwuh" path="res://Resources/Components/Effects/DmgManip/Remove/SelfHealALL.tres" id="2_viwfl"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="3_taxtu"]
+[ext_resource type="Resource" uid="uid://bns8h72u2hxqo" path="res://Resources/Components/Effects/Asks/General/AnyMon.tres" id="4_2kpw8"]
+[ext_resource type="Script" uid="uid://bics3dumv7avj" path="res://Code/Resource Makers/GeneralUse/OccuranceMaker.gd" id="5_aciur"]
+[ext_resource type="Script" uid="uid://cg3m7vpqxf2t6" path="res://Code/Resource Makers/EffectSpecific/Components/SlotChanges/OverrideMaker.gd" id="6_gmuxi"]
+[ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="7_j6yq0"]
+
+[sub_resource type="Resource" id="Resource_qhbof"]
+script = ExtResource("3_taxtu")
+dmgManip = ExtResource("2_viwfl")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_cftuc"]
+script = ExtResource("1_24dua")
+success = SubResource("Resource_qhbof")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[sub_resource type="Resource" id="Resource_rv3ca"]
+script = ExtResource("5_aciur")
+from_ask = ExtResource("4_2kpw8")
+signal = "checked_up"
+metadata/_custom_type_script = "uid://bics3dumv7avj"
+
+[sub_resource type="Resource" id="Resource_gmk3x"]
+script = ExtResource("6_gmuxi")
+can_evolve_into = Array[String](["Marill"])
+metadata/_custom_type_script = "uid://cg3m7vpqxf2t6"
+
+[sub_resource type="Resource" id="Resource_8alob"]
+script = ExtResource("3_taxtu")
+override = SubResource("Resource_gmk3x")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[resource]
+script = ExtResource("7_j6yq0")
+category = "Power"
+name = "Baby Evolution"
+description = "Once during your turn (before your attack), you may put Marill from your hand onto [name] (this counts as evolving [name]), and remove all damage counters from [name]."
+affected_by_condition = false
+occurance = SubResource("Resource_rv3ca")
+passive = SubResource("Resource_8alob")
+effects = Array[ExtResource("1_24dua")]([SubResource("Resource_cftuc")])
+metadata/_custom_type_script = "uid://bs2y8ocljilv8"

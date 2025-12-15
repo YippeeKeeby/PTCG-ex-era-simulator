@@ -81,6 +81,7 @@ metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
 [sub_resource type="Resource" id="Resource_063hk"]
 script = ExtResource("14_a1nci")
 converting = ExtResource("13_0p1po")
+replace_provide = true
 becomes = ExtResource("5_b58ij")
 application = "Side"
 recieves = ExtResource("4_rjh14")

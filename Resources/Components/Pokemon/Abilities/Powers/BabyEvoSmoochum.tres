@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=12 format=3 uid="uid://dn5i37ahy5is2"]
+
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="1_hnje1"]
+[ext_resource type="Resource" uid="uid://c5l2nrpmptwuh" path="res://Resources/Components/Effects/DmgManip/Remove/SelfHealALL.tres" id="2_42yud"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="3_bqlac"]
+[ext_resource type="Resource" uid="uid://b5venyeeni54e" path="res://Resources/Components/Occurances/SelfEvolved.tres" id="4_kag4q"]
+[ext_resource type="Resource" uid="uid://drcbww84yrlx" path="res://Resources/Components/Effects/Asks/General/Self.tres" id="5_ba41w"]
+[ext_resource type="Script" uid="uid://cg3m7vpqxf2t6" path="res://Code/Resource Makers/EffectSpecific/Components/SlotChanges/OverrideMaker.gd" id="6_xp7bu"]
+[ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="7_e4tk8"]
+
+[sub_resource type="Resource" id="Resource_dytb8"]
+script = ExtResource("3_bqlac")
+dmgManip = ExtResource("2_42yud")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_484sa"]
+script = ExtResource("1_hnje1")
+success = SubResource("Resource_dytb8")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[sub_resource type="Resource" id="Resource_c7h1r"]
+script = ExtResource("6_xp7bu")
+can_evolve_into = Array[String](["Jynx"])
+recieves = ExtResource("5_ba41w")
+metadata/_custom_type_script = "uid://cg3m7vpqxf2t6"
+
+[sub_resource type="Resource" id="Resource_mdbqg"]
+script = ExtResource("3_bqlac")
+override = SubResource("Resource_c7h1r")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[resource]
+script = ExtResource("7_e4tk8")
+category = "Power"
+name = "Baby Evolution"
+description = "Once during your turn (before your attack), you may put Jynx from your hand onto [name] (this counts as evolving [name]) and remove all damage counters from [name]."
+affected_by_condition = false
+occurance = ExtResource("4_kag4q")
+passive = SubResource("Resource_mdbqg")
+effects = Array[ExtResource("1_hnje1")]([SubResource("Resource_484sa")])
+metadata/_custom_type_script = "uid://bs2y8ocljilv8"

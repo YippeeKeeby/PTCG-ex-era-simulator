@@ -39,6 +39,7 @@ const unknown_number: int = 28
 const energy_types: Array[String] = ["Grass", "Fire", "Water", "Lightning",
  "Psychic", "Fighting", "Darkness", "Metal", "Colorless", "Rainbow", "Magma",
  "Aqua", "Dark Metal","FF", "GL", "WP", "React"]
+const energy_character: Array[String] = ["G","R","W","L","P","F","D","M","C"]
 #const energy_icons = ["uid://cujjluirx6yyu", "uid://dd1ywu5fsfsq1",
  #"uid://dj2lgcygk1ups","uid://bqqg7qjfq0wqb", "uid://bnpgukh0in14j",
  #"uid://chqgfpirjsldj", "uid://bkb5vi5elppq1","uid://gom7mkykamch",

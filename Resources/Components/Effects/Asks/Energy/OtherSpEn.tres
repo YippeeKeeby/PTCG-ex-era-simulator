@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SlotAsk" load_steps=3 format=3 uid="uid://dewlqkem406t8"]
+
+[ext_resource type="Resource" uid="uid://c7itelq8jtjc2" path="res://Resources/Components/EnData/Rainbow.tres" id="1_rwdgb"]
+[ext_resource type="Script" uid="uid://mkjynqda7q5g" path="res://Code/Resource Makers/GeneralUse/SlotAskMaker.gd" id="2_k3knh"]
+
+[resource]
+script = ExtResource("2_k3knh")
+side_target = 5
+energy_attatched = 1
+energy_class = "Special Energy"
+energy_type = ExtResource("1_rwdgb")
+metadata/_custom_type_script = "uid://mkjynqda7q5g"

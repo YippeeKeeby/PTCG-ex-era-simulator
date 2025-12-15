@@ -71,6 +71,7 @@ metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
 script = ExtResource("15_tirib")
 provides_only = false
 converting = ExtResource("13_1v1bt")
+replace_provide = true
 becomes = ExtResource("12_kn52d")
 recieves = ExtResource("14_ix2aj")
 metadata/_custom_type_script = "uid://cg3m7vpqxf2t6"

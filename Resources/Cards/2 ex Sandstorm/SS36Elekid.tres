@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="Base_Card" load_steps=21 format=3 uid="uid://dlgvv1xjvao80"]
+
+[ext_resource type="Texture2D" uid="uid://3sbamyvwdf35" path="res://Art/Cards/2 ex Sandstorm/36.jpg" id="1_cami3"]
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_n07hf"]
+[ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_g2wau"]
+[ext_resource type="Script" uid="uid://crscwhvugaoxa" path="res://Code/Resource Makers/PokemonSpecific/AttackCostMaker.gd" id="3_snpn4"]
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="4_iaf6p"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="5_c8eey"]
+[ext_resource type="Resource" uid="uid://c8vs2wowmlhne" path="res://Resources/Components/Effects/Placement/PutOnSelf.tres" id="6_p4336"]
+[ext_resource type="Script" uid="uid://uplawvwcwl8y" path="res://Code/Resource Makers/GeneralUse/IdentifierMaker.gd" id="7_aiqk5"]
+[ext_resource type="Resource" uid="uid://d2vm6chtedrum" path="res://Resources/Components/Effects/Identifiers/Energy/BasicEnergy.tres" id="8_fow57"]
+[ext_resource type="Script" uid="uid://cw3yr1k040kw7" path="res://Code/Resource Makers/EffectSpecific/Components/SearchMaker.gd" id="9_f7xgm"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="10_w88bn"]
+[ext_resource type="Resource" uid="uid://b24wmv0svdjlv" path="res://Resources/Components/Pokemon/Abilities/Powers/BabyEvoElekid.tres" id="11_hlq6m"]
+[ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="12_h6lcd"]
+
+[sub_resource type="Resource" id="Resource_ecld1"]
+script = ExtResource("3_snpn4")
+lightning_cost = 1
+colorless_cost = 0
+metadata/_custom_type_script = "uid://crscwhvugaoxa"
+
+[sub_resource type="Resource" id="Resource_ea6yj"]
+script = ExtResource("9_f7xgm")
+side = 1
+based_on_side = 1
+of_this = Array[ExtResource("7_aiqk5")]([ExtResource("8_fow57")])
+and_then = ExtResource("6_p4336")
+metadata/_custom_type_script = "uid://cw3yr1k040kw7"
+
+[sub_resource type="Resource" id="Resource_6yf03"]
+script = ExtResource("5_c8eey")
+search = SubResource("Resource_ea6yj")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_vnsgo"]
+script = ExtResource("4_iaf6p")
+success = SubResource("Resource_6yf03")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[sub_resource type="Resource" id="Resource_1yr18"]
+script = ExtResource("10_w88bn")
+description = "Search your deck for a basic Energy card and attach it to 1 of your Pokémon. Shuffle your deck afterward."
+prompt_effects = Array[ExtResource("4_iaf6p")]([SubResource("Resource_vnsgo")])
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"
+
+[sub_resource type="Resource" id="Resource_raqrr"]
+script = ExtResource("2_g2wau")
+name = "Gather Energy"
+attack_cost = SubResource("Resource_ecld1")
+attack_data = SubResource("Resource_1yr18")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_uxa6o"]
+script = ExtResource("12_h6lcd")
+HP = 40
+pokepower = ExtResource("11_hlq6m")
+attacks = Array[ExtResource("2_g2wau")]([SubResource("Resource_raqrr")])
+considered = 5
+type = 8
+metadata/_custom_type_script = "uid://dkximshow1pao"
+
+[resource]
+script = ExtResource("1_n07hf")
+name = "Elekid"
+image = ExtResource("1_cami3")
+illustrator = " Kouki Saitou"
+number = 36
+rarity = 1
+expansion = 1
+categories = 1
+pokemon_properties = SubResource("Resource_uxa6o")
+metadata/_custom_type_script = "uid://byaq4ongqnwl7"

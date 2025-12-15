@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=14 format=3 uid="uid://bg01xm7tf5ndd"]
+
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="1_5lx5r"]
+[ext_resource type="Resource" uid="uid://drcbww84yrlx" path="res://Resources/Components/Effects/Asks/General/Self.tres" id="2_k12lf"]
+[ext_resource type="Resource" uid="uid://c5l2nrpmptwuh" path="res://Resources/Components/Effects/DmgManip/Remove/SelfHealALL.tres" id="2_raug6"]
+[ext_resource type="Script" uid="uid://cg3m7vpqxf2t6" path="res://Code/Resource Makers/EffectSpecific/Components/SlotChanges/OverrideMaker.gd" id="3_rpvlb"]
+[ext_resource type="Resource" uid="uid://bns8h72u2hxqo" path="res://Resources/Components/Effects/Asks/General/AnyMon.tres" id="4_2ysas"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="4_raug6"]
+[ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="5_2ysas"]
+[ext_resource type="Script" uid="uid://bics3dumv7avj" path="res://Code/Resource Makers/GeneralUse/OccuranceMaker.gd" id="5_8tdby"]
+
+[sub_resource type="Resource" id="Resource_dytb8"]
+script = ExtResource("4_raug6")
+dmgManip = ExtResource("2_raug6")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_8fy1w"]
+script = ExtResource("1_5lx5r")
+success = SubResource("Resource_dytb8")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[sub_resource type="Resource" id="Resource_5bce2"]
+script = ExtResource("5_8tdby")
+from_ask = ExtResource("4_2ysas")
+signal = "checked_up"
+metadata/_custom_type_script = "uid://bics3dumv7avj"
+
+[sub_resource type="Resource" id="Resource_8tdby"]
+script = ExtResource("3_rpvlb")
+can_evolve_into = Array[String](["Wobbuffet"])
+recieves = ExtResource("2_k12lf")
+metadata/_custom_type_script = "uid://cg3m7vpqxf2t6"
+
+[sub_resource type="Resource" id="Resource_ncww0"]
+script = ExtResource("4_raug6")
+override = SubResource("Resource_8tdby")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[resource]
+script = ExtResource("5_2ysas")
+category = "Power"
+name = "Baby Evolution"
+description = "Once during your turn (before your attack), you may put Wobbuffet from your hand onto [name] (this counts as evolving [name]), and remove all damage counters from [name]."
+affected_by_condition = false
+occurance = SubResource("Resource_5bce2")
+passive = SubResource("Resource_ncww0")
+effects = Array[ExtResource("1_5lx5r")]([SubResource("Resource_8fy1w")])
+metadata/_custom_type_script = "uid://bs2y8ocljilv8"

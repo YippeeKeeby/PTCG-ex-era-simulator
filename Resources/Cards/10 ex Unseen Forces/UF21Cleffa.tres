@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="Base_Card" load_steps=17 format=3 uid="uid://cqgp6lgf168tv"]
+
+[ext_resource type="Texture2D" uid="uid://cdx3uaj38pd8x" path="res://Art/Cards/10 ex Unseen Forces/21.jpg" id="1_3isl0"]
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_qupka"]
+[ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_rjc7a"]
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="3_v6i8x"]
+[ext_resource type="Script" uid="uid://bgtwlw1edjwyc" path="res://Code/Resource Makers/EffectSpecific/Components/DrawMaker.gd" id="4_8fyur"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="5_stp1v"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="6_6yh05"]
+[ext_resource type="Resource" uid="uid://booh5x7mbubep" path="res://Resources/Components/Pokemon/Abilities/Powers/BabyEvoCleffa.tres" id="7_myr1i"]
+[ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="8_3rem8"]
+
+[sub_resource type="Resource" id="Resource_m7xdt"]
+
+[sub_resource type="Resource" id="Resource_an4iq"]
+script = ExtResource("4_8fyur")
+shuffle_back_first = true
+simple_constant = 6
+metadata/_custom_type_script = "uid://bgtwlw1edjwyc"
+
+[sub_resource type="Resource" id="Resource_qblkr"]
+script = ExtResource("5_stp1v")
+draw_ammount = SubResource("Resource_an4iq")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_1nkfg"]
+script = ExtResource("3_v6i8x")
+success = SubResource("Resource_qblkr")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[sub_resource type="Resource" id="Resource_wm5xj"]
+script = ExtResource("6_6yh05")
+description = "Shuffle your hand into your deck, then draw 6 cards."
+prompt_effects = Array[ExtResource("3_v6i8x")]([SubResource("Resource_1nkfg")])
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"
+
+[sub_resource type="Resource" id="Resource_sifhx"]
+script = ExtResource("2_rjc7a")
+name = " Eeeeeeek"
+attack_data = SubResource("Resource_wm5xj")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_4rrfa"]
+script = ExtResource("8_3rem8")
+pokebody = ExtResource("7_myr1i")
+attacks = Array[ExtResource("2_rjc7a")]([SubResource("Resource_sifhx")])
+type = 256
+metadata/_custom_type_script = "uid://dkximshow1pao"
+
+[resource]
+script = ExtResource("1_qupka")
+name = "Cleffa"
+image = ExtResource("1_3isl0")
+illustrator = "Yuka Morii"
+number = 21
+rarity = 2
+expansion = 9
+categories = 1
+pokemon_properties = SubResource("Resource_4rrfa")
+metadata/_custom_type_script = "uid://byaq4ongqnwl7"

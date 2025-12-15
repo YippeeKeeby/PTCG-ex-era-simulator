@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Base_Card" load_steps=24 format=3 uid="uid://8aluya3mraht"]
+[gd_resource type="Resource" script_class="Base_Card" load_steps=21 format=3 uid="uid://8aluya3mraht"]
 
 [ext_resource type="Texture2D" uid="uid://d1f55128uj06q" path="res://Art/Cards/2 ex Sandstorm/54.jpg" id="1_fluui"]
 [ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_htrw8"]
@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://cu817ymtejglx" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Psychic1.tres" id="8_3wq4p"]
 [ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="9_vjsvb"]
 [ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="10_k6hc2"]
-[ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="10_vjsvb"]
+[ext_resource type="Resource" uid="uid://bg01xm7tf5ndd" path="res://Resources/Components/Pokemon/Abilities/Powers/BabyEvoWynaut.tres" id="11_vjsvb"]
 
 [sub_resource type="Resource" id="Resource_tuxjm"]
 metadata/__load_path__ = "res://Resources/Components/Counters/ForAtchEnergy.tres"
@@ -46,29 +46,11 @@ attack_cost = ExtResource("8_3wq4p")
 attack_data = SubResource("Resource_f7r4u")
 metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
 
-[sub_resource type="Resource" id="Resource_ncww0"]
-script = ExtResource("3_3wq4p")
-metadata/_custom_type_script = "uid://dmulm3x3dj842"
-
-[sub_resource type="Resource" id="Resource_vjsvb"]
-script = ExtResource("4_f7r4u")
-success = SubResource("Resource_ncww0")
-metadata/_custom_type_script = "uid://k25kag4lnway"
-
-[sub_resource type="Resource" id="Resource_8at0n"]
-script = ExtResource("10_vjsvb")
-category = "Power"
-name = "Baby Evolution"
-description = "Once during your turn (before your attack), you may put Wobbuffet from your hand onto [name] (this counts as evolving [name]), and remove all damage counters from [name]."
-affected_by_condition = false
-effects = Array[ExtResource("4_f7r4u")]([SubResource("Resource_vjsvb")])
-metadata/_custom_type_script = "uid://bs2y8ocljilv8"
-
 [sub_resource type="Resource" id="Resource_xlsej"]
 script = ExtResource("10_k6hc2")
-pokepower = SubResource("Resource_8at0n")
+pokepower = ExtResource("11_vjsvb")
 attacks = Array[ExtResource("2_fluui")]([SubResource("Resource_rihj7")])
-considered = 4
+considered = 5
 type = 16
 weak = 16
 metadata/_custom_type_script = "uid://dkximshow1pao"

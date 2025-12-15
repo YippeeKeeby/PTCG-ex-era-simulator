@@ -1,0 +1,100 @@
+[gd_resource type="Resource" script_class="Base_Card" load_steps=27 format=3 uid="uid://dbs12vo3liq64"]
+
+[ext_resource type="Texture2D" uid="uid://blgtmxyiufete" path="res://Art/Cards/10 ex Unseen Forces/26.jpg" id="1_0n3rc"]
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_1fus7"]
+[ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_v6ebs"]
+[ext_resource type="Resource" uid="uid://djhcfglsc14fn" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/F1C1.tres" id="3_k0ua4"]
+[ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="3_s7j7q"]
+[ext_resource type="Resource" uid="uid://cu2c1wsp5lrdr" path="res://Resources/Components/Counters/Indv/Slots/OtherTrgDmg.tres" id="4_a4h7h"]
+[ext_resource type="Script" uid="uid://b65jx8u5cgcgl" path="res://Code/Resource Makers/GeneralUse/ComparatorMaker.gd" id="5_xou6r"]
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="6_o1nip"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="7_aopnb"]
+[ext_resource type="Resource" uid="uid://dm6f2nxeh8yqx" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Colorless4.tres" id="8_ip0i4"]
+[ext_resource type="Resource" uid="uid://cj4j56m7hrxpe" path="res://Resources/Components/Pokemon/Attacks/AttackData/50Dmg.tres" id="9_kpk0d"]
+[ext_resource type="Resource" uid="uid://bkt6ry7vyha70" path="res://Resources/Components/Effects/Asks/General/Other.tres" id="10_jv5hu"]
+[ext_resource type="Script" uid="uid://scca13hg4k1l" path="res://Code/Resource Makers/EffectSpecific/Components/DmgManipMaker.gd" id="11_ft0y1"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="12_5naa1"]
+[ext_resource type="Resource" uid="uid://bessnawi8b2ct" path="res://Resources/Components/Occurances/AttackedByOpponent.tres" id="13_fd6lq"]
+[ext_resource type="Resource" uid="uid://bmtmv17focn2u" path="res://Resources/Components/Effects/Prompts/PromptComparator/PromptSelfEvolved.tres" id="14_pbh6v"]
+[ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="15_1h4hw"]
+
+[sub_resource type="Resource" id="Resource_typ0d"]
+script = ExtResource("5_xou6r")
+comparision_type = "Greater"
+first_comparison = ExtResource("4_a4h7h")
+compare_to = "Const"
+second_constant = 1
+metadata/_custom_type_script = "uid://b65jx8u5cgcgl"
+
+[sub_resource type="Resource" id="Resource_4a4h1"]
+script = ExtResource("7_aopnb")
+description = "If the Defending Pokémon already has at least 2 damage counters on it, this attack does 20 damage plus 30 more damage."
+initial_main_DMG = 20
+mod_prompt = true
+modifier = 1
+modifier_num = 30
+comparator = SubResource("Resource_typ0d")
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"
+
+[sub_resource type="Resource" id="Resource_5cj22"]
+script = ExtResource("2_v6ebs")
+name = "Upward Kick"
+attack_cost = ExtResource("3_k0ua4")
+attack_data = SubResource("Resource_4a4h1")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_mulau"]
+script = ExtResource("2_v6ebs")
+name = "Spiral Kick"
+attack_cost = ExtResource("8_ip0i4")
+attack_data = ExtResource("9_kpk0d")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_fk5qo"]
+script = ExtResource("11_ft0y1")
+mode = "Add"
+ask = ExtResource("10_jv5hu")
+how_many = 2
+metadata/_custom_type_script = "uid://scca13hg4k1l"
+
+[sub_resource type="Resource" id="Resource_fvw7s"]
+script = ExtResource("12_5naa1")
+dmgManip = SubResource("Resource_fk5qo")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_ufo84"]
+script = ExtResource("6_o1nip")
+success = SubResource("Resource_fvw7s")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[sub_resource type="Resource" id="Resource_ke5n7"]
+script = ExtResource("15_1h4hw")
+name = "Stages of Evolution"
+description = "As long as [name] is an Evolved Pokémon, is your Active Pokémon, and is damaged by an opponent's attack (even if [name] is Knocked Out), put 2 damage counters on the Attacking Pokémon."
+affected_by_condition = false
+active = true
+prompt = ExtResource("14_pbh6v")
+occurance = ExtResource("13_fd6lq")
+effects = Array[ExtResource("6_o1nip")]([SubResource("Resource_ufo84")])
+metadata/_custom_type_script = "uid://bs2y8ocljilv8"
+
+[sub_resource type="Resource" id="Resource_jyj2d"]
+script = ExtResource("3_s7j7q")
+HP = 70
+pokebody = SubResource("Resource_ke5n7")
+attacks = Array[ExtResource("2_v6ebs")]([SubResource("Resource_5cj22"), SubResource("Resource_mulau")])
+type = 32
+weak = 16
+metadata/_custom_type_script = "uid://dkximshow1pao"
+
+[resource]
+script = ExtResource("1_1fus7")
+name = "Hitmontop"
+image = ExtResource("1_0n3rc")
+illustrator = "Hisao Nakamura"
+number = 26
+rarity = 2
+expansion = 9
+categories = 1
+pokemon_properties = SubResource("Resource_jyj2d")
+metadata/_custom_type_script = "uid://byaq4ongqnwl7"

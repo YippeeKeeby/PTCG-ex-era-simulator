@@ -12,7 +12,6 @@
 [sub_resource type="Resource" id="Resource_myyen"]
 script = ExtResource("28_7d1mi")
 coin_rules = 1
-doubles = true
 home = ExtResource("2_mxy7v")
 away_side = 0
 away = ExtResource("2_43axb")

@@ -1,0 +1,98 @@
+[gd_resource type="Resource" script_class="Base_Card" load_steps=28 format=3 uid="uid://0ji13y6la2en"]
+
+[ext_resource type="Texture2D" uid="uid://dk53mx5pkism1" path="res://Art/Cards/10 ex Unseen Forces/22.jpg" id="1_mh7wm"]
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_s2d0g"]
+[ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_uguw8"]
+[ext_resource type="Resource" uid="uid://cesjkvsi5c6jb" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/L1C1.tres" id="3_nj5e3"]
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="4_3i3w5"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="5_qglft"]
+[ext_resource type="Resource" uid="uid://dln27118sw0f0" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/L1C3.tres" id="6_gdsur"]
+[ext_resource type="Resource" uid="uid://c7itelq8jtjc2" path="res://Resources/Components/EnData/Rainbow.tres" id="7_qs80h"]
+[ext_resource type="Resource" uid="uid://drcbww84yrlx" path="res://Resources/Components/Effects/Asks/General/Self.tres" id="8_04ybs"]
+[ext_resource type="Script" uid="uid://cimk6l7ytw7xg" path="res://Code/Resource Makers/EffectSpecific/Components/EnMovMaker.gd" id="9_1npv0"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="10_fmrok"]
+[ext_resource type="Resource" uid="uid://dewlqkem406t8" path="res://Resources/Components/Effects/Asks/Energy/OtherSpEn.tres" id="11_ms3v7"]
+[ext_resource type="Script" uid="uid://coojhwe6m20gd" path="res://Code/Resource Makers/EffectSpecific/Components/SlotChanges/BuffMaker.gd" id="12_rj71n"]
+[ext_resource type="Resource" uid="uid://bmtmv17focn2u" path="res://Resources/Components/Effects/Prompts/PromptComparator/PromptSelfEvolved.tres" id="13_81c0h"]
+[ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="14_7cdb4"]
+[ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="15_w4k25"]
+
+[sub_resource type="Resource" id="Resource_hiung"]
+script = ExtResource("5_qglft")
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"
+
+[sub_resource type="Resource" id="Resource_cta13"]
+script = ExtResource("2_uguw8")
+name = "Double Shock"
+attack_cost = ExtResource("3_nj5e3")
+attack_data = SubResource("Resource_hiung")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_tlua4"]
+script = ExtResource("9_1npv0")
+givers = ExtResource("8_04ybs")
+energy_ammount = 3
+metadata/_custom_type_script = "uid://cimk6l7ytw7xg"
+
+[sub_resource type="Resource" id="Resource_qdp7w"]
+script = ExtResource("10_fmrok")
+energy_movement = SubResource("Resource_tlua4")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_0ufau"]
+script = ExtResource("4_3i3w5")
+success = SubResource("Resource_qdp7w")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[sub_resource type="Resource" id="Resource_m401y"]
+script = ExtResource("5_qglft")
+description = "Discard 3 Energy attached to [name]."
+initial_main_DMG = 70
+prompt_effects = Array[ExtResource("4_3i3w5")]([SubResource("Resource_0ufau")])
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"
+
+[sub_resource type="Resource" id="Resource_lcwjb"]
+script = ExtResource("2_uguw8")
+name = " Luster Blast"
+attack_cost = ExtResource("6_gdsur")
+attack_data = SubResource("Resource_m401y")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_tsvaj"]
+script = ExtResource("12_rj71n")
+against = ExtResource("11_ms3v7")
+defense = 40
+metadata/_custom_type_script = "uid://coojhwe6m20gd"
+
+[sub_resource type="Resource" id="Resource_dqvx1"]
+script = ExtResource("10_fmrok")
+buff = SubResource("Resource_tsvaj")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_q30rn"]
+script = ExtResource("14_7cdb4")
+name = "Stages of Evolution"
+description = "As long as [name] is an Evolved Pokémon, any damage done to [name] by attacks from your opponent's Pokémon that has any Special Energy cards attached to it is reduced by 40 (after applying Weakness and Resistance)."
+prompt = ExtResource("13_81c0h")
+passive = SubResource("Resource_dqvx1")
+metadata/_custom_type_script = "uid://bs2y8ocljilv8"
+
+[sub_resource type="Resource" id="Resource_736tf"]
+script = ExtResource("15_w4k25")
+HP = 70
+pokebody = SubResource("Resource_q30rn")
+attacks = Array[ExtResource("2_uguw8")]([SubResource("Resource_cta13"), SubResource("Resource_lcwjb")])
+type = 8
+metadata/_custom_type_script = "uid://dkximshow1pao"
+
+[resource]
+script = ExtResource("1_s2d0g")
+name = "Electabuzz"
+image = ExtResource("1_mh7wm")
+illustrator = "Mitsuhiro Arita"
+number = 22
+rarity = 2
+expansion = 9
+categories = 1
+pokemon_properties = SubResource("Resource_736tf")
+metadata/_custom_type_script = "uid://byaq4ongqnwl7"

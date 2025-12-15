@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=12 format=3 uid="uid://b24wmv0svdjlv"]
+
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="1_586nn"]
+[ext_resource type="Resource" uid="uid://c5l2nrpmptwuh" path="res://Resources/Components/Effects/DmgManip/Remove/SelfHealALL.tres" id="2_xxu8t"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="3_2wkkn"]
+[ext_resource type="Resource" uid="uid://b5venyeeni54e" path="res://Resources/Components/Occurances/SelfEvolved.tres" id="4_q6iv8"]
+[ext_resource type="Resource" uid="uid://drcbww84yrlx" path="res://Resources/Components/Effects/Asks/General/Self.tres" id="5_3u6sn"]
+[ext_resource type="Script" uid="uid://cg3m7vpqxf2t6" path="res://Code/Resource Makers/EffectSpecific/Components/SlotChanges/OverrideMaker.gd" id="6_bam4m"]
+[ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="7_ix2jt"]
+
+[sub_resource type="Resource" id="Resource_dytb8"]
+script = ExtResource("3_2wkkn")
+dmgManip = ExtResource("2_xxu8t")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_484sa"]
+script = ExtResource("1_586nn")
+success = SubResource("Resource_dytb8")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[sub_resource type="Resource" id="Resource_dxrg2"]
+script = ExtResource("6_bam4m")
+can_evolve_into = Array[String](["Electabuzz"])
+recieves = ExtResource("5_3u6sn")
+metadata/_custom_type_script = "uid://cg3m7vpqxf2t6"
+
+[sub_resource type="Resource" id="Resource_0r3t3"]
+script = ExtResource("3_2wkkn")
+override = SubResource("Resource_dxrg2")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[resource]
+script = ExtResource("7_ix2jt")
+category = "Power"
+name = "Baby Evolution"
+description = "Once during your turn (before your attack), you may put Electabuzz from your hand onto [name] (this counts as evolving [name]) and remove all damage counters from [name]."
+affected_by_condition = false
+occurance = ExtResource("4_q6iv8")
+passive = SubResource("Resource_0r3t3")
+effects = Array[ExtResource("1_586nn")]([SubResource("Resource_484sa")])
+metadata/_custom_type_script = "uid://bs2y8ocljilv8"

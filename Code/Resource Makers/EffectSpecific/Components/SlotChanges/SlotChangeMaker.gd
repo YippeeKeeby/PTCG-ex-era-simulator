@@ -22,6 +22,10 @@ class_name SlotChange
 
 signal finished
 
+func _init():
+	print(describe())
+	#button = Callable(self, "describe")
+
 func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
 	print("PLAY ", self.get_script().get_global_name())
 	
@@ -53,5 +57,6 @@ func how_display() -> Dictionary[String, bool]:
 	
 	return {"RuleChange" : true}
 
-func describe():
-	pass
+func describe() -> String:
+	print("HUH?")
+	return "huh?"

@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="Base_Card" load_steps=21 format=3 uid="uid://d2wg36f2ban31"]
+
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_5n3g0"]
+[ext_resource type="Texture2D" uid="uid://bmlhf567p5pnv" path="res://Art/Cards/5 ex Hidden Legends/37.jpg" id="1_sxgfv"]
+[ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_rlc5w"]
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="3_45quv"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="4_b8d8n"]
+[ext_resource type="Resource" uid="uid://bl4qnrkh3kxdl" path="res://Resources/Components/Effects/Placement/PutIntoHand.tres" id="5_ltint"]
+[ext_resource type="Script" uid="uid://uplawvwcwl8y" path="res://Code/Resource Makers/GeneralUse/IdentifierMaker.gd" id="6_doqqc"]
+[ext_resource type="Resource" uid="uid://bsrtmv3udqjav" path="res://Resources/Components/Effects/Identifiers/Pokemon/BasicPokemon.tres" id="7_njaon"]
+[ext_resource type="Resource" uid="uid://d2vm6chtedrum" path="res://Resources/Components/Effects/Identifiers/Energy/BasicEnergy.tres" id="8_dctat"]
+[ext_resource type="Script" uid="uid://cw3yr1k040kw7" path="res://Code/Resource Makers/EffectSpecific/Components/SearchMaker.gd" id="9_orgvy"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="10_ijkok"]
+[ext_resource type="Resource" uid="uid://cs4l133ljbtwx" path="res://Resources/Components/Pokemon/Abilities/Powers/BabyEvoIgglybuff.tres" id="11_mw7mk"]
+[ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="12_i4tg6"]
+
+[sub_resource type="Resource" id="Resource_m7xdt"]
+
+[sub_resource type="Resource" id="Resource_ovlus"]
+script = ExtResource("9_orgvy")
+how_many = Array[int]([1, 1])
+of_this = Array[ExtResource("6_doqqc")]([ExtResource("7_njaon"), ExtResource("8_dctat")])
+metadata/_custom_type_script = "uid://cw3yr1k040kw7"
+
+[sub_resource type="Resource" id="Resource_u44qu"]
+script = ExtResource("4_b8d8n")
+search = SubResource("Resource_ovlus")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_xw1gd"]
+script = ExtResource("3_45quv")
+success = SubResource("Resource_u44qu")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[sub_resource type="Resource" id="Resource_6lgr1"]
+script = ExtResource("10_ijkok")
+description = "Search your deck for a Basic Pokémon and a basic Energy card, show them to your opponent, and put them into your hand. Shuffle your deck afterward."
+prompt_effects = Array[ExtResource("3_45quv")]([SubResource("Resource_xw1gd")])
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"
+
+[sub_resource type="Resource" id="Resource_2223l"]
+script = ExtResource("2_rlc5w")
+name = "Set Song"
+attack_data = SubResource("Resource_6lgr1")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_rwg8m"]
+script = ExtResource("12_i4tg6")
+pokebody = ExtResource("11_mw7mk")
+attacks = Array[ExtResource("2_rlc5w")]([SubResource("Resource_2223l")])
+considered = 5
+type = 256
+metadata/_custom_type_script = "uid://dkximshow1pao"
+
+[resource]
+script = ExtResource("1_5n3g0")
+name = "Igglybuff"
+image = ExtResource("1_sxgfv")
+illustrator = "Naoyo Kimura"
+number = 37
+rarity = 1
+expansion = 4
+categories = 1
+pokemon_properties = SubResource("Resource_rwg8m")
+metadata/_custom_type_script = "uid://byaq4ongqnwl7"

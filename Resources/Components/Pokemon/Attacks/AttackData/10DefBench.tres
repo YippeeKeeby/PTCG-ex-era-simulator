@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AttackData" load_steps=4 format=3 uid="uid://ck3jxj0ojng6w"]
+
+[ext_resource type="Resource" uid="uid://r4xgk0bkj0br" path="res://Resources/Components/Pokemon/BenchAttack/10DefBench.tres" id="1_61mw7"]
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="2_huvn7"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="3_xolfk"]
+
+[resource]
+script = ExtResource("3_xolfk")
+description = "Choose 1 of your opponent's Pokémon. This attack does 20 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+bench_damage = ExtResource("1_61mw7")
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"

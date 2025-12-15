@@ -11,7 +11,7 @@ class_name Override
 @export_group("Pokemon Override")
 @export_enum("Add", "Subtract", "Replace") var mode: String = "Replace"
 @export var prize_count: int = -1
-@export var can_evolve_into: String
+@export var can_evolve_into: Array[String] = []
 @export var can_retreat_when: Array[Consts.TURN_COND]
 
 @export_group("Energy Override")
@@ -31,3 +31,10 @@ class_name Override
 
 func how_display() -> Dictionary[String, bool]:
 	return {"Override" : true}
+
+func describe() -> String:
+	if can_evolve_into.size() != 0:
+		print("Can evolve into ", Convert.combine_strings(can_evolve_into))
+		return str("Can evolve into ", Convert.combine_strings(can_evolve_into))
+	
+	return "Not described yet"

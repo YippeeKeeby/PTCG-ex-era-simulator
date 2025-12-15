@@ -140,6 +140,7 @@ func _set(property, value):
 #--------------------------------------
 #region SIGNAL FUNCTIONS
 func connect_occurance():
+	print(self)
 	var slots: Array[PokeSlot] = Globals.full_ui.get_ask_slots(_get("from_ask"))
 	
 	for slot in slots:

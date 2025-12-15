@@ -111,8 +111,8 @@ func discard_card(card: Base_Card):
 #region CARD DISPLAY
 func update_lists():
 	#Needs a lot of updates
-	Globals.full_ui.update_stacks(home_stacks.sendStackDictionary(), Consts.PLAYER_TYPES.PLAYER)
-	Globals.full_ui.update_stacks(away_stacks.sendStackDictionary(), Consts.PLAYER_TYPES.CPU)
+	Globals.full_ui.update_stacks(home_stacks.sendStackDictionary(), true)
+	Globals.full_ui.update_stacks(away_stacks.sendStackDictionary(), false)
 
 func get_list(which: Consts.STACKS) -> Dictionary[Base_Card, bool]:
 	var dict: Dictionary[Base_Card, bool]

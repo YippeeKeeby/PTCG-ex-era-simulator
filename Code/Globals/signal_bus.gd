@@ -52,6 +52,8 @@ signal record_src_trg_from_prev(slot: PokeSlot)
 signal record_src_trg_from_self(slot: PokeSlot)
 signal remove_src_trg()
 signal remove_top_ui()
+signal empty_ui()
+signal hide_ui()
 signal finished_remove_top_ui()
 
 #endregion

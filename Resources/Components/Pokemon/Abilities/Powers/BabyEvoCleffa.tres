@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=14 format=3 uid="uid://booh5x7mbubep"]
+[gd_resource type="Resource" script_class="Ability" load_steps=12 format=3 uid="uid://booh5x7mbubep"]
 
 [ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="1_hunk3"]
 [ext_resource type="Resource" uid="uid://c5l2nrpmptwuh" path="res://Resources/Components/Effects/DmgManip/Remove/SelfHealALL.tres" id="2_3jkk6"]
 [ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="3_ovpgi"]
-[ext_resource type="Resource" uid="uid://bns8h72u2hxqo" path="res://Resources/Components/Effects/Asks/General/AnyMon.tres" id="4_xms4t"]
-[ext_resource type="Script" uid="uid://bics3dumv7avj" path="res://Code/Resource Makers/GeneralUse/OccuranceMaker.gd" id="5_ofbyi"]
+[ext_resource type="Resource" uid="uid://bqw0mvq1fii3g" path="res://Resources/Components/Occurances/SelfEvolving.tres" id="4_mbfs5"]
 [ext_resource type="Resource" uid="uid://drcbww84yrlx" path="res://Resources/Components/Effects/Asks/General/Self.tres" id="6_dti66"]
 [ext_resource type="Script" uid="uid://cg3m7vpqxf2t6" path="res://Code/Resource Makers/EffectSpecific/Components/SlotChanges/OverrideMaker.gd" id="7_wv0s7"]
 [ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="8_rxngp"]
@@ -18,12 +17,6 @@ metadata/_custom_type_script = "uid://dmulm3x3dj842"
 script = ExtResource("1_hunk3")
 success = SubResource("Resource_qhbof")
 metadata/_custom_type_script = "uid://k25kag4lnway"
-
-[sub_resource type="Resource" id="Resource_rv3ca"]
-script = ExtResource("5_ofbyi")
-from_ask = ExtResource("4_xms4t")
-signal = "checked_up"
-metadata/_custom_type_script = "uid://bics3dumv7avj"
 
 [sub_resource type="Resource" id="Resource_kvu8s"]
 script = ExtResource("7_wv0s7")
@@ -42,7 +35,7 @@ category = "Power"
 name = "Baby Evolution"
 description = "Once during your turn (before your attack), you may put Clefairy from your hand onto [name] (this counts as evolving [name]), and remove all damage counters from [name]."
 affected_by_condition = false
-occurance = SubResource("Resource_rv3ca")
+occurance = ExtResource("4_mbfs5")
 passive = SubResource("Resource_bfj17")
 effects = Array[ExtResource("1_hunk3")]([SubResource("Resource_ng4qh")])
 metadata/_custom_type_script = "uid://bs2y8ocljilv8"

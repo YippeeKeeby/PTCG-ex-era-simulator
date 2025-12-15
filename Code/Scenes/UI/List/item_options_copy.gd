@@ -77,11 +77,10 @@ func manage_input(event: InputEvent):
 #Record source here, no need to record target as anything in particular
 func emit_play_as(flag: int):
 	if not Globals.checking:
-		Globals.full_ui.hide_top_ui()
 		play_as.emit(flag, origin_button.card)
 		origin_button.parent.finished.emit()
 		
-		await Globals.full_ui.empty_top_ui()
+		SignalBus.empty_ui.emit()
 
 func _on_check_pressed():
 	if not Globals.checking:

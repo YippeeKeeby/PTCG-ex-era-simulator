@@ -47,3 +47,9 @@ func print_pokemon() -> void:
 		print_rich("Reistance: ",resist_color, Convert.flags_to_type_array(resist),"[/color]")
 	
 	print("-------------------------------------------------------------")
+
+func duplicate_abilities():
+	if pokebody:
+		pokebody = pokebody.duplicate_deep()
+	if pokepower:
+		pokepower = pokepower.duplicate_deep()

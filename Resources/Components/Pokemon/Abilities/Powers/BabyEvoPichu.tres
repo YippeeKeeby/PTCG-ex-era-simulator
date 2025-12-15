@@ -1,11 +1,10 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=14 format=3 uid="uid://b2qpa5okonebu"]
+[gd_resource type="Resource" script_class="Ability" load_steps=12 format=3 uid="uid://b2qpa5okonebu"]
 
 [ext_resource type="Resource" uid="uid://c5l2nrpmptwuh" path="res://Resources/Components/Effects/DmgManip/Remove/SelfHealALL.tres" id="1_jhls8"]
 [ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="2_2wxj7"]
-[ext_resource type="Resource" uid="uid://bns8h72u2hxqo" path="res://Resources/Components/Effects/Asks/General/AnyMon.tres" id="3_2wxj7"]
 [ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="3_kvu8s"]
 [ext_resource type="Resource" uid="uid://drcbww84yrlx" path="res://Resources/Components/Effects/Asks/General/Self.tres" id="3_ng4qh"]
-[ext_resource type="Script" uid="uid://bics3dumv7avj" path="res://Code/Resource Makers/GeneralUse/OccuranceMaker.gd" id="4_kvu8s"]
+[ext_resource type="Resource" uid="uid://bqw0mvq1fii3g" path="res://Resources/Components/Occurances/SelfEvolving.tres" id="4_2wxj7"]
 [ext_resource type="Script" uid="uid://cg3m7vpqxf2t6" path="res://Code/Resource Makers/EffectSpecific/Components/SlotChanges/OverrideMaker.gd" id="5_b82s1"]
 [ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="6_ytjht"]
 
@@ -18,12 +17,6 @@ metadata/_custom_type_script = "uid://dmulm3x3dj842"
 script = ExtResource("3_kvu8s")
 success = SubResource("Resource_qhbof")
 metadata/_custom_type_script = "uid://k25kag4lnway"
-
-[sub_resource type="Resource" id="Resource_rv3ca"]
-script = ExtResource("4_kvu8s")
-from_ask = ExtResource("3_2wxj7")
-signal = "checked_up"
-metadata/_custom_type_script = "uid://bics3dumv7avj"
 
 [sub_resource type="Resource" id="Resource_kvu8s"]
 script = ExtResource("5_b82s1")
@@ -42,7 +35,7 @@ category = "Power"
 name = "Baby Evolution"
 description = "Once during your turn (before your attack), you may put Pikachu from your hand onto [name] (this counts as evolving [name]), and remove all damage counters from [name]."
 affected_by_condition = false
-occurance = SubResource("Resource_rv3ca")
+occurance = ExtResource("4_2wxj7")
 passive = SubResource("Resource_bfj17")
 effects = Array[ExtResource("3_kvu8s")]([SubResource("Resource_ng4qh")])
 metadata/_custom_type_script = "uid://bs2y8ocljilv8"

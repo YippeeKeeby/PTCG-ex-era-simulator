@@ -69,7 +69,7 @@ signal ko()
 signal attatched_tm(card: Base_Card)
 signal attatched_tool(card: Base_Card)
 signal evolved(slot: PokeSlot)
-signal evolving()
+signal evolving(slot: PokeSlot)
 signal attatch_en_signal(card: EnData)
 signal discard_en_signal(card: EnData)
 signal played(slot: Consts.SLOTS)
@@ -127,6 +127,7 @@ func pokemon_checkup() -> void:
 #--------------------------------------
 #region POWER/BODY
 func setup_abilities():
+	current_card.pokemon_properties.duplicate_abilities()
 	Globals.fundies.record_single_src_trg(self)
 	if get_pokedata().pokebody:
 		get_pokedata().pokebody.prep_ability(self)
@@ -483,7 +484,8 @@ func even_or_odd_immune(dmg: int, attacker: PokeSlot) -> bool:
 #Won't trigger anything that happens on direct damage
 func dmg_manip(dmg_change: int, timer: int = -1) -> void:
 	if timer == -1:
-		damage_counters += clamp(dmg_change, 0, dmg_change)
+		damage_counters += dmg_change
+		damage_counters = clamp(damage_counters, 0, 990)
 	else:
 		damage_timers.append({"Damage" : dmg_change, "Timer" : timer})
 	ui_slot.damage_counter.set_damage(damage_counters)
@@ -649,7 +651,7 @@ func get_energy_excess(enData_filter: EnData = null) -> int:
 #A. No. The Pokémon that used "Baby Evolution" is actually no longer in play. (Nov 16, 2006 PUI Rules Team) 
 func evolve_card(evolution: Base_Card) -> void:
 	Globals.fundies.record_single_src_trg(self)
-	await ability_emit(evolving)
+	await ability_emit(evolving, self)
 	disconnect_abilities()
 	current_card.emit_remove_change()
 	evolved_from.append(current_card)

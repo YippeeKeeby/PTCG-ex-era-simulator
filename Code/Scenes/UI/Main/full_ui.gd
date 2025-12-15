@@ -27,7 +27,10 @@ func _ready() -> void:
 	%ArtButton.current_card = null
 	Globals.full_ui = self
 	every_slot = player_side.get_slots() + opponent_side.get_slots()
+	
 	SignalBus.remove_top_ui.connect(remove_top_ui)
+	SignalBus.empty_ui.connect(empty_ui)
+	SignalBus.hide_ui.connect(hide_ui)
 
 func get_sides():
 	#0 & 2 represent singles home ui and doubles home ui, take doubles if it's called for
@@ -153,19 +156,19 @@ func remove_top_ui():
 	Globals.removing = false
 	SignalBus.finished_remove_top_ui.emit()
 
-func empty_top_ui():
+##Use this with ItemOptions since I want a clean slate to change ui how I want, so no defaults here
+func empty_ui():
 	Globals.removing = true
 	for i in range(ui_stack.size()):
 		await control_disapear(ui_stack[-1 - i])
-		
-		print("Just removed so now: ", ui_stack)
 	
 	ui_stack.clear()
+	print("Just removed so now: ", ui_stack)
 	
 	Globals.removing = false
 	SignalBus.finished_remove_top_ui.emit()
 
-func hide_top_ui():
+func hide_ui():
 	for node in ui_stack:
 		node.hide()
 

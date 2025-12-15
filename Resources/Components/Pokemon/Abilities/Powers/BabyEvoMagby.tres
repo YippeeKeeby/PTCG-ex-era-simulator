@@ -3,8 +3,8 @@
 [ext_resource type="Resource" uid="uid://c5l2nrpmptwuh" path="res://Resources/Components/Effects/DmgManip/Remove/SelfHealALL.tres" id="1_76xdc"]
 [ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="2_484sa"]
 [ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="3_484sa"]
-[ext_resource type="Resource" uid="uid://b5venyeeni54e" path="res://Resources/Components/Occurances/SelfEvolved.tres" id="3_kst25"]
 [ext_resource type="Resource" uid="uid://drcbww84yrlx" path="res://Resources/Components/Effects/Asks/General/Self.tres" id="4_3vrv1"]
+[ext_resource type="Resource" uid="uid://bqw0mvq1fii3g" path="res://Resources/Components/Occurances/SelfEvolving.tres" id="4_484sa"]
 [ext_resource type="Script" uid="uid://cg3m7vpqxf2t6" path="res://Code/Resource Makers/EffectSpecific/Components/SlotChanges/OverrideMaker.gd" id="5_i1hcu"]
 [ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="6_ktdtp"]
 
@@ -35,7 +35,7 @@ category = "Power"
 name = "Baby Evolution"
 description = "Once during your turn (before your attack), you may put Magmar from your hand onto [name] (this counts as evolving [name]) and remove all damage counters from [name]."
 affected_by_condition = false
-occurance = ExtResource("3_kst25")
+occurance = ExtResource("4_484sa")
 passive = SubResource("Resource_0r3t3")
 effects = Array[ExtResource("3_484sa")]([SubResource("Resource_484sa")])
 metadata/_custom_type_script = "uid://bs2y8ocljilv8"

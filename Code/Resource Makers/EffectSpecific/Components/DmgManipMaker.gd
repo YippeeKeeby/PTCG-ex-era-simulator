@@ -78,10 +78,12 @@ func simple_manip(reversable: bool = false, replace_num: int = -1):
 			
 			manip_candidate.dmg_manip(get_final_ammount(counters, manip_candidate), turn_delay)
 	
-	#Apply manip on all ask candidates
+	#Apply manip on all ask candidates for -1 mainpulations
 	else:
 		for slot in Globals.full_ui.get_ask_minus_immune(ask, Consts.IMMUNITIES.ATK_EFCT_OPP):
-			if slot.damage_counters != 0 or mode == "Add":
+			if mode == "Remove":
+				slot.dmg_manip(-1 * slot.get_max_hp(), turn_delay)
+			elif slot.damage_counters != 0 or mode == "Add":
 				slot.dmg_manip(get_final_ammount(counters, slot), turn_delay)
 	
 	finished.emit()

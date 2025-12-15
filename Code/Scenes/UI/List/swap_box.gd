@@ -1,14 +1,13 @@
 @icon("res://Art/ProjectSpecific/swap.png")
 extends Control
 class_name SwapBox
-#NEEDS MAJOR REFACTORING, REMOVE RELIANCE ON SWAP RULES
 
 #--------------------------------------
 #region VARIABLES
 @export var side: CardSideUI
 @export var singles: bool = true
- #Should probably work on replacing this with somethig that prevents circular reference
-var swap_rules: EnMov = null
+@export var en_type: EnData
+@export_enum("Basic", "Special", "Any") var energy_move_type: int = 0
 
 @onready var playing_list: PlayingList = %PlayingList
 @onready var slot_list: SlotList = %SlotList
@@ -21,9 +20,14 @@ signal finished
 const stack = Consts.STACKS.PLAY
 const stack_act = Consts.STACK_ACT.ENSWAP
 
+var carry_over: bool = false
 var swaps_made: int = 0
 var energy_swapping: int = 0
 var energy_swapped: int = 0
+var energy_max: int = 0
+var action_max: int = 0
+var giver_ask: SlotAsk
+var reciever_ask: SlotAsk
 var giver: PokeSlotButton
 var reciever: PokeSlotButton
 var energy_given: Array[PlayingButton]
@@ -44,7 +48,7 @@ func _ready() -> void:
 	update_info()
 	header.setup("[center]SWAP BOX")
 	footer.setup("PRESS ESC TO UNDO")
-	slot_list.find_allowed_givers(swap_rules.givers)
+	slot_list.find_allowed_givers(giver_ask)
 
 #If this is closable be ready to reverse changes upon closee
 func make_closable() -> void:
@@ -56,11 +60,11 @@ func manage_input(event: InputEvent) -> void:
 			giver.selected = false
 			giver = null
 			playing_list.reset_items()
-			slot_list.find_allowed_givers(swap_rules.givers)
+			slot_list.find_allowed_givers(giver_ask)
 		elif reciever != null:
 			reciever.selected = false
 			reciever = null
-			slot_list.find_allowed(swap_rules.reciever)
+			slot_list.find_allowed(reciever_ask)
 		elif energy_given.size() > 0:
 			energy_given.pop_back().selected = false
 			allowed_more_energy()
@@ -75,13 +79,33 @@ func manage_input(event: InputEvent) -> void:
 #--------------------------------------
 
 #--------------------------------------
+#region BOOL HELPERS
+func energy_allowed(card: Base_Card, fail: bool) -> bool:
+	var current_en: EnData = card.energy_properties.get_current_provide()
+	var is_react: bool = (en_type.react and en_type.react == current_en.react) or not en_type.react
+	var same: bool = energy_move_type == 2 or\
+	 (energy_move_type == 1 and card.energy_properties.considered == "Special Energy")\
+	 or (energy_move_type == 0 and card.energy_properties.considered == "Basic Energy")
+	
+	
+	return current_en.same_type(en_type) and same and is_react
+
+func enough_energy(ammount: int) -> bool:
+	return energy_max != -1 and ammount == energy_max 
+
+func enough_actions(ammount: int) -> bool:
+	return action_max != -1 and ammount == action_max
+#endregion
+#--------------------------------------
+
+#--------------------------------------
 #region GIVE/RECIEVE
 func handle_pressed_slot(slot_button: PokeSlotButton):
 	#Add giver when there is none
 	if giver == null:
 		giver = replace_with_button(giver, slot_button)
 		get_swappable(slot_button)
-		slot_list.find_allowed(swap_rules.reciever)
+		slot_list.find_allowed(reciever_ask)
 		#Allow for reset
 		giver.disabled = false
 	#Reset by deselecting giver
@@ -109,7 +133,7 @@ func get_swappable(slot_button: PokeSlotButton):
 	slot_button.slot.count_energy()
 	for card in slot_button.slot.energy_cards:
 		#Asume true for now, make a function to see if it fails or not later
-		energy_dict[card] = swap_rules.energy_allowed(card, false)
+		energy_dict[card] = energy_allowed(card, false)
 	
 	playing_list.list = energy_dict
 	playing_list.all_lists = [energy_dict]
@@ -133,7 +157,7 @@ func select_energy(button: PlayingButton):
 	update_info()
 
 func allowed_more_energy():
-	if swap_rules.enough_energy(energy_given.size() + energy_swapped):
+	if enough_energy(energy_given.size() + energy_swapped):
 		for button in playing_list.get_items():
 			if button.selected: continue
 			button.disabled = true
@@ -171,9 +195,9 @@ func update_info():
 	var reciever_txt: String = str("Reciever: ", 
 	"" if reciever == null else reciever.slot.current_card.name)
 	var giving_txt: String = str(energy_swapping,"/",
-	swap_rules.energy_ammount - energy_swapped if swap_rules.energy_ammount != -1 else "X")
+	energy_max - energy_swapped if energy_max != -1 else "X")
 	var actions_left: String = str("Swaps Left: ",swaps_made,"/",
-	swap_rules.action_ammount if swap_rules.action_ammount != -1 else "X")
+	action_max if action_max != -1 else "X")
 	var swap_ready: bool = reciever == null or energy_swapping == 0
 	
 	%indSwapNum.append_text(giving_txt)
@@ -182,7 +206,7 @@ func update_info():
 	%Swap.disabled = swap_ready
 
 func anymore_swaps_allowed():
-	if swap_rules.enough_actions(swaps_made) or swap_rules.enough_energy(energy_swapped):
+	if enough_actions(swaps_made) or enough_energy(energy_swapped):
 		slot_list.disable_all()
 		print("NO MORE SWAPS")
 
@@ -202,10 +226,30 @@ func reset():
 		reciever.selected = false
 		reciever = null
 	
-	slot_list.find_allowed_givers(swap_rules.givers)
+	slot_list.find_allowed_givers(giver_ask)
 	update_info()
 #endregion
 #--------------------------------------
+
+#--------------------------------------
+#region SWAPPING
+func swap(giver_slot: PokeSlot, rec: PokeSlot, energy_giving: Array[Base_Card]):
+	var left: Array[Base_Card] = energy_giving.duplicate()
+	
+	for en in energy_giving:
+		for card in giver.energy_cards:
+			if card.same_card(en):
+				left.erase(en)
+				giver.energy_cards.erase(en)
+				break
+	
+	if left.size() != 0:
+		printerr(left," has ",left.size()," cards left")
+	
+	for en in energy_giving:
+		rec.add_energy(en)
+	
+	giver.refresh()
 
 func record_swap(giv: PokeSlot, rec: PokeSlot, cards: Array[Base_Card]):
 	var swap_log: Dictionary = {"Giver": null, "Reciever": null, "Cards": null}
@@ -220,10 +264,12 @@ func record_swap(giv: PokeSlot, rec: PokeSlot, cards: Array[Base_Card]):
 func undo_swap():
 	var latest_log = swap_history.pop_back()
 	print("REVERSING: ", latest_log)
-	swap_rules.swap(latest_log["Reciever"], latest_log["Giver"], latest_log["Cards"])
+	swap(latest_log["Reciever"], latest_log["Giver"], latest_log["Cards"])
 	swaps_made -= 1
 	reset()
 	anymore_swaps_allowed()
+#endregion
+#--------------------------------------
 
 #--------------------------------------
 #region SIGNALS
@@ -238,11 +284,11 @@ func _on_swap_pressed() -> void:
 	for button in energy_given:
 		card_list.append(button.card)
 	
-	swap_rules.swap(giver.slot, reciever.slot, card_list.duplicate())
+	swap(giver.slot, reciever.slot, card_list.duplicate())
 	record_swap(giver.slot, reciever.slot, card_list)
 	swaps_made += 1
 	#Only record previously swapped if the rules ask for it
-	if swap_rules.energy_carry_over:
+	if carry_over:
 		energy_swapped += energy_swapping
 	reset()
 	anymore_swaps_allowed()

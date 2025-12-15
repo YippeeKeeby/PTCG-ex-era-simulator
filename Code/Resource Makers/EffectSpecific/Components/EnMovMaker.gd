@@ -40,6 +40,7 @@ func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
 	
 	finished.emit()
 
+#--------------------------------------=
 #region EFFECTS
 func send_effect(reversable: bool = false) -> void:
 	Globals.fundies.card_player.set_reversable(reversable)
@@ -87,6 +88,12 @@ func swap_effect(reversable: bool = false) -> void:
 	new_box.swap_rules = self.duplicate()
 	new_box.side = Globals.full_ui.get_const_side(givers.side_target)
 	new_box.singles = Globals.full_ui.singles
+	new_box.action_max = action_ammount
+	new_box.energy_max = energy_ammount
+	new_box.energy_move_type = energy_move_type
+	new_box.carry_over = energy_carry_over
+	new_box.giver_ask = givers
+	new_box.reciever_ask = reciever
 	
 	if reversable: new_box.make_closable()
 	
@@ -119,6 +126,7 @@ func attatch_effect(reversable: bool = false) -> void:
 	
 	finished.emit()
 #endregion
+#--------------------------------------
 
 func swap(giver: PokeSlot, rec: PokeSlot, energy_giving: Array[Base_Card]):
 	var left: Array[Base_Card] = energy_giving.duplicate()
@@ -138,6 +146,7 @@ func swap(giver: PokeSlot, rec: PokeSlot, energy_giving: Array[Base_Card]):
 	
 	giver.refresh()
 
+#--------------------------------------
 #region BOOL RETURNS
 func energy_allowed(card: Base_Card, fail: bool) -> bool:
 	var current_en: EnData = card.energy_properties.get_current_provide()
@@ -155,3 +164,4 @@ func enough_energy(ammount: int) -> bool:
 func enough_actions(ammount: int) -> bool:
 	return action_ammount != -1 and ammount == action_ammount
 #endregion
+#--------------------------------------

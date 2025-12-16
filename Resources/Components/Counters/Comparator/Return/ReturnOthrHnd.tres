@@ -1,14 +1,17 @@
-[gd_resource type="Resource" script_class="Comparator" load_steps=5 format=3 uid="uid://dnjnxdl7x8q06"]
+[gd_resource type="Resource" script_class="Comparator" load_steps=6 format=3 uid="uid://dnjnxdl7x8q06"]
 
-[ext_resource type="Resource" uid="uid://bns8h72u2hxqo" path="res://Resources/Components/Effects/Asks/General/AnyMon.tres" id="1_lsvr6"]
+[ext_resource type="Resource" uid="uid://bkt6ry7vyha70" path="res://Resources/Components/Effects/Asks/General/Other.tres" id="1_5bga5"]
 [ext_resource type="Script" uid="uid://vjn146j3ayd6" path="res://Code/Resource Makers/GeneralUse/IndvCountMaker.gd" id="2_5bga5"]
+[ext_resource type="Resource" uid="uid://dm2i7spst0qpp" path="res://Resources/Components/Effects/Identifiers/AnyCard.tres" id="2_ebqtg"]
 [ext_resource type="Script" uid="uid://b65jx8u5cgcgl" path="res://Code/Resource Makers/GeneralUse/ComparatorMaker.gd" id="3_ebqtg"]
 
 [sub_resource type="Resource" id="Resource_7kp0m"]
 script = ExtResource("2_5bga5")
-which = "Slot"
-ask = ExtResource("1_lsvr6")
-slot_vars = "current_card"
+which = "Stack"
+ask = ExtResource("1_5bga5")
+stack_vars = "hand"
+identifier = ExtResource("2_ebqtg")
+stack_portion = -1
 cap = -1
 metadata/_custom_type_script = "uid://vjn146j3ayd6"
 

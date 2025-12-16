@@ -10,6 +10,7 @@ class_name Placement
 @export var stack: Consts.STACKS = Consts.STACKS.DECK
 ##What choices does the user have when placing in slots
 @export var slot_ask: SlotAsk
+@export var anyway_u_like: bool = false
 
 @export_group("And then")
 #Might not be necessary

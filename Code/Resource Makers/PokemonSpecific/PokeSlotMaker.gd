@@ -128,8 +128,9 @@ func pokemon_checkup() -> void:
 #--------------------------------------
 #region POWER/BODY
 func setup_abilities():
+	current_card = current_card.duplicate_deep()
 	var mon: Pokemon = get_pokedata()
-	mon.duplicate_abilities()
+	#mon.duplicate_abilities()
 	Globals.fundies.record_single_src_trg(self)
 	
 	if mon.pokebody:
@@ -175,7 +176,7 @@ func use_ability(ability: Ability):
 func ability_emit(sig: Signal, param: Variant = null):
 	print("Does ", get_card_name(), " have connections in ", sig, "? ", sig.has_connections())
 	if sig.has_connections():
-		print(sig.get_connections())
+		#print(sig.get_connections())
 		Globals.fundies.record_prev_src_trg_from_self(self)
 		Globals.fundies.print_src_trg()
 		#This feels wrong but it works if multiple abilities connect to the same signal
@@ -988,10 +989,6 @@ func apply_slot_change(apply: SlotChange) -> void:
 	var category: String = apply.get_script().get_global_name()
 	if is_filled() and not apply in get_changes(category):
 		var dict: Dictionary = get_changes(category)
-		print("Getting ", apply.describe())
-		if category == "Buff":
-			print(apply)
-			pass
 		
 		if not apply in dict:
 			dict[apply] = apply.duration
@@ -1097,7 +1094,6 @@ func slot_into(destination: UI_Slot, initalize: bool = false) -> void:
 	#debug_check()
 	if initalize:
 		refresh_current_card()
-		temp_check()
 		refresh()
 		
 		ui_slot.tool.visible = tool_card != null
@@ -1189,5 +1185,4 @@ func temp_check():
 	print("Did something change?")
 	for slot in Globals.full_ui.every_slot:
 		if slot.connected_slot.is_filled():
-			if slot.connected_slot.get_pokedata().pokebody:
-				printt(slot.connected_slot.get_debug_name(), slot.connected_slot.get_pokedata().pokebody)
+			pass

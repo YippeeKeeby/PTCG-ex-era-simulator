@@ -9,6 +9,5 @@ script = ExtResource("2_07cle")
 comparision_type = "Difference"
 first_comparison = ExtResource("1_83wqr")
 compare_to = "Second"
-second_constant = 0
 second_counter = ExtResource("3_qfw85")
 metadata/_custom_type_script = "uid://b65jx8u5cgcgl"

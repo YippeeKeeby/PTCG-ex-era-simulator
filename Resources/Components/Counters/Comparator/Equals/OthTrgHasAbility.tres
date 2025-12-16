@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Comparator" load_steps=5 format=3 uid="uid://b653q2whxtyr2"]
 
-[ext_resource type="Resource" uid="uid://bns8h72u2hxqo" path="res://Resources/Components/Effects/Asks/General/AnyMon.tres" id="1_s7f68"]
+[ext_resource type="Resource" uid="uid://dqbromrlgrofb" path="res://Resources/Components/Effects/Asks/Ability/OthTgtHasAbility.tres" id="1_s7f68"]
 [ext_resource type="Script" uid="uid://vjn146j3ayd6" path="res://Code/Resource Makers/GeneralUse/IndvCountMaker.gd" id="2_q51c6"]
 [ext_resource type="Script" uid="uid://b65jx8u5cgcgl" path="res://Code/Resource Makers/GeneralUse/ComparatorMaker.gd" id="3_6tbab"]
 

@@ -8,5 +8,4 @@ script = ExtResource("2_616m8")
 comparision_type = "Not Equal"
 first_comparison = ExtResource("1_0up0n")
 compare_to = "Const"
-second_constant = 0
 metadata/_custom_type_script = "uid://b65jx8u5cgcgl"

@@ -6,32 +6,10 @@
 
 [sub_resource type="Resource" id="Resource_iejbx"]
 script = ExtResource("1_hm365")
-boolean_type = null
-previous_src_trg = null
 side_target = 4
 slot_target = 1
-specifically = null
-knocked_out = null
-tool_attatched = null
-comparison_type = null
-max_hp = null
-damage_taken = null
-retreat_cost = null
-stage = null
-rare_candy = null
-class_inclusive = null
 pokemon_class = 32
-owner_inclusive = null
-pokemon_owner = null
-type_inclusive = null
 pokemon_type = 576
-energy_inclusive = null
-check_cards = null
-energy_attatched = null
-energy_class = null
-check_ability = null
-contained_abilities = null
-specific_abilities = null
 metadata/_custom_type_script = "uid://mkjynqda7q5g"
 
 [sub_resource type="Resource" id="Resource_7a8tk"]
@@ -48,5 +26,4 @@ comparision_type = "Equals"
 first_comparison = SubResource("Resource_7a8tk")
 compare_to = "Const"
 second_constant = 1
-operate_w_constant = "None"
 metadata/_custom_type_script = "uid://b65jx8u5cgcgl"

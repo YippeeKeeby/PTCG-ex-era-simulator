@@ -5,9 +5,4 @@
 [resource]
 script = ExtResource("1_d71xv")
 which = 1
-top_deck = false
-stack = 1
-use_as = 0
-reorder_type = 0
 shuffle = false
-evolve = false

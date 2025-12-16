@@ -2,14 +2,14 @@
 
 [ext_resource type="Resource" uid="uid://cyyhoqt2uqb75" path="res://Resources/Components/Counters/Indv/Slots/SelfDmg.tres" id="1_do8lg"]
 [ext_resource type="Script" uid="uid://b65jx8u5cgcgl" path="res://Code/Resource Makers/GeneralUse/ComparatorMaker.gd" id="2_vmmic"]
-[ext_resource type="Resource" uid="uid://bns8h72u2hxqo" path="res://Resources/Components/Effects/Asks/General/AnyMon.tres" id="3_do8lg"]
+[ext_resource type="Resource" uid="uid://drcbww84yrlx" path="res://Resources/Components/Effects/Asks/General/Self.tres" id="3_do8lg"]
 [ext_resource type="Script" uid="uid://vjn146j3ayd6" path="res://Code/Resource Makers/GeneralUse/IndvCountMaker.gd" id="4_ie3l1"]
 
 [sub_resource type="Resource" id="Resource_kwtxr"]
 script = ExtResource("4_ie3l1")
 which = "Slot"
 ask = ExtResource("3_do8lg")
-slot_vars = "current_card"
+slot_vars = "max_HP"
 cap = -1
 metadata/_custom_type_script = "uid://vjn146j3ayd6"
 

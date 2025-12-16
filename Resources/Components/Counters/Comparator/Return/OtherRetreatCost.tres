@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Comparator" load_steps=5 format=3 uid="uid://bntqox44smyf7"]
 
-[ext_resource type="Resource" uid="uid://bns8h72u2hxqo" path="res://Resources/Components/Effects/Asks/General/AnyMon.tres" id="1_44xn1"]
+[ext_resource type="Resource" uid="uid://bkt6ry7vyha70" path="res://Resources/Components/Effects/Asks/General/Other.tres" id="1_44xn1"]
 [ext_resource type="Script" uid="uid://vjn146j3ayd6" path="res://Code/Resource Makers/GeneralUse/IndvCountMaker.gd" id="2_12pup"]
 [ext_resource type="Script" uid="uid://b65jx8u5cgcgl" path="res://Code/Resource Makers/GeneralUse/ComparatorMaker.gd" id="3_vc4y6"]
 
@@ -8,7 +8,7 @@
 script = ExtResource("2_12pup")
 which = "Slot"
 ask = ExtResource("1_44xn1")
-slot_vars = "current_card"
+slot_vars = "final_retreat"
 cap = -1
 metadata/_custom_type_script = "uid://vjn146j3ayd6"
 

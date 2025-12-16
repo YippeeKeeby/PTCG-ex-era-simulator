@@ -9,5 +9,4 @@ comparision_type = "Equals"
 first_comparison = ExtResource("1_bqdqv")
 compare_to = "Const"
 second_constant = 1
-operate_w_constant = "None"
 metadata/_custom_type_script = "uid://b65jx8u5cgcgl"

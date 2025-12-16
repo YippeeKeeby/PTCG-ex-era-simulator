@@ -1,0 +1,127 @@
+[gd_resource type="Resource" script_class="Base_Card" load_steps=32 format=3 uid="uid://cm718ea38kugk"]
+
+[ext_resource type="Texture2D" uid="uid://dq6s0ttjqpnsy" path="res://Art/Cards/6 ex FireRed & LeafGreen/107.jpg" id="1_j61me"]
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_y02wu"]
+[ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_dxhxv"]
+[ext_resource type="Resource" uid="uid://cesjkvsi5c6jb" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/L1C1.tres" id="3_800gg"]
+[ext_resource type="Resource" uid="uid://c7itelq8jtjc2" path="res://Resources/Components/EnData/Rainbow.tres" id="4_j2hrt"]
+[ext_resource type="Resource" uid="uid://dqj6gq7pt3dbk" path="res://Resources/Components/Effects/Asks/General/FromSource.tres" id="5_4gxyc"]
+[ext_resource type="Script" uid="uid://cimk6l7ytw7xg" path="res://Code/Resource Makers/EffectSpecific/Components/EnMovMaker.gd" id="6_buk3x"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="7_lgbug"]
+[ext_resource type="Script" uid="uid://b85jmc7067bjc" path="res://Code/Resource Makers/GeneralUse/PromptAskMaker.gd" id="8_rfhrb"]
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="9_tu5ao"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="10_p2ikb"]
+[ext_resource type="Script" uid="uid://8s3m1dar3r33" path="res://Code/Resource Makers/EffectSpecific/Components/ConditionMaker.gd" id="11_ysydo"]
+[ext_resource type="Script" uid="uid://cdyba0wadidwb" path="res://Code/Resource Makers/EffectSpecific/Components/PlacementMaker.gd" id="12_5lk5p"]
+[ext_resource type="Script" uid="uid://uplawvwcwl8y" path="res://Code/Resource Makers/GeneralUse/IdentifierMaker.gd" id="13_mewis"]
+[ext_resource type="Resource" uid="uid://cd880a7x21jgg" path="res://Resources/Components/Effects/Identifiers/Energy/AnyEnergy.tres" id="14_k3aj7"]
+[ext_resource type="Script" uid="uid://cw3yr1k040kw7" path="res://Code/Resource Makers/EffectSpecific/Components/SearchMaker.gd" id="15_fuftn"]
+[ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="16_v53h7"]
+[ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="17_xbgme"]
+
+[sub_resource type="Resource" id="Resource_qgg2f"]
+script = ExtResource("6_buk3x")
+givers = ExtResource("5_4gxyc")
+action_ammount = -1
+energy_ammount = -1
+energy_move_type = 2
+metadata/_custom_type_script = "uid://cimk6l7ytw7xg"
+
+[sub_resource type="Resource" id="Resource_wgfsd"]
+script = ExtResource("7_lgbug")
+energy_movement = SubResource("Resource_qgg2f")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_li6xq"]
+script = ExtResource("8_rfhrb")
+effect = SubResource("Resource_wgfsd")
+metadata/_custom_type_script = "uid://b85jmc7067bjc"
+
+[sub_resource type="Resource" id="Resource_yup2j"]
+script = ExtResource("10_p2ikb")
+description = "You may discard as many Energy as you like attached to your Pokémon in play. If you do, this attack does 30 damage plus 20 more damage for each Energy you discarded."
+prompt = SubResource("Resource_li6xq")
+initial_main_DMG = 30
+mod_prompt = true
+modifier = 1
+modifier_num = 20
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"
+
+[sub_resource type="Resource" id="Resource_h5fx0"]
+script = ExtResource("2_dxhxv")
+name = "Crush and Burn"
+attack_cost = ExtResource("3_800gg")
+attack_data = SubResource("Resource_yup2j")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_xtihi"]
+script = ExtResource("8_rfhrb")
+formal_question = true
+question_string = "Will you knock out this pokemon?"
+yes_answer = "Yes"
+no_answer = "No"
+metadata/_custom_type_script = "uid://b85jmc7067bjc"
+
+[sub_resource type="Resource" id="Resource_d7ocm"]
+script = ExtResource("11_ysydo")
+knockOut = true
+metadata/_custom_type_script = "uid://8s3m1dar3r33"
+
+[sub_resource type="Resource" id="Resource_p5pok"]
+script = ExtResource("12_5lk5p")
+which = 1
+anyway_u_like = true
+shuffle = false
+
+[sub_resource type="Resource" id="Resource_7jhyk"]
+script = ExtResource("15_fuftn")
+where = 2
+how_many = Array[int]([5])
+of_this = Array[ExtResource("13_mewis")]([ExtResource("14_k3aj7")])
+and_then = SubResource("Resource_p5pok")
+metadata/_custom_type_script = "uid://cw3yr1k040kw7"
+
+[sub_resource type="Resource" id="Resource_w2h05"]
+script = ExtResource("7_lgbug")
+order = Array[int]([0, 6])
+condition = SubResource("Resource_d7ocm")
+search = SubResource("Resource_7jhyk")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_264n0"]
+script = ExtResource("9_tu5ao")
+prompt = SubResource("Resource_xtihi")
+success = SubResource("Resource_w2h05")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[sub_resource type="Resource" id="Resource_1604o"]
+script = ExtResource("16_v53h7")
+category = "Power"
+name = "Extra Energy Bomb"
+description = "Once during your turn (before your attack), you may discard [name] and all the cards attached to it (this counts as Knocking Out [name]). If you do, search your discard pile for 5 Energy cards and attach them to any of your Pokémon (excluding Pokémon-ex) in any way you like. This power can't be used if [name] is affected by a Special Condition."
+how_often = "Infinite"
+effects = Array[ExtResource("9_tu5ao")]([SubResource("Resource_264n0")])
+metadata/_custom_type_script = "uid://bs2y8ocljilv8"
+
+[sub_resource type="Resource" id="Resource_oo8ts"]
+script = ExtResource("17_xbgme")
+HP = 90
+pokepower = SubResource("Resource_1604o")
+attacks = Array[ExtResource("2_dxhxv")]([SubResource("Resource_h5fx0")])
+evo_stage = "Stage 1"
+evolves_from = "Voltorb"
+considered = 2
+type = 8
+metadata/_custom_type_script = "uid://dkximshow1pao"
+
+[resource]
+script = ExtResource("1_y02wu")
+name = "Electrode"
+image = ExtResource("1_j61me")
+illustrator = "Ryo Ueda"
+number = 107
+rarity = 4
+expansion = 5
+categories = 1
+pokemon_properties = SubResource("Resource_oo8ts")
+metadata/_custom_type_script = "uid://byaq4ongqnwl7"

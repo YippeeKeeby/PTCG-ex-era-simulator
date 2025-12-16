@@ -1,17 +1,30 @@
-[gd_resource type="Resource" script_class="Base_Card" load_steps=8 format=3 uid="uid://c2tidvg3hbb7p"]
+[gd_resource type="Resource" script_class="Base_Card" load_steps=12 format=3 uid="uid://c2tidvg3hbb7p"]
 
 [ext_resource type="Resource" uid="uid://cyaqpq76mby4m" path="res://Resources/Components/Effects/Asks/Class&Owner/AtkEvolvedMon.tres" id="1_ucmag"]
 [ext_resource type="Texture2D" uid="uid://cy1ayax6we5jj" path="res://Art/Cards/8 ex Deoxys/93.jpg" id="2_35v5r"]
 [ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="2_ucmag"]
 [ext_resource type="Script" uid="uid://caj1pm8erar2a" path="res://Code/Resource Makers/CardResources/EnergyMaker.gd" id="2_xsslt"]
+[ext_resource type="Resource" uid="uid://b5h3buocpx1gn" path="res://Resources/Components/Effects/Disable/DefSelfCantRetreat1.tres" id="3_ikjhv"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="4_5ceqg"]
 [ext_resource type="Resource" uid="uid://ggwe23axa0eu" path="res://Resources/Components/EnData/Boost.tres" id="4_bgt4u"]
 [ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="6_gqdgy"]
+
+[sub_resource type="Resource" id="Resource_gqdgy"]
+script = ExtResource("4_5ceqg")
+disable = ExtResource("3_ikjhv")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_pg27c"]
+script = ExtResource("2_ucmag")
+success = SubResource("Resource_gqdgy")
+metadata/_custom_type_script = "uid://k25kag4lnway"
 
 [sub_resource type="Resource" id="Resource_g1o7v"]
 script = ExtResource("2_xsslt")
 description = "Boost Energy can be attached only to an Evolved Pokémon. Discard Boost Energy at the end of the turn it was attached. Boost Energy provides {Colorless}{Colorless}{Colorless} Energy. The Pokémon Boost Energy is attached to can't retreat. If the Pokémon Boost Energy is attached to isn't an Evolved Pokémon, discard Boost Energy."
 asks = ExtResource("1_ucmag")
 has_fail_prevent = true
+attatch_effects = Array[ExtResource("2_ucmag")]([SubResource("Resource_pg27c")])
 turns = 0
 fail_provide = ExtResource("4_bgt4u")
 success_provide = ExtResource("4_bgt4u")

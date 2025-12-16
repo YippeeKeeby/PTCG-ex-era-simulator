@@ -5,8 +5,5 @@
 
 [resource]
 script = ExtResource("2_0ghxi")
-comparision_type = "Return"
 first_comparison = ExtResource("1_s1gsi")
-compare_to = "None"
-second_constant = null
 metadata/_custom_type_script = "uid://b65jx8u5cgcgl"

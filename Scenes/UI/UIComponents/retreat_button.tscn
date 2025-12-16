@@ -50,17 +50,21 @@ alignment = 1
 [node name="Types" parent="PanelContainer/VBoxContainer/RetreatContainer" instance=ExtResource("1_hgo2m")]
 visible = false
 layout_mode = 2
+retreat = true
 
 [node name="Types2" parent="PanelContainer/VBoxContainer/RetreatContainer" instance=ExtResource("1_hgo2m")]
 visible = false
 layout_mode = 2
+retreat = true
 
 [node name="Types3" parent="PanelContainer/VBoxContainer/RetreatContainer" instance=ExtResource("1_hgo2m")]
 visible = false
 layout_mode = 2
+retreat = true
 
 [node name="Types4" parent="PanelContainer/VBoxContainer/RetreatContainer" instance=ExtResource("1_hgo2m")]
 visible = false
 layout_mode = 2
+retreat = true
 
 [connection signal="pressed" from="PanelContainer/Button" to="." method="_on_button_pressed"]

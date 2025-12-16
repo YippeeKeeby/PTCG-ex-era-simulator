@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="Base_Card" load_steps=12 format=3 uid="uid://ba1gdqjxxnbdk"]
+
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_pceol"]
+[ext_resource type="Texture2D" uid="uid://c36g0v7ilpjkt" path="res://Art/Cards/5 ex Hidden Legends/80.jpg" id="1_rmd37"]
+[ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="1_vj30v"]
+[ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="2_ipcba"]
+[ext_resource type="Resource" uid="uid://cuyrj2oe73rvu" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Colorless1.tres" id="3_ggx7q"]
+[ext_resource type="Resource" uid="uid://g1iekq0710j7" path="res://Resources/Components/Pokemon/Attacks/AttackData/Recharge.tres" id="4_npt3b"]
+[ext_resource type="Resource" uid="uid://cesjkvsi5c6jb" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/L1C1.tres" id="5_352e8"]
+[ext_resource type="Resource" uid="uid://bnsrs2a5hnvkb" path="res://Resources/Components/Pokemon/Attacks/AttackData/20Dmg.tres" id="6_332se"]
+
+[sub_resource type="Resource" id="Resource_0svl0"]
+script = ExtResource("1_vj30v")
+name = "Recharge"
+attack_cost = ExtResource("3_ggx7q")
+attack_data = ExtResource("4_npt3b")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_1gyrf"]
+script = ExtResource("1_vj30v")
+name = "Rolling Attack"
+attack_cost = ExtResource("5_352e8")
+attack_data = ExtResource("6_332se")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_x2bwt"]
+script = ExtResource("2_ipcba")
+HP = 40
+attacks = Array[ExtResource("1_vj30v")]([SubResource("Resource_0svl0"), SubResource("Resource_1gyrf")])
+type = 8
+metadata/_custom_type_script = "uid://dkximshow1pao"
+
+[resource]
+script = ExtResource("1_pceol")
+name = "Voltorb"
+image = ExtResource("1_rmd37")
+illustrator = "Kyoko Umemoto"
+number = 80
+expansion = 4
+categories = 1
+pokemon_properties = SubResource("Resource_x2bwt")
+metadata/_custom_type_script = "uid://byaq4ongqnwl7"

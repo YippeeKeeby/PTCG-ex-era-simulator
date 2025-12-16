@@ -1,14 +1,13 @@
 [gd_resource type="Resource" script_class="Comparator" load_steps=5 format=3 uid="uid://e706qq8o0hri"]
 
-[ext_resource type="Resource" uid="uid://bns8h72u2hxqo" path="res://Resources/Components/Effects/Asks/General/AnyMon.tres" id="1_k123u"]
+[ext_resource type="Resource" uid="uid://u3yx47w8rn83" path="res://Resources/Components/CoinFlip/FlipTwice.tres" id="1_k123u"]
 [ext_resource type="Script" uid="uid://b65jx8u5cgcgl" path="res://Code/Resource Makers/GeneralUse/ComparatorMaker.gd" id="2_k123u"]
 [ext_resource type="Script" uid="uid://vjn146j3ayd6" path="res://Code/Resource Makers/GeneralUse/IndvCountMaker.gd" id="2_x3fxm"]
 
 [sub_resource type="Resource" id="Resource_ssvhq"]
 script = ExtResource("2_x3fxm")
-which = "Slot"
-ask = ExtResource("1_k123u")
-slot_vars = "current_card"
+which = "Coinflip"
+coin_flip = ExtResource("1_k123u")
 cap = -1
 metadata/_custom_type_script = "uid://vjn146j3ayd6"
 

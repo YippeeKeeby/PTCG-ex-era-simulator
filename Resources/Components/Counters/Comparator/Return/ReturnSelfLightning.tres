@@ -1,14 +1,17 @@
-[gd_resource type="Resource" script_class="Comparator" load_steps=5 format=3 uid="uid://dwijamyxm068h"]
+[gd_resource type="Resource" script_class="Comparator" load_steps=6 format=3 uid="uid://dwijamyxm068h"]
 
-[ext_resource type="Resource" uid="uid://bns8h72u2hxqo" path="res://Resources/Components/Effects/Asks/General/AnyMon.tres" id="1_jldks"]
+[ext_resource type="Resource" uid="uid://drcbww84yrlx" path="res://Resources/Components/Effects/Asks/General/Self.tres" id="1_oqr2x"]
+[ext_resource type="Resource" uid="uid://cxnlthowpb4r4" path="res://Resources/Components/EnData/Lightning.tres" id="2_64jmc"]
 [ext_resource type="Script" uid="uid://vjn146j3ayd6" path="res://Code/Resource Makers/GeneralUse/IndvCountMaker.gd" id="3_26yt6"]
 [ext_resource type="Script" uid="uid://b65jx8u5cgcgl" path="res://Code/Resource Makers/GeneralUse/ComparatorMaker.gd" id="4_7ulih"]
 
 [sub_resource type="Resource" id="Resource_4ea72"]
 script = ExtResource("3_26yt6")
 which = "Slot"
-ask = ExtResource("1_jldks")
-slot_vars = "current_card"
+ask = ExtResource("1_oqr2x")
+slot_vars = "energy_cards"
+en_count_methods = "Total"
+en_counting = ExtResource("2_64jmc")
 cap = -1
 metadata/_custom_type_script = "uid://vjn146j3ayd6"
 

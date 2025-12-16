@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="Base_Card" load_steps=16 format=3 uid="uid://56xo1vrjl5wk"]
+
+[ext_resource type="Texture2D" uid="uid://beg6vs6aqro8i" path="res://Art/Cards/6 ex FireRed & LeafGreen/85.jpg" id="1_2t0l3"]
+[ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_ywe4j"]
+[ext_resource type="Resource" uid="uid://cesjkvsi5c6jb" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/L1C1.tres" id="3_iggl5"]
+[ext_resource type="Resource" uid="uid://n2tq4jfo7hw1" path="res://Resources/Components/Pokemon/Attacks/AttackData/20DmgParaIfHeads.tres" id="4_2a4s1"]
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="5_t0bdt"]
+[ext_resource type="Resource" uid="uid://c37rmy4v63lj4" path="res://Resources/Components/Effects/Buff/Stat/Retreat/RetreatIsNow0.tres" id="6_8hgh0"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="7_dsykl"]
+[ext_resource type="Resource" uid="uid://baopicsn523to" path="res://Resources/Components/Effects/Prompts/HasAnyEnergy.tres" id="8_vp1hd"]
+[ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="9_nuc78"]
+[ext_resource type="Script" uid="uid://dkximshow1pao" path="res://Code/Resource Makers/CardResources/PokemonMaker.gd" id="10_vc1n4"]
+[ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="11_w4hos"]
+
+[sub_resource type="Resource" id="Resource_but2o"]
+script = ExtResource("2_ywe4j")
+name = "Thundershock"
+attack_cost = ExtResource("3_iggl5")
+attack_data = ExtResource("4_2a4s1")
+metadata/_custom_type_script = "uid://b0fgi2nbb5lf3"
+
+[sub_resource type="Resource" id="Resource_ul35o"]
+script = ExtResource("7_dsykl")
+buff = ExtResource("6_8hgh0")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_naop7"]
+script = ExtResource("9_nuc78")
+name = "Floating Electrons"
+description = " As long as [name] has any Energy attached to it, [name]'s Retreat Cost is 0. "
+affected_by_condition = false
+prompt = ExtResource("8_vp1hd")
+passive = SubResource("Resource_ul35o")
+metadata/_custom_type_script = "uid://bs2y8ocljilv8"
+
+[sub_resource type="Resource" id="Resource_x2bwt"]
+script = ExtResource("10_vc1n4")
+pokebody = SubResource("Resource_naop7")
+attacks = Array[ExtResource("2_ywe4j")]([SubResource("Resource_but2o")])
+type = 8
+metadata/_custom_type_script = "uid://dkximshow1pao"
+
+[resource]
+script = ExtResource("11_w4hos")
+name = "Voltorb"
+image = ExtResource("1_2t0l3")
+illustrator = "Ken Sugimori"
+number = 85
+expansion = 5
+categories = 1
+pokemon_properties = SubResource("Resource_x2bwt")
+metadata/_custom_type_script = "uid://byaq4ongqnwl7"

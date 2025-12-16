@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="PromptAsk" load_steps=7 format=3 uid="uid://bdnsa31pds5n8"]
+[gd_resource type="Resource" script_class="PromptAsk" load_steps=8 format=3 uid="uid://bdnsa31pds5n8"]
 
-[ext_resource type="Resource" uid="uid://bns8h72u2hxqo" path="res://Resources/Components/Effects/Asks/General/AnyMon.tres" id="1_rb1o5"]
+[ext_resource type="Resource" uid="uid://bncvrbkaahg2w" path="res://Resources/Components/Effects/Asks/Class&Owner/SelfNon-ex.tres" id="1_mo2me"]
+[ext_resource type="Resource" uid="uid://cth0exsidfeqb" path="res://Resources/Components/EnData/Fighting.tres" id="2_0w30g"]
 [ext_resource type="Script" uid="uid://b85jmc7067bjc" path="res://Code/Resource Makers/GeneralUse/PromptAskMaker.gd" id="2_c1lbv"]
 [ext_resource type="Script" uid="uid://vjn146j3ayd6" path="res://Code/Resource Makers/GeneralUse/IndvCountMaker.gd" id="2_rb1o5"]
 [ext_resource type="Script" uid="uid://b65jx8u5cgcgl" path="res://Code/Resource Makers/GeneralUse/ComparatorMaker.gd" id="3_mo2me"]
@@ -8,8 +9,10 @@
 [sub_resource type="Resource" id="Resource_3huyd"]
 script = ExtResource("2_rb1o5")
 which = "Slot"
-ask = ExtResource("1_rb1o5")
-slot_vars = "current_card"
+ask = ExtResource("1_mo2me")
+slot_vars = "energy_cards"
+en_count_methods = "Total"
+en_counting = ExtResource("2_0w30g")
 cap = -1
 metadata/_custom_type_script = "uid://vjn146j3ayd6"
 

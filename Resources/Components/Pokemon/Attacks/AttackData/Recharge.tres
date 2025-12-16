@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="AttackData" load_steps=11 format=3 uid="uid://g1iekq0710j7"]
+
+[ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="1_2vikk"]
+[ext_resource type="Script" uid="uid://dmulm3x3dj842" path="res://Code/Resource Makers/EffectSpecific/EffectMaker.gd" id="2_5abep"]
+[ext_resource type="Resource" uid="uid://c8vs2wowmlhne" path="res://Resources/Components/Effects/Placement/PutOnSelf.tres" id="3_h5udp"]
+[ext_resource type="Script" uid="uid://uplawvwcwl8y" path="res://Code/Resource Makers/GeneralUse/IdentifierMaker.gd" id="4_nqlwi"]
+[ext_resource type="Resource" uid="uid://dt0pi71xuk6ih" path="res://Resources/Components/Effects/Identifiers/Energy/LightningEnergy.tres" id="5_u28m8"]
+[ext_resource type="Script" uid="uid://cw3yr1k040kw7" path="res://Code/Resource Makers/EffectSpecific/Components/SearchMaker.gd" id="6_q1ovv"]
+[ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="7_otm7a"]
+
+[sub_resource type="Resource" id="Resource_1lkd6"]
+script = ExtResource("6_q1ovv")
+of_this = Array[ExtResource("4_nqlwi")]([ExtResource("5_u28m8")])
+and_then = ExtResource("3_h5udp")
+metadata/_custom_type_script = "uid://cw3yr1k040kw7"
+
+[sub_resource type="Resource" id="Resource_2dhcm"]
+script = ExtResource("2_5abep")
+search = SubResource("Resource_1lkd6")
+metadata/_custom_type_script = "uid://dmulm3x3dj842"
+
+[sub_resource type="Resource" id="Resource_aokan"]
+script = ExtResource("1_2vikk")
+success = SubResource("Resource_2dhcm")
+metadata/_custom_type_script = "uid://k25kag4lnway"
+
+[resource]
+script = ExtResource("7_otm7a")
+description = "Search your deck for a [L] Energy card and attach it to [name]. Shuffle your deck afterward."
+prompt_effects = Array[ExtResource("1_2vikk")]([SubResource("Resource_aokan")])
+metadata/_custom_type_script = "uid://8nne0t7tvtgl"

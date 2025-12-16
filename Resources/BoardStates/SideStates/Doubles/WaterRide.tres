@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SideState" load_steps=29 format=3 uid="uid://dmt7p4m6333jo"]
+[gd_resource type="Resource" script_class="SideState" load_steps=31 format=3 uid="uid://dmt7p4m6333jo"]
 
 [ext_resource type="Resource" uid="uid://b75vmyoe84yyc" path="res://Resources/Decks/WaterRide.tres" id="1_342fn"]
 [ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="2_qvcii"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://c7qjdlm2vg1ho" path="res://Resources/Cards/5 ex Hidden Legends/HL58Clamperl.tres" id="12_fs6er"]
 [ext_resource type="Resource" uid="uid://bkih6iwdpqvmx" path="res://Resources/Cards/12 ex Legend Maker/LM82ReactEnergy.tres" id="13_svfkq"]
 [ext_resource type="Script" uid="uid://calm3n7va5yjo" path="res://Code/Resource Makers/GeneralUse/CardStacksMaker.gd" id="14_804ej"]
+[ext_resource type="Resource" uid="uid://pqibah5d8cl4" path="res://Resources/Cards/12 ex Legend Maker/LM18Huntail.tres" id="14_qvcii"]
 [ext_resource type="Script" uid="uid://dgqpurnuh14t1" path="res://Code/Resource Makers/GeneralUse/SideStateMaker.gd" id="15_t45pc"]
 [ext_resource type="Script" uid="uid://cs70ix831b5g4" path="res://Code/Resource Makers/PokemonSpecific/PokeSlotMaker.gd" id="16_3hfgc"]
 [ext_resource type="Script" uid="uid://8s3m1dar3r33" path="res://Code/Resource Makers/EffectSpecific/Components/ConditionMaker.gd" id="17_204um"]
@@ -26,7 +27,7 @@
 [sub_resource type="Resource" id="Resource_t8g77"]
 script = ExtResource("14_804ej")
 deck = ExtResource("1_342fn")
-init_hand = Array[ExtResource("2_qvcii")]([ExtResource("3_x465s"), ExtResource("4_a0w4v"), ExtResource("5_yk17i"), ExtResource("6_hw6ui"), ExtResource("7_ustju"), ExtResource("8_lnkv6"), ExtResource("9_h27qb"), ExtResource("10_5hxur"), ExtResource("11_22pai"), ExtResource("12_fs6er"), ExtResource("13_svfkq")])
+init_hand = Array[ExtResource("2_qvcii")]([ExtResource("3_x465s"), ExtResource("4_a0w4v"), ExtResource("5_yk17i"), ExtResource("6_hw6ui"), ExtResource("7_ustju"), ExtResource("8_lnkv6"), ExtResource("9_h27qb"), ExtResource("11_22pai"), ExtResource("13_svfkq"), ExtResource("14_qvcii")])
 metadata/_custom_type_script = "uid://calm3n7va5yjo"
 
 [sub_resource type="Resource" id="Resource_qpaoy"]
@@ -61,6 +62,11 @@ current_card = ExtResource("10_5hxur")
 energy_cards = Array[ExtResource("2_qvcii")]([ExtResource("13_svfkq")])
 metadata/_custom_type_script = "uid://cs70ix831b5g4"
 
+[sub_resource type="Resource" id="Resource_qvcii"]
+script = ExtResource("16_3hfgc")
+current_card = ExtResource("12_fs6er")
+metadata/_custom_type_script = "uid://cs70ix831b5g4"
+
 [resource]
 script = ExtResource("15_t45pc")
 card_stacks = SubResource("Resource_t8g77")
@@ -68,6 +74,7 @@ slots = Dictionary[ExtResource("16_3hfgc"), bool]({
 SubResource("Resource_qpaoy"): true,
 SubResource("Resource_kwm3j"): true,
 SubResource("Resource_eyw3d"): false,
-SubResource("Resource_7d1mi"): false
+SubResource("Resource_7d1mi"): false,
+SubResource("Resource_qvcii"): false
 })
 metadata/_custom_type_script = "uid://dgqpurnuh14t1"

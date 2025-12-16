@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=22 format=3 uid="uid://b75vmyoe84yyc"]
+[gd_resource type="Resource" script_class="Deck" load_steps=23 format=3 uid="uid://b75vmyoe84yyc"]
 
 [ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_03w48"]
 [ext_resource type="Script" uid="uid://e660iomt5e76" path="res://Code/Resource Makers/CardResources/DeckMaker.gd" id="2_eqbde"]
@@ -21,28 +21,30 @@
 [ext_resource type="Resource" uid="uid://che6uh6cmbwtx" path="res://Resources/Cards/15 ex Dragon Frontiers/DF74HolonLegacy.tres" id="18_4k5p3"]
 [ext_resource type="Resource" uid="uid://dyqdhaov0ywxk" path="res://Resources/Cards/1 ex Ruby & Saphire/RS92Switch.tres" id="19_5qosw"]
 [ext_resource type="Resource" uid="uid://bkih6iwdpqvmx" path="res://Resources/Cards/12 ex Legend Maker/LM82ReactEnergy.tres" id="20_1sx6r"]
+[ext_resource type="Resource" uid="uid://pqibah5d8cl4" path="res://Resources/Cards/12 ex Legend Maker/LM18Huntail.tres" id="21_8pp0a"]
 
 [resource]
 script = ExtResource("2_eqbde")
 cards = Dictionary[ExtResource("1_03w48"), int]({
-ExtResource("20_1sx6r"): 4,
-ExtResource("2_jmy3y"): 4,
-ExtResource("3_1sx6r"): 4,
-ExtResource("4_8pp0a"): 3,
-ExtResource("5_r0tku"): 9,
-ExtResource("6_kcxl1"): 2,
-ExtResource("7_7kwwf"): 4,
-ExtResource("8_5i1wr"): 2,
-ExtResource("9_7seeq"): 3,
-ExtResource("10_klu0j"): 3,
-ExtResource("11_eie8g"): 3,
-ExtResource("12_kyhnu"): 2,
-ExtResource("13_54em8"): 2,
-ExtResource("14_rrrmo"): 3,
-ExtResource("15_evi1f"): 3,
-ExtResource("16_yc5dn"): 2,
-ExtResource("17_n0flr"): 2,
+ExtResource("21_8pp0a"): 3,
+ExtResource("19_5qosw"): 3,
 ExtResource("18_4k5p3"): 2,
-ExtResource("19_5qosw"): 3
+ExtResource("17_n0flr"): 2,
+ExtResource("16_yc5dn"): 2,
+ExtResource("15_evi1f"): 3,
+ExtResource("14_rrrmo"): 3,
+ExtResource("13_54em8"): 2,
+ExtResource("12_kyhnu"): 2,
+ExtResource("11_eie8g"): 3,
+ExtResource("10_klu0j"): 3,
+ExtResource("9_7seeq"): 3,
+ExtResource("8_5i1wr"): 2,
+ExtResource("7_7kwwf"): 3,
+ExtResource("6_kcxl1"): 2,
+ExtResource("5_r0tku"): 9,
+ExtResource("4_8pp0a"): 2,
+ExtResource("3_1sx6r"): 4,
+ExtResource("2_jmy3y"): 3,
+ExtResource("20_1sx6r"): 4
 })
 metadata/_custom_type_script = "uid://e660iomt5e76"

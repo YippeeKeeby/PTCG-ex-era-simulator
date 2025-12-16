@@ -17,6 +17,8 @@ class_name EnData
 "Darkness","Metal","Colorless") var type: int = 511
 @export_tool_button("Describe") var button: Callable = describe
 
+@export var ignore_effects: bool = false
+
 ##Funciton that tells the game how the energy should be displayed visually
 ##[br]Not every combination of type needs to be accounted for
 ##only the ones that appear in the ex Series
@@ -37,6 +39,13 @@ func get_string():
 	
 	var index = int((log(float(type)) / log(2)))
 	return Consts.energy_types[index]
+
+func same_en_data(compared_to: EnData):
+	if same_type(compared_to):
+		if react != compared_to.react:
+			return false
+		return holon_type == compared_to.holon_type
+	return false
 
 func same_type(compared_to: EnData):
 	# 2 & 2  2 && 2

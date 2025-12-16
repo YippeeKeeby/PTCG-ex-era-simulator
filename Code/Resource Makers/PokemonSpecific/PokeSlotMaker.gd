@@ -529,7 +529,7 @@ func count_en_attatch_signals(en_cards: Array[Base_Card]):
 	for card in en_cards:
 		if card in energy_cards:
 			Globals.fundies.record_single_src_trg(self)
-			await ability_emit(attatch_en_signal, card.energy_properties.get_current_provide())
+			await ability_emit(attatch_en_signal, get_context_en_provide(card))
 			Globals.fundies.remove_top_source_target()
 		else:
 			printerr(card.name, " isnt in ", get_card_name())
@@ -541,16 +541,17 @@ func count_en_remove_signals(en_provides: Array[EnData]):
 		Globals.fundies.remove_top_source_target()
 
 func add_energy(energy_card: Base_Card):
+	Globals.fundies.record_single_src_trg(self)
 	signaless_attatch_energy(energy_card)
 	
-	Globals.fundies.record_single_src_trg(self)
 	for effect in energy_card.energy_properties.attatch_effects:
 		effect.effect_collect_play()
-	await ability_emit(attatch_en_signal, energy_card.energy_properties.get_current_provide())
+	
+	await ability_emit(attatch_en_signal, get_context_en_provide(energy_card))
 	Globals.fundies.remove_top_source_target()
 
 func remove_energy(removing: Base_Card):
-	var provide: EnData = removing.energy_properties.get_current_provide()
+	var provide: EnData = get_context_en_provide(removing)
 	signaless_remove_energy(removing)
 	
 	Globals.fundies.record_single_src_trg(self)
@@ -576,13 +577,14 @@ func count_energy() -> void:
 	for energy in energy_cards:
 		if energy.energy_properties.attatched_to != self:
 			energy.energy_properties.attatched_to = self
-		var en_provide: EnData = energy.energy_properties.get_current_provide()
+		var en_provide: EnData = get_context_en_provide(energy)
 		var en_name: String = en_provide.get_string()
 		attached_energy[en_name] += en_provide.number
 		
 		#print("Checking ", energy.name, energy, " in ", get_card_name())
-		for effect in energy.energy_properties.prompt_effects:
-			effect.effect_collect_play()
+		if not en_provide.ignore_effects:
+			for effect in energy.energy_properties.prompt_effects:
+				effect.effect_collect_play()
 	
 	Globals.fundies.remove_top_source_target()
 
@@ -590,8 +592,8 @@ func get_energy_strings() -> Array[String]:
 	var energy_stirngs: Array[String]
 	
 	for card in energy_cards:
-		var en_provide = card.energy_properties.get_current_provide()
-		var en_name = en_provide.get_string()
+		var en_provide: EnData = get_context_en_provide(card)
+		var en_name: String = en_provide.get_string()
 		for i in range(en_provide.number):
 			energy_stirngs.append(en_name)
 	
@@ -619,7 +621,7 @@ func get_total_energy(enData_filter: EnData = null, filtered_array: Array[Base_C
 	var skip_enData: bool = enData_filter == null or enData_filter.get_string() == "Rainbow"
 	
 	for card in using:
-		var en_provide: EnData = card.energy_properties.get_current_provide()
+		var en_provide: EnData = get_context_en_provide(card)
 		var add: bool = skip_enData or (en_provide.same_type(enData_filter))
 		if add:
 			total += en_provide.number
@@ -641,6 +643,37 @@ func get_energy_excess(enData_filter: EnData = null) -> int:
 	print(current_attack.pay_cost(self))
 	pass
 	return get_total_energy(enData_filter) + current_attack.pay_cost(self)
+
+func get_context_en_provide(card: Base_Card):
+	var en: Energy = card.energy_properties
+	var data: EnData = en.get_current_provide().duplicate()
+	
+	var overrides = get_changes("Override").keys() +\
+	 Globals.fundies.get_applied_side_changes("Override", self).keys()
+	
+	for ov in overrides:
+		if not ov is Override: continue
+		ov = ov as Override
+		
+		if ov.converting and ov.becomes:
+			if (ov.en_category == "Any" or ov.en_category == en.considered)\
+			 and ov.converting.same_en_data(data):
+				if ov.replace_num:
+					data.number = ov.becomes.number
+				if ov.replace_provide:
+					if ov.provides_only:
+						data.type = ov.becomes.type
+					else:
+						data.type |= ov.becomes.type
+						
+					data.react = ov.becomes.react
+					data.holon_type = ov.becomes.holon_type
+				
+				if ov.no_effects:
+					data.ignore_effects = true
+					
+	
+	return data
 
 #endregion
 #--------------------------------------
@@ -968,6 +1001,7 @@ func changes_ui_check() -> void:
 	set_max_hp()
 	ui_slot.max_hp.append_text(str("HP: ",get_max_hp()))
 
+#region SLOT CHANGE CHECKS
 func check_bool_disable(which: Consts.MON_DISABL) -> bool:
 	var dict = get_every_change("Disable")
 	
@@ -1016,6 +1050,7 @@ func check_override_retreat() -> bool:
 			return true
 	
 	return false
+#endregion
 
 func switch_clear() -> void:
 	for dict in all_changes.values():
@@ -1076,8 +1111,7 @@ func refresh() -> void:
 	if current_card: 
 		ui_slot.damage_counter.set_damage(damage_counters)
 		#check for any attatched cards/conditions
-		count_energy()
-		ui_slot.display_energy(get_energy_strings(), attached_energy)
+		update_energy()
 		Globals.fundies.check_all_passives()
 	
 	else:
@@ -1116,6 +1150,10 @@ func refresh_swap() -> void:
 	else:
 		ui_slot.display_image(null)
 		ui_slot.display_types([])
+
+func update_energy():
+	count_energy()
+	ui_slot.display_energy(get_energy_strings(), attached_energy)
 
 func clear_dispay() -> void:
 	damage_counters = 0

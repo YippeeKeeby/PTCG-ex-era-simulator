@@ -23,7 +23,8 @@ class_name SlotChange
 signal finished
 
 func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
-	print("PLAY ", self.get_script().get_global_name())
+	var considered = self.get_script().get_global_name()
+	print("PLAY ", considered)
 	
 	#Who should have this effects applied?
 	if application == "Slot":
@@ -37,9 +38,14 @@ func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
 			for slot in apply_to:
 				print_rich(slot.get_card_name(), " now has ", describe(), "\n")
 				slot.apply_slot_change(self)
+				if is_energy_override():
+					slot.refresh()
 		
 	else:
 		Globals.fundies.apply_change(recieves, self)
+		if is_energy_override():
+			for slot in Globals.full_ui.get_ask_minus_immune(recieves, Consts.IMMUNITIES.ATK_EFCT_OPP):
+				slot.update_energy() #Doesn't account for passives that might activate after this
 	
 	finished.emit()
 
@@ -57,3 +63,10 @@ func how_display() -> Dictionary[String, bool]:
 func describe() -> String:
 	print("HUH?")
 	return "huh?"
+
+func is_energy_override() -> bool:
+	if self.get_script().get_global_name() == "Override":
+		var ov = self as Override
+		if ov.converting and ov.becomes:
+			return true
+	return false

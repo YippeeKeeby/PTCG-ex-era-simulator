@@ -260,6 +260,16 @@ func get_side_change(change_class: String, home_val: bool) -> Dictionary:
 	
 	return dict[home_val] as Dictionary[SlotChange, int]
 
+func get_applied_side_changes(change_class: String, slot: PokeSlot) -> Dictionary:
+	var dict: Dictionary
+	var filter_from: Dictionary = get_side_change(change_class, slot.is_home())
+	
+	for change in filter_from:
+		if change.recieves.check_ask(slot):
+			dict[change] = filter_from[change]
+	
+	return dict
+
 func get_all_side_changes(home_val: bool) -> Dictionary[String, Dictionary]:
 	return {"Buff" : side_buffs[home_val], "Disable" : side_disables[home_val],
 	 "Override" : side_overrides[home_val], "TypeChange" : side_typechanges[home_val],

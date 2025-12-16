@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Base_Card" load_steps=30 format=3 uid="uid://pqibah5d8cl4"]
+[gd_resource type="Resource" script_class="Base_Card" load_steps=28 format=3 uid="uid://pqibah5d8cl4"]
 
 [ext_resource type="Script" uid="uid://byaq4ongqnwl7" path="res://Code/Resource Makers/CardResources/CardMaker.gd" id="1_5g73v"]
 [ext_resource type="Texture2D" uid="uid://qtasa5wa4alo" path="res://Art/Cards/12 ex Legend Maker/18.jpg" id="1_ejfg6"]
@@ -12,8 +12,7 @@
 [ext_resource type="Script" uid="uid://uplawvwcwl8y" path="res://Code/Resource Makers/GeneralUse/IdentifierMaker.gd" id="9_uoini"]
 [ext_resource type="Resource" uid="uid://b7fdar1wf5suh" path="res://Resources/Components/EnData/React.tres" id="10_uyqji"]
 [ext_resource type="Script" uid="uid://cw3yr1k040kw7" path="res://Code/Resource Makers/EffectSpecific/Components/SearchMaker.gd" id="11_bci75"]
-[ext_resource type="Resource" uid="uid://bns8h72u2hxqo" path="res://Resources/Components/Effects/Asks/General/AnyMon.tres" id="12_kkavw"]
-[ext_resource type="Script" uid="uid://vjn146j3ayd6" path="res://Code/Resource Makers/GeneralUse/IndvCountMaker.gd" id="13_jx41g"]
+[ext_resource type="Resource" uid="uid://rgusk1o74it5" path="res://Resources/Components/Counters/Indv/Slots/SelfReactEn.tres" id="12_evaum"]
 [ext_resource type="Script" uid="uid://b65jx8u5cgcgl" path="res://Code/Resource Makers/GeneralUse/ComparatorMaker.gd" id="14_8geh1"]
 [ext_resource type="Script" uid="uid://b85jmc7067bjc" path="res://Code/Resource Makers/GeneralUse/PromptAskMaker.gd" id="15_1avyc"]
 [ext_resource type="Script" uid="uid://bs2y8ocljilv8" path="res://Code/Resource Makers/PokemonSpecific/AbilityMaker.gd" id="16_2pmx0"]
@@ -57,18 +56,10 @@ script = ExtResource("5_cx7bg")
 success = SubResource("Resource_f1f1o")
 metadata/_custom_type_script = "uid://k25kag4lnway"
 
-[sub_resource type="Resource" id="Resource_qtcqf"]
-script = ExtResource("13_jx41g")
-which = "Slot"
-ask = ExtResource("12_kkavw")
-slot_vars = "current_card"
-cap = -1
-metadata/_custom_type_script = "uid://vjn146j3ayd6"
-
 [sub_resource type="Resource" id="Resource_e84u0"]
 script = ExtResource("14_8geh1")
 comparision_type = "Equals"
-first_comparison = SubResource("Resource_qtcqf")
+first_comparison = ExtResource("12_evaum")
 compare_to = "Const"
 metadata/_custom_type_script = "uid://b65jx8u5cgcgl"
 

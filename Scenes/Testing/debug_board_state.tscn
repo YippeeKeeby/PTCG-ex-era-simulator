@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dnij7qm62bibx"]
 
 [ext_resource type="Script" uid="uid://j57m0tmwtg4n" path="res://Code/Scenes/debug_board_state.gd" id="1_auq40"]
-[ext_resource type="Resource" uid="uid://4uj0c5j8o6qa" path="res://Resources/BoardStates/SideStates/Doubles/EvilDisables.tres" id="2_6m717"]
+[ext_resource type="Resource" uid="uid://xvrvmijhyr5s" path="res://Resources/BoardStates/SideStates/BABIES!.tres" id="3_43axb"]
 [ext_resource type="Resource" uid="uid://dmt7p4m6333jo" path="res://Resources/BoardStates/SideStates/Doubles/WaterRide.tres" id="3_yhhmj"]
 [ext_resource type="PackedScene" uid="uid://bmhba1mua5n81" path="res://Scenes/Testing/debug_button.tscn" id="4_t8we2"]
 [ext_resource type="PackedScene" uid="uid://7cdjjog7dndn" path="res://Scenes/UI/ETC/input_condition.tscn" id="5_43axb"]
@@ -13,7 +13,7 @@ script = ExtResource("28_7d1mi")
 coin_rules = 1
 home = ExtResource("3_yhhmj")
 away_side = 0
-away = ExtResource("2_6m717")
+away = ExtResource("3_43axb")
 metadata/_custom_type_script = "uid://c7ucx36aubnh8"
 
 [node name="DebugBoardState" type="Control"]

@@ -49,7 +49,7 @@ signal trigger_finished
 #--------------------------------------
 signal record_src_trg(home: bool, atk_stack: Array[PokeSlot], def_stack: Array[PokeSlot])
 signal record_src_trg_from_prev(slot: PokeSlot)
-signal record_src_trg_from_self(slot: PokeSlot)
+signal record_src_trg_self(slot: PokeSlot)
 signal remove_src_trg()
 signal remove_top_ui()
 signal empty_ui()

@@ -645,6 +645,7 @@ func get_energy_excess(enData_filter: EnData = null) -> int:
 	return get_total_energy(enData_filter) + current_attack.pay_cost(self)
 
 func get_context_en_provide(card: Base_Card):
+	SignalBus.record_src_trg_self.emit(self)
 	var en: Energy = card.energy_properties
 	var data: EnData = en.get_current_provide().duplicate()
 	
@@ -673,6 +674,7 @@ func get_context_en_provide(card: Base_Card):
 					data.ignore_effects = true
 					
 	
+	SignalBus.remove_src_trg.emit()
 	return data
 
 #endregion

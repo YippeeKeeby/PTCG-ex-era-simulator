@@ -36,8 +36,8 @@ func _ready() -> void:
 	SignalBus.end_turn.connect(next_turn)
 	SignalBus.slot_change_failed.connect(remove_change)
 	SignalBus.record_src_trg.connect(record_attack_src_trg)
+	SignalBus.record_src_trg_self.connect(record_single_src_trg)
 	SignalBus.record_src_trg_from_prev.connect(record_prev_src_trg_from_self)
-	SignalBus.record_src_trg_from_self.connect(record_prev_src_trg_from_self)
 	SignalBus.remove_src_trg.connect(remove_top_source_target)
 
 #--------------------------------------
@@ -214,6 +214,9 @@ func remove_top_source_target():
 	source_stack.pop_back()
 	home_targets.pop_back()
 	away_targets.pop_back()
+	
+	if source_stack.size() == 0:
+		print(source_stack)
 
 func get_first_target(source: bool) -> PokeSlot:
 	return home_targets[-1][0] if source_stack[-1] == source else away_targets[-1][0]

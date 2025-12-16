@@ -58,6 +58,7 @@ func get_choice(instruction: String):
 	%Instructions.append_text(str("[center]",instruction))
 	%CancelText.clear()
 	%CancelText.append_text(cancel_txt if can_reverse else no_return_txt)
+	$ColorRect.show()
 	await color_tween(Color.WHITE)
 	
 	choosing = true
@@ -113,6 +114,7 @@ func reset_ui():
 	choosing = false
 	can_reverse = false
 	await color_tween(Color.TRANSPARENT)
+	$ColorRect.hide()
 	chosen.emit()
 
 #endregion

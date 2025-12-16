@@ -214,9 +214,6 @@ func remove_top_source_target():
 	source_stack.pop_back()
 	home_targets.pop_back()
 	away_targets.pop_back()
-	
-	if source_stack.size() == 0:
-		print(source_stack)
 
 func get_first_target(source: bool) -> PokeSlot:
 	return home_targets[-1][0] if source_stack[-1] == source else away_targets[-1][0]

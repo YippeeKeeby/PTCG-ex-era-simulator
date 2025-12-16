@@ -8,7 +8,6 @@
 
 [sub_resource type="Resource" id="Resource_ikdw4"]
 script = ExtResource("2_crkom")
-stackable = true
 defense = 10
 recieves = ExtResource("1_2emsj")
 metadata/_custom_type_script = "uid://coojhwe6m20gd"
@@ -25,4 +24,5 @@ description = "Any damage done to [name] by attacks is reduced by 10 (after appl
 affected_by_condition = false
 how_often = "Infinite"
 passive = SubResource("Resource_kkoco")
+shared_prompt = false
 metadata/_custom_type_script = "uid://bs2y8ocljilv8"

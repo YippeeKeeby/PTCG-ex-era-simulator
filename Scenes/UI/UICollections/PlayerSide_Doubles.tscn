@@ -41,14 +41,20 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ActivePokemon" parent="VBoxContainer/Main/Active" instance=ExtResource("2_bl05u")]
+[node name="A1" parent="VBoxContainer/Main/Active" instance=ExtResource("2_bl05u")]
 unique_name_in_owner = true
 layout_mode = 2
+active = null
+player = null
+home = null
 list_direction = 1
 
-[node name="ActivePokemon2" parent="VBoxContainer/Main/Active" instance=ExtResource("2_bl05u")]
+[node name="A2" parent="VBoxContainer/Main/Active" instance=ExtResource("2_bl05u")]
 unique_name_in_owner = true
 layout_mode = 2
+active = null
+player = null
+home = null
 list_direction = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Main"]
@@ -71,18 +77,30 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="BenchPokemon2" parent="VBoxContainer/Bench" instance=ExtResource("3_gvewi")]
+[node name="B1" parent="VBoxContainer/Bench" instance=ExtResource("3_gvewi")]
 layout_mode = 2
 size_flags_horizontal = 5
+player = null
+home = null
+list_direction = null
 
-[node name="BenchPokemon3" parent="VBoxContainer/Bench" instance=ExtResource("3_gvewi")]
+[node name="B2" parent="VBoxContainer/Bench" instance=ExtResource("3_gvewi")]
 layout_mode = 2
 size_flags_horizontal = 5
+player = null
+home = null
+list_direction = null
 
-[node name="BenchPokemon4" parent="VBoxContainer/Bench" instance=ExtResource("3_gvewi")]
+[node name="B3" parent="VBoxContainer/Bench" instance=ExtResource("3_gvewi")]
 layout_mode = 2
 size_flags_horizontal = 5
+player = null
+home = null
+list_direction = null
 
-[node name="BenchPokemon5" parent="VBoxContainer/Bench" instance=ExtResource("3_gvewi")]
+[node name="B4" parent="VBoxContainer/Bench" instance=ExtResource("3_gvewi")]
 layout_mode = 2
 size_flags_horizontal = 5
+player = null
+home = null
+list_direction = null

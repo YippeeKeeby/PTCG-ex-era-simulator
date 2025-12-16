@@ -133,3 +133,6 @@ func clear():
 	damage_counter.set_damage(0)
 	display_condition()
 	check_ability_activation()
+
+func position_string() -> String:
+	return ""

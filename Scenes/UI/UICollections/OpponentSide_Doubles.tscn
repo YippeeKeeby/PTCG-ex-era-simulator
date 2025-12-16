@@ -29,25 +29,25 @@ alignment = 1
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="BenchPokemon" parent="VBoxContainer/Bench" instance=ExtResource("2_6eytb")]
+[node name="B1" parent="VBoxContainer/Bench" instance=ExtResource("2_6eytb")]
 layout_mode = 2
 size_flags_horizontal = 3
 player = false
 home = false
 
-[node name="BenchPokemon2" parent="VBoxContainer/Bench" instance=ExtResource("2_6eytb")]
+[node name="B2" parent="VBoxContainer/Bench" instance=ExtResource("2_6eytb")]
 layout_mode = 2
 size_flags_horizontal = 3
 player = false
 home = false
 
-[node name="BenchPokemon3" parent="VBoxContainer/Bench" instance=ExtResource("2_6eytb")]
+[node name="B3" parent="VBoxContainer/Bench" instance=ExtResource("2_6eytb")]
 layout_mode = 2
 size_flags_horizontal = 3
 player = false
 home = false
 
-[node name="BenchPokemon5" parent="VBoxContainer/Bench" instance=ExtResource("2_6eytb")]
+[node name="B4" parent="VBoxContainer/Bench" instance=ExtResource("2_6eytb")]
 layout_mode = 2
 size_flags_horizontal = 3
 player = false
@@ -69,14 +69,14 @@ home = false
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ActivePokemon" parent="VBoxContainer/Main/Active" instance=ExtResource("4_nxau5")]
+[node name="A1" parent="VBoxContainer/Main/Active" instance=ExtResource("4_nxau5")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 player = false
 home = false
 
-[node name="ActivePokemon2" parent="VBoxContainer/Main/Active" instance=ExtResource("4_nxau5")]
+[node name="A2" parent="VBoxContainer/Main/Active" instance=ExtResource("4_nxau5")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

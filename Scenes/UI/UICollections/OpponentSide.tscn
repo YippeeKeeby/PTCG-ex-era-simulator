@@ -29,27 +29,27 @@ layout_mode = 2
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="BenchPokemon" parent="Main/Bench" instance=ExtResource("1_o88tv")]
+[node name="B1" parent="Main/Bench" instance=ExtResource("1_o88tv")]
 layout_mode = 2
 player = false
 home = false
 
-[node name="BenchPokemon2" parent="Main/Bench" instance=ExtResource("1_o88tv")]
+[node name="B2" parent="Main/Bench" instance=ExtResource("1_o88tv")]
 layout_mode = 2
 player = false
 home = false
 
-[node name="BenchPokemon3" parent="Main/Bench" instance=ExtResource("1_o88tv")]
+[node name="B3" parent="Main/Bench" instance=ExtResource("1_o88tv")]
 layout_mode = 2
 player = false
 home = false
 
-[node name="BenchPokemon4" parent="Main/Bench" instance=ExtResource("1_o88tv")]
+[node name="B4" parent="Main/Bench" instance=ExtResource("1_o88tv")]
 layout_mode = 2
 player = false
 home = false
 
-[node name="BenchPokemon5" parent="Main/Bench" instance=ExtResource("1_o88tv")]
+[node name="B5" parent="Main/Bench" instance=ExtResource("1_o88tv")]
 layout_mode = 2
 player = false
 home = false
@@ -80,7 +80,7 @@ layout_mode = 2
 size_flags_vertical = 0
 metadata/_edit_group_ = true
 
-[node name="ActivePokemon" parent="Main/Bottom/Active" instance=ExtResource("2_fs4jj")]
+[node name="A1" parent="Main/Bottom/Active" instance=ExtResource("2_fs4jj")]
 unique_name_in_owner = true
 layout_mode = 2
 player = false

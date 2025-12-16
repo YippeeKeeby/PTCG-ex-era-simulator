@@ -50,6 +50,6 @@ func print_pokemon() -> void:
 
 func duplicate_abilities():
 	if pokebody:
-		pokebody = pokebody.duplicate_deep()
+		pokebody = pokebody.duplicate_deep(DEEP_DUPLICATE_ALL)
 	if pokepower:
-		pokepower = pokepower.duplicate_deep()
+		pokepower = pokepower.duplicate_deep(DEEP_DUPLICATE_ALL)

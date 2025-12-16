@@ -4,6 +4,7 @@ class_name PokeSlot
 
 #--------------------------------------
 #region VARIABLES
+@export var position_string: String = ""
 @export var current_card: Base_Card
 @export_range(0,400,10) var max_HP: int = 0
 @export_range(0,400,10) var damage_counters: int = 0
@@ -127,12 +128,17 @@ func pokemon_checkup() -> void:
 #--------------------------------------
 #region POWER/BODY
 func setup_abilities():
-	current_card.pokemon_properties.duplicate_abilities()
+	var mon: Pokemon = get_pokedata()
+	mon.duplicate_abilities()
 	Globals.fundies.record_single_src_trg(self)
-	if get_pokedata().pokebody:
-		get_pokedata().pokebody.prep_ability(self)
-	if get_pokedata().pokepower:
-		get_pokedata().pokepower.prep_ability(self)
+	
+	if mon.pokebody:
+		print(mon, get_debug_name())
+		print(mon.pokebody, mon.pokebody.name)
+		mon.pokebody.prep_ability(self)
+		print(mon.pokebody, mon.pokebody.name)
+	if mon.pokepower:
+		mon.pokepower.prep_ability(self)
 	Globals.fundies.remove_top_source_target()
 
 func disconnect_abilities():
@@ -147,6 +153,7 @@ func check_passive():
 	#Ability
 	if pokedata.pokebody:
 		if pokedata.pokebody.passive:
+			print(get_debug_name(), " is activating passive")
 			body_activated = pokedata.pokebody.activate_passive()
 			
 	if pokedata.pokepower:
@@ -510,6 +517,7 @@ func set_max_hp():
 
 #--------------------------------------
 #region ENERGY HANDLERS
+#region ADD/REMOVE
 func signaless_attatch_energy(energy_card: Base_Card):
 	energy_cards.append(energy_card)
 	energy_card.energy_properties.attatched_to = self
@@ -561,7 +569,9 @@ func remove_energy(removing: Base_Card):
 func register_energy_timer(card: Base_Card):
 	if card.energy_properties.turns != -1:
 		energy_timers[card] = card.energy_properties.turns
+#endregion
 
+#region COUNTING
 #Get whatever the energy provides both in type, number and effects
 func count_energy() -> void:
 	#Count if energy cars provided give the right energy for each attack
@@ -676,6 +686,7 @@ func get_context_en_provide(card: Base_Card):
 	
 	SignalBus.remove_src_trg.emit()
 	return data
+#endregion
 
 #endregion
 #--------------------------------------
@@ -974,8 +985,13 @@ func get_every_change(change: String) -> Dictionary:
 	return dict
 
 func apply_slot_change(apply: SlotChange) -> void:
-	if is_filled() and not apply in get_changes("Buff"):
-		var dict: Dictionary = get_changes(apply.get_script().get_global_name())
+	var category: String = apply.get_script().get_global_name()
+	if is_filled() and not apply in get_changes(category):
+		var dict: Dictionary = get_changes(category)
+		print("Getting ", apply.describe())
+		if category == "Buff":
+			print(apply)
+			pass
 		
 		if not apply in dict:
 			dict[apply] = apply.duration
@@ -1077,9 +1093,11 @@ func manage_change_timers() -> void:
 #region MANAGING DISPLAYS
 func slot_into(destination: UI_Slot, initalize: bool = false) -> void:
 	ui_slot = destination
+	position_string = str("Home " if is_home() else "Away " ,ui_slot.name)
 	#debug_check()
 	if initalize:
 		refresh_current_card()
+		temp_check()
 		refresh()
 		
 		ui_slot.tool.visible = tool_card != null
@@ -1163,3 +1181,13 @@ func clear_dispay() -> void:
 
 #endregion
 #--------------------------------------
+
+func get_debug_name():
+	return str("[" ,position_string, "] ",get_card_name())
+
+func temp_check():
+	print("Did something change?")
+	for slot in Globals.full_ui.every_slot:
+		if slot.connected_slot.is_filled():
+			if slot.connected_slot.get_pokedata().pokebody:
+				printt(slot.connected_slot.get_debug_name(), slot.connected_slot.get_pokedata().pokebody)

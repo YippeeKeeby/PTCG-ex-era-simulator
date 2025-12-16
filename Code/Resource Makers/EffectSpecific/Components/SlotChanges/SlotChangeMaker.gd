@@ -26,6 +26,9 @@ func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
 	var considered = self.get_script().get_global_name()
 	print("PLAY ", considered)
 	
+	if considered == "Buff":
+		pass
+	
 	#Who should have this effects applied?
 	if application == "Slot":
 		var apply_to: Array[PokeSlot] = Globals.full_ui.get_ask_minus_immune(recieves, Consts.IMMUNITIES.ATK_EFCT_OPP)
@@ -36,7 +39,6 @@ func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
 				await dis.choose_atk_disable(slot)
 		else:
 			for slot in apply_to:
-				print_rich(slot.get_card_name(), " now has ", describe(), "\n")
 				slot.apply_slot_change(self)
 				if is_energy_override():
 					slot.refresh()

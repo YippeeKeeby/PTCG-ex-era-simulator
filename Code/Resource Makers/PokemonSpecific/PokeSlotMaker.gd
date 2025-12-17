@@ -23,8 +23,6 @@ var body_exhaust: bool
 var power_exhaust: bool
 var body_activated: bool
 var power_ready: bool
-
-const SlotEnergyScript = preload("res://Code/Resource Makers/PokemonSpecific/SlotEnergyMaker.gd")
 #endregion
 #--------------------------------------
 #--------------------------------------
@@ -43,7 +41,7 @@ const SlotEnergyScript = preload("res://Code/Resource Makers/PokemonSpecific/Slo
 #--------------------------------------
 #region TEMP CHANGES
 @export_group("Temp Changes")
-@export var current_en: SlotEnergy = preload("uid://j86icjgodnbl")
+@export var current_en: SlotEnergy
 @export var evolution_ready: bool = false
 @export var evolved_this_turn: bool = false
 @export var body_disabled: bool = false
@@ -88,13 +86,6 @@ signal used_power()
 signal checked_up()
 #endregion
 #--------------------------------------
-
-func _init():
-	print(SlotEnergy)
-	print(typeof(SlotEnergy))
-	print(load("uid://cs6h3rwo60eu5").has_method("new"))
-	var new = SlotEnergy.new()
-	pass
 
 func pokemon_checkup() -> void:
 	if not is_filled(): return
@@ -593,24 +584,27 @@ func count_energy() -> void:
 	 "Lightning": 0, "Psychic":0, "Fighting":0 ,"Darkness":0, "Metal":0,
 	 "Colorless":0, "Magma":0, "Aqua":0, "Dark Metal":0, "React": 0, 
 	 "FF": 0, "GL": 0, "WP": 0, "Rainbow":0}
+	current_en.clear_table()
 	Globals.fundies.record_single_src_trg(self)
 	
 	for energy in energy_cards:
+		print("Check ", energy.name)
 		if energy.energy_properties.attatched_to != self:
 			energy.energy_properties.attatched_to = self
 		var en_provide: EnData = get_context_en_provide(energy)
 		var en_name: String = en_provide.get_string()
 		attached_energy[en_name] += en_provide.number
-		
+		current_en.add_card(energy, en_provide)
 		#print("Checking ", energy.name, energy, " in ", get_card_name())
 		if not en_provide.ignore_effects:
 			for effect in energy.energy_properties.prompt_effects:
 				effect.effect_collect_play()
 	
+	if energy_cards.size() > 0:
+		print(get_debug_name())
+		current_en.display_table()
+		pass
 	Globals.fundies.remove_top_source_target()
-	
-	current_en.count_cards(self, energy_cards)
-	pass
 
 func get_energy_strings() -> Array[String]:
 	var energy_stirngs: Array[String]
@@ -1114,6 +1108,7 @@ func slot_into(destination: UI_Slot, initalize: bool = false) -> void:
 	position_string = str("Home " if is_home() else "Away " ,ui_slot.name)
 	#debug_check()
 	if initalize:
+		current_en = SlotEnergy.new()
 		refresh_current_card()
 		refresh()
 		

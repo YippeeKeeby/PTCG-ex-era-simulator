@@ -114,16 +114,15 @@ func reset_ui():
 	choosing = false
 	can_reverse = false
 	await color_tween(Color.TRANSPARENT)
-	$ColorRect.hide()
 	chosen.emit()
 
 #endregion
 #--------------------------------------
 
 func play_ability_activate(slot: PokeSlot, ability: Ability):
+	%AbilityActivate.show()
 	var animation_tween: Tween = get_tree().create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT).set_parallel(true)
 	var base_pos: Vector2 = slot.ui_slot.global_position
-	$ColorRect.show()
 	%AbilityName.clear()
 	%AbilityName.visible_ratio = 0
 	%AbilityActivate.position = base_pos + ability_ani_offset * 2
@@ -137,7 +136,6 @@ func play_ability_activate(slot: PokeSlot, ability: Ability):
 		%AbilityName.push_color(Color(0.895, 0.583, 0.625))
 	
 	%AbilityName.append_text(str(slot.get_card_name(), "'s\n", ability.name))
-	%AbilityActivate.show()
 	
 	animation_tween.tween_property(%AbilityName, "visible_ratio", 1.0, ability_ani_time * 2/3)
 	animation_tween.tween_property($ColorRect, "modulate", Color.WHITE, ability_ani_time * 3/4)
@@ -154,5 +152,4 @@ func play_ability_activate(slot: PokeSlot, ability: Ability):
 	animation_tween.play()
 	
 	await animation_tween.finished
-	#$ColorRect.hide()
 	%AbilityActivate.hide()

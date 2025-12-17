@@ -36,31 +36,97 @@ metadata/_custom_type_script = "uid://calm3n7va5yjo"
 
 [sub_resource type="Resource" id="Resource_72ttp"]
 script = ExtResource("14_q1cwo")
+position_string = null
 current_card = ExtResource("17_umuyy")
+max_HP = null
+damage_counters = null
+final_retreat = null
+evolved_from = null
+energy_cards = null
+tm_cards = null
+all_changes = null
+evolution_ready = null
+evolved_this_turn = null
+body_disabled = null
+power_disabled = null
+dealt_damage = null
+energy_discarded = null
 metadata/_custom_type_script = "uid://cs70ix831b5g4"
 
 [sub_resource type="Resource" id="Resource_0e6q0"]
 script = ExtResource("14_q1cwo")
+position_string = null
 current_card = ExtResource("20_h0qj0")
+max_HP = null
+damage_counters = null
+final_retreat = null
+evolved_from = null
+energy_cards = null
+tm_cards = null
+all_changes = null
+evolution_ready = null
+evolved_this_turn = null
+body_disabled = null
+power_disabled = null
+dealt_damage = null
+energy_discarded = null
 metadata/_custom_type_script = "uid://cs70ix831b5g4"
 
 [sub_resource type="Resource" id="Resource_pgwsj"]
 script = ExtResource("14_q1cwo")
+position_string = null
 current_card = ExtResource("15_fei10")
+max_HP = null
 damage_counters = 30
+final_retreat = null
+evolved_from = null
 energy_cards = Array[ExtResource("2_kvvln")]([ExtResource("11_t4t7a"), ExtResource("16_2w6al")])
+tm_cards = null
+all_changes = null
+evolution_ready = null
+evolved_this_turn = null
+body_disabled = null
+power_disabled = null
+dealt_damage = null
+energy_discarded = null
 metadata/_custom_type_script = "uid://cs70ix831b5g4"
 
 [sub_resource type="Resource" id="Resource_o7un1"]
 script = ExtResource("14_q1cwo")
+position_string = null
 current_card = ExtResource("18_ugp6t")
+max_HP = null
 damage_counters = 20
+final_retreat = null
+evolved_from = null
+energy_cards = null
+tm_cards = null
+all_changes = null
+evolution_ready = null
+evolved_this_turn = null
+body_disabled = null
+power_disabled = null
+dealt_damage = null
+energy_discarded = null
 metadata/_custom_type_script = "uid://cs70ix831b5g4"
 
 [sub_resource type="Resource" id="Resource_ume8b"]
 script = ExtResource("14_q1cwo")
+position_string = null
 current_card = ExtResource("19_eykmg")
+max_HP = null
+damage_counters = null
+final_retreat = null
+evolved_from = null
 energy_cards = Array[ExtResource("2_kvvln")]([ExtResource("11_t4t7a"), ExtResource("26_ydy0h"), ExtResource("16_2w6al"), ExtResource("27_nc5ls")])
+tm_cards = null
+all_changes = null
+evolution_ready = null
+evolved_this_turn = null
+body_disabled = null
+power_disabled = null
+dealt_damage = null
+energy_discarded = null
 metadata/_custom_type_script = "uid://cs70ix831b5g4"
 
 [resource]

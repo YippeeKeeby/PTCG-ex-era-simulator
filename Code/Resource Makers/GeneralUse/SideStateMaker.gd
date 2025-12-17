@@ -8,3 +8,15 @@ class_name SideState
 ##[br] take these cards inside slots from deck if [member home_UD] is null
 @export var slots: Dictionary[PokeSlot, bool]
 @export var inital_supporter: Base_Card
+
+
+func duplicate_slots():
+	var dup_slots: Dictionary[PokeSlot, bool]
+	
+	for slot in slots:
+		slot = slot as PokeSlot
+		
+		var new: PokeSlot = slot.duplicate_deep(Resource.DEEP_DUPLICATE_ALL)
+		dup_slots[new] = slots[slot]
+	
+	slots = dup_slots

@@ -54,7 +54,7 @@ func play_effect(reversable: bool = false) -> void:
 	went_back = false
 	if reversable: SignalBus.went_back.connect(just_reversed)
 	
-	print("Playing effect ", resource_name)
+	print("Playing effect\n")
 	
 	if order.size() > 0:
 		for effect in order:

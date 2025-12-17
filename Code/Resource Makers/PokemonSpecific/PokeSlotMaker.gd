@@ -23,6 +23,8 @@ var body_exhaust: bool
 var power_exhaust: bool
 var body_activated: bool
 var power_ready: bool
+
+const SlotEnergyScript = preload("res://Code/Resource Makers/PokemonSpecific/SlotEnergyMaker.gd")
 #endregion
 #--------------------------------------
 #--------------------------------------
@@ -41,6 +43,7 @@ var power_ready: bool
 #--------------------------------------
 #region TEMP CHANGES
 @export_group("Temp Changes")
+@export var current_en: SlotEnergy = preload("uid://j86icjgodnbl")
 @export var evolution_ready: bool = false
 @export var evolved_this_turn: bool = false
 @export var body_disabled: bool = false
@@ -85,6 +88,13 @@ signal used_power()
 signal checked_up()
 #endregion
 #--------------------------------------
+
+func _init():
+	print(SlotEnergy)
+	print(typeof(SlotEnergy))
+	print(load("uid://cs6h3rwo60eu5").has_method("new"))
+	var new = SlotEnergy.new()
+	pass
 
 func pokemon_checkup() -> void:
 	if not is_filled(): return
@@ -598,6 +608,9 @@ func count_energy() -> void:
 				effect.effect_collect_play()
 	
 	Globals.fundies.remove_top_source_target()
+	
+	current_en.count_cards(self, energy_cards)
+	pass
 
 func get_energy_strings() -> Array[String]:
 	var energy_stirngs: Array[String]
@@ -645,7 +658,7 @@ func get_total_en_categories(category_filter: String = "Any") -> Array[Base_Card
 	var skip_category: bool = category_filter == "Any"
 	for card in energy_cards:
 		var considered: String = card.energy_properties.considered
-		if skip_category or card.energy_properties.considered == category_filter:
+		if skip_category or considered == category_filter:
 			final.append(card)
 	return final
 
@@ -668,19 +681,24 @@ func get_context_en_provide(card: Base_Card):
 		ov = ov as Override
 		
 		if ov.converting and ov.becomes:
+			var right_provide: bool = false
+			
+			if ov.provides_only:
+				right_provide = ov.converting.same_en_data(data)
+			else:
+				right_provide = ov.converting.type & data.type != 0
+			
 			if (ov.en_category == "Any" or ov.en_category == en.considered)\
-			 and ov.converting.same_en_data(data):
+			 and right_provide:
 				if ov.replace_num:
 					data.number = ov.becomes.number
 				if ov.replace_provide:
-					if ov.provides_only:
-						data.type = ov.becomes.type
-					else:
-						data.type |= ov.becomes.type
-						
-					data.react = ov.becomes.react
-					data.holon_type = ov.becomes.holon_type
-				
+					data.type = ov.becomes.type
+				else:
+					data.type |= ov.becomes.type
+				data.react = ov.becomes.react
+				data.holon_type = ov.becomes.holon_type
+					
 				if ov.no_effects:
 					data.ignore_effects = true
 					
@@ -1048,6 +1066,9 @@ func check_atk_efct_dis(atk_name: String) -> bool:
 	return false
 
 func check_override_evo(card: Base_Card) -> bool:
+	if not is_attacker():
+		return false
+	
 	for ov in get_changes("Override"):
 		if not ov is Override: continue
 		ov = ov as Override

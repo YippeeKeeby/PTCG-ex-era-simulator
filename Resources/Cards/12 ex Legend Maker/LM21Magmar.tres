@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://caut14pt3n74q" path="res://Art/Cards/12 ex Legend Maker/21.jpg" id="1_w2w4w"]
 [ext_resource type="Script" uid="uid://b0fgi2nbb5lf3" path="res://Code/Resource Makers/PokemonSpecific/AttackMaker.gd" id="2_k8r50"]
+[ext_resource type="Resource" uid="uid://cuyrj2oe73rvu" path="res://Resources/Components/Pokemon/Attacks/AttackCosts/Colorless1.tres" id="3_w2w4w"]
 [ext_resource type="Resource" uid="uid://bhs6bq3gobv5j" path="res://Resources/Components/Pokemon/Attacks/AttackData/10DmgAny.tres" id="4_4yf0d"]
 [ext_resource type="Script" uid="uid://k25kag4lnway" path="res://Code/Resource Makers/EffectSpecific/EffectCollectMaker.gd" id="4_7odq7"]
 [ext_resource type="Script" uid="uid://8nne0t7tvtgl" path="res://Code/Resource Makers/PokemonSpecific/AttackDataMaker.gd" id="5_2gy3r"]
@@ -19,8 +20,6 @@
 [ext_resource type="Resource" uid="uid://drcbww84yrlx" path="res://Resources/Components/Effects/Asks/General/Self.tres" id="14_ix2aj"]
 [ext_resource type="Script" uid="uid://cg3m7vpqxf2t6" path="res://Code/Resource Makers/EffectSpecific/Components/SlotChanges/OverrideMaker.gd" id="15_tirib"]
 [ext_resource type="Resource" uid="uid://bmtmv17focn2u" path="res://Resources/Components/Effects/Prompts/PromptComparator/PromptSelfEvolved.tres" id="17_f0t17"]
-
-[sub_resource type="Resource" id="Resource_m7xdt"]
 
 [sub_resource type="Resource" id="Resource_483tn"]
 script = ExtResource("2_k8r50")

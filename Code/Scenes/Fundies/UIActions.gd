@@ -123,6 +123,7 @@ func reset_ui():
 func play_ability_activate(slot: PokeSlot, ability: Ability):
 	var animation_tween: Tween = get_tree().create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT).set_parallel(true)
 	var base_pos: Vector2 = slot.ui_slot.global_position
+	$ColorRect.show()
 	%AbilityName.clear()
 	%AbilityName.visible_ratio = 0
 	%AbilityActivate.position = base_pos + ability_ani_offset * 2
@@ -153,4 +154,5 @@ func play_ability_activate(slot: PokeSlot, ability: Ability):
 	animation_tween.play()
 	
 	await animation_tween.finished
+	#$ColorRect.hide()
 	%AbilityActivate.hide()

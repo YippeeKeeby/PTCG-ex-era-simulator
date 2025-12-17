@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SlotEnergy" load_steps=2 format=3 uid="uid://j86icjgodnbl"]
+
+[ext_resource type="Script" uid="uid://cs6h3rwo60eu5" path="res://Code/Resource Makers/PokemonSpecific/SlotEnergyMaker.gd" id="1_v4ece"]
+
+[resource]
+script = ExtResource("1_v4ece")
+metadata/_custom_type_script = "uid://cs6h3rwo60eu5"

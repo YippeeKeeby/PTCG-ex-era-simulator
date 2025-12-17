@@ -10,7 +10,9 @@ class_name TypeContainer
 
 var number: int = 0
 
-func _ready(): if retreat: tabs.current_tab = 8
+func _ready(): if retreat:
+	bg.modulate = Color.WHITE
+	tabs.current_tab = 8
 
 func add_type(type: String, ammount: int = 1):
 	number = ammount
@@ -24,13 +26,14 @@ func add_type(type: String, ammount: int = 1):
 	else:
 		num_label.hide()
 
-func display_type(type: String):
+func display_type(type: String): #Maybe make a way to  display holon energy that has been overriden
 	var type_id: int = Consts.energy_types.find(type)
 	tabs.current_tab = type_id
 	
 	#Special types
 	#const energy_types: Array[String] = [8+ "Rainbow", "Magma",
 	#"Aqua", "Dark Metal","FF", "GL", "WP", "React"]
+	
 	if type_id < 10:
 		bg.modulate = Consts.energy_colors[type_id]
 	elif type_id < 14:

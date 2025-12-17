@@ -26,7 +26,7 @@ func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
 	var considered = self.get_script().get_global_name()
 	print("PLAY ", considered)
 	
-	if considered == "Buff":
+	if is_energy_override():
 		pass
 	
 	#Who should have this effects applied?
@@ -41,7 +41,7 @@ func play_effect(reversable: bool = false, replace_num: int = -1) -> void:
 			for slot in apply_to:
 				slot.apply_slot_change(self)
 				if is_energy_override():
-					slot.refresh()
+					slot.update_energy()
 		
 	else:
 		Globals.fundies.apply_change(recieves, self)

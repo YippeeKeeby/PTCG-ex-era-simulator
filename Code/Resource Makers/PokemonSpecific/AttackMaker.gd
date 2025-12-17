@@ -146,6 +146,49 @@ func pay_cost(slot: PokeSlot):
 	
 	return final_cost
 
+func new_pay(slot: PokeSlot):
+	var all_costs: Array[int] = get_modified_cost(slot)
+	var current_energy: Array[int]
+	#Get the en dictionary of the pokemon's current energy
+	for en in slot.attached_energy:
+		current_energy.append(slot.attached_energy[en])
+	
+	#Prioritize paying for colored energy with it's type
+	for i in range(all_costs.size() - 1):
+		if all_costs[i] != 0 and current_energy[i] != 0:
+			var diff: int = clamp(0, all_costs[i] - current_energy[i], all_costs[i])
+			current_energy[i] = clamp(0, current_energy[i] - all_costs[i], current_energy[i])
+			all_costs[i] = diff
+	
+	#Pay for leftover colored energy with Rainbow
+	for i in range(all_costs.size()):
+		if all_costs[i] != 0:
+			var diff: int = clamp(0, all_costs[i] - current_energy[16], all_costs[i])
+			current_energy[i] = clamp(0, current_energy[16] - all_costs[i], current_energy[16])
+			all_costs[i] = diff
+	
+	#Pay colorless with leftovers
+	if all_costs[-1] != 0:
+		for i in range(current_energy.size()):
+			if current_energy[i] != 0:
+				var diff: int = clamp(0, all_costs[-1] - current_energy[i], all_costs[-1])
+				current_energy[i] = clamp(0, current_energy[i] - all_costs[-1], current_energy[i])
+				all_costs[-1] = diff
+	
+	#If the remaining cost is 0, you can pay for this attack.
+	var final_cost: int = 0
+	#How to consider special energy later
+	for cost in all_costs:
+		final_cost += cost
+	
+	if final_cost > 0:
+		print(" LEFTOVER: ", final_cost)
+	
+	return final_cost
+
+func colored_pay_loop():
+	pass
+
 func pay_with(all_costs: Array[int], card: Base_Card):
 	var energy_provide = card.energy_properties.get_current_provide()
 	var energy_num: int = energy_provide.number

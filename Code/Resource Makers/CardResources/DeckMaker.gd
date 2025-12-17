@@ -39,7 +39,7 @@ func make_usable() -> Array[Base_Card]:
 	
 	for card in cards:
 		for i in cards[card]:
-			var new_card = card.duplicate_deep(DeepDuplicateMode.DEEP_DUPLICATE_ALL)
+			var new_card: Base_Card = card.duplicate_deep(DeepDuplicateMode.DEEP_DUPLICATE_ALL)
 			#These have to be unique to make search function
 			usable.append(new_card)
 			

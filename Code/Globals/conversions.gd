@@ -221,6 +221,15 @@ func get_card_flags(card: Base_Card) -> int:
 		card_flags += Convert.get_allowed_flags("Energy")
 	
 	return card_flags
+
+func get_number_of_flags(flags: int, n: int) -> int:
+	var count: int = 0
+	
+	for i in range(n):
+		if flags & (2 ** i) != 0:
+			count += 1
+	
+	return count
 #endregion
 
 #region BOOLEEANS

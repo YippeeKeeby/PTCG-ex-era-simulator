@@ -2,7 +2,7 @@
 extends Resource
 class_name Occurance
 
-const pokeSlot = preload("res://Code/Resource Makers/PokemonSpecific/PokeSlotMaker.gd")
+const pokeSlot = preload("uid://cs70ix831b5g4")
 
 signal occur
 
